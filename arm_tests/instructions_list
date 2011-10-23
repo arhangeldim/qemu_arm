@@ -1,0 +1,16 @@
+Status register access instructions:
+    MSR, MRS - When in usermode or system mode, there is no SPSR therefore the action is unpredicatable.
+    RFE, SRS - Unpredictable in Usermode.
+    
+Load/Store multiple instr-s: 
+    LDM, STM - Unpredictable when in user mode or system mode.
+    
+Load/Store instr-s:
+    LDRBT, LDRT, STRBT, STRT - When in user mode, acts as in user mode.
+    
+Coprocessor instr-s:
+    Co-processor instructions manipulate co-processor data. Whether the operation is allowed in user mode is dependent on the coprocessor and the instruction. In most cases (at least all cases defined by the architecture), if a privileged operation is attempted when in user mode, a undefined exception is raised.
+    
+Data processing instr-s:
+    ADCS, ADDS,ANDS,MOVS,MVNS,ORRS,SUBS,...
+    Can all be used to change the program counter and replace the contents of the CPSR with the content of the SPSR by appending an S to the instruction and setting the destination register to the program counter.               
