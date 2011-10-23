@@ -3,7 +3,7 @@ Content
 1. ARM assembly. Building binary
 
     1) For cross-compile use this toolchain https://sourcery.mentor.com/public/gnu_toolchain/arm-none-linux-gnueabi/arm-2011.03-41-arm-none-linux-gnueabi-i686-pc-linux-gnu.tar.bz2
-    If there is a ARM board use default tools for compile (as, ld, etc...)
+    If there is an ARM board use default tools for compile (as, ld, etc...)
     
     2) There is a simple assembly module (add two numbers)
     simple.s
@@ -25,7 +25,7 @@ Content
 
     
 2. QEMU running
-    
+    #!/bin/bash
     dd if=/dev/zero of=flash.bin bs=4096 count 4096
     dd if=out.bin of=flash.bin bs=4096 conv=notrunc
     qemu-system-arm -M connex -pflash flash.bin -nographic -serial /dev/null -D ~/qemu.log -d in_asm,out_asm,op
@@ -47,16 +47,27 @@ Content
 4. PROCESS
     
     generation of intermediate code.
-
-    exec.c: TranslationBlock *tb_gen_code(CPUState *env,
-                              target_ulong pc, target_ulong cs_base,
-                              int flags, int cflags)    
-                              
-      translate-all.c: int cpu_gen_code(CPUState *env, TranslationBlock *tb, int *gen_code_size_ptr)
-        
-        target-arm/translate.c: static inline void gen_intermediate_code_internal(CPUState *env,
-                                                  TranslationBlock *tb,
-                                                  int search_pc)
-                                                  
-                                static void disas_arm_insn(CPUState * env, DisasContext *s)
     
+    cpu-exec.c: int cpu_exec(CPUState *env)
+                static void cpu_exec_nocache(CPUState *env, int max_cycles,
+                             TranslationBlock *orig_tb)
+
+        exec.c: TranslationBlock *tb_gen_code(CPUState *env,
+                                  target_ulong pc, target_ulong cs_base,
+                                  int flags, int cflags)    
+                                  
+          translate-all.c: int cpu_gen_code(CPUState *env, TranslationBlock *tb, int *gen_code_size_ptr)
+                           //gen target mashine code
+                           cpu_gen_code(CPUState *env, TranslationBlock *tb, int *gen_code_size_ptr)
+            
+            target-arm/translate.c: static inline void gen_intermediate_code_internal(CPUState *env,
+                                                      TranslationBlock *tb,
+                                                      int search_pc)
+                                                      
+                                    static void disas_arm_insn(CPUState * env, DisasContext *s)
+                                    
+                                    
+5. ADDITION
+    Translation stops when a conditional branch is encountered. Otherwise the subsequent code could get translated several times.
+    Also stop translation when a page boundary is reached.  This ensures prefetch aborts occur at the right place.
+        

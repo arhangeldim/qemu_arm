@@ -1,0 +1,6 @@
+#!/bin/bash
+echo "$1"
+as -o out.o "$1"
+ld -Ttext=0x0 -o out.elf out.o
+objcopy -O binary out.elf out.bin
+	

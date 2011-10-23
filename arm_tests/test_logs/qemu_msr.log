@@ -1,0 +1,40 @@
+----------------
+IN: 
+0x00000000:  e321f01f      msr	CPSR_c, #31	; 0x1f
+
+OP:
+ ---- 0x0
+ movi_i32 tmp8,$0x1f
+ movi_i32 tmp9,$0xdf
+ movi_i32 tmp10,$cpsr_write
+ call tmp10,$0x0,$0,tmp8,tmp9
+ movi_i32 pc,$0x4
+ exit_tb $0x0
+
+OUT: [size=28]
+0x01000000:  e300001f      movw	r0, #31	; 0x1f
+0x01000004:  e30010df      movw	r1, #223	; 0xdf
+0x01000008:  ebc66a66      bl	0x19a9a8
+0x0100000c:  e3004004      movw	r4, #4	; 0x4
+0x01000010:  e587403c      str	r4, [r7, #60]
+0x01000014:  e3a00000      mov	r0, #0	; 0x0
+0x01000018:  eace8eab      b	0x3a3acc
+
+----------------
+IN: 
+0x00000004:  eafffffe      b	0x4
+
+OP:
+ ---- 0x4
+ goto_tb $0x0
+ movi_i32 pc,$0x4
+ exit_tb $0x408e6050
+
+OUT: [size=24]
+0x01000020:  ea000000      b	0x1000028
+0x01000024:  e3004004      movw	r4, #4	; 0x4
+0x01000028:  e587403c      str	r4, [r7, #60]
+0x0100002c:  e59f0000      ldr	r0, [pc, #0]	; 0x1000034
+0x01000030:  eace8ea5      b	0x3a3acc
+0x01000034:  408e6050      addmi	r6, lr, r0, asr r0
+

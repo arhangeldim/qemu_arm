@@ -6862,9 +6862,15 @@ static void disas_arm_insn(CPUState * env, DisasContext *s)
         gen_test_cc(cond ^ 1, s->condlabel);
         s->condjmp = 1;
     }
+    /*
+     * op with 27-24: 0011
+     * MSR cpsr, #imm | MSR spsr, #imm
+     * TST | TEQ | CMP | CMN
+     */
     if ((insn & 0x0f900000) == 0x03000000) {
         if ((insn & (1 << 21)) == 0) {
             ARCH(6T2);
+            //rd is a register for operation
             rd = (insn >> 12) & 0xf;
             val = ((insn >> 4) & 0xf000) | (insn & 0xfff);
             if ((insn & (1 << 22)) == 0) {
@@ -6896,20 +6902,30 @@ static void disas_arm_insn(CPUState * env, DisasContext *s)
         }
     } else if ((insn & 0x0f900000) == 0x01000000
                && (insn & 0x00000090) != 0x00000090) {
+                 
+                 
+        /*
+         * 0??1
+         * 
+         * 
+         *  
         /* miscellaneous instructions */
         op1 = (insn >> 21) & 3;
         sh = (insn >> 4) & 0xf;
         rm = insn & 0xf;
         switch (sh) {
         case 0x0: /* move program status register */
+            if (qemu_loglevel_mask(CPU_LOG_TB_IN_ASM)) {
+                qemu_log("MRS D\n");
+            }
             if (op1 & 1) {
-                /* PSR = reg */
+                /* PSR = reg    msr */
                 tmp = load_reg(s, rm);
                 i = ((op1 & 2) != 0);
                 if (gen_set_psr(s, msr_mask(env, s, (insn >> 16) & 0xf, i), i, tmp))
                     goto illegal_op;
             } else {
-                /* reg = PSR */
+                /*dima reg = PSR    mrs */
                 rd = (insn >> 12) & 0xf;
                 if (op1 & 2) {
                     if (IS_USER(s))
@@ -6922,7 +6938,7 @@ static void disas_arm_insn(CPUState * env, DisasContext *s)
                 store_reg(s, rd, tmp);
             }
             break;
-        case 0x1:
+        case 0x1: /* bx/blx, clz instr */
             if (op1 == 1) {
                 /* branch/exchange thumb (bx).  */
                 ARCH(4T);
@@ -7050,6 +7066,7 @@ static void disas_arm_insn(CPUState * env, DisasContext *s)
         logic_cc = table_logic_cc[op1] & set_cc;
 
         /* data processing instruction */
+        /* dima: mov */
         if (insn & (1 << 25)) {
             /* immediate operand */
             val = insn & 0xff;

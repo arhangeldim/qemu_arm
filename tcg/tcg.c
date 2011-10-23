@@ -875,6 +875,7 @@ static const char * const cond_name[] =
     [TCG_COND_GTU] = "gtu"
 };
 
+//dump operations in log
 void tcg_dump_ops(TCGContext *s, FILE *outfile)
 {
     const uint16_t *opc_ptr;

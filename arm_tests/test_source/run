@@ -1,0 +1,5 @@
+#!/bin/sh
+dd if=/dev/zero of=flash.bin bs=4096 count=4096
+dd if=out.bin of=flash.bin bs=4096 conv=notrunc
+~/qemu-0.15.0/arm-softmmu/qemu-system-arm -M connex -pflash flash.bin -nographic -serial /dev/null -D /home/stud3/qemu.log -d in_asm,out_asm,op 
+

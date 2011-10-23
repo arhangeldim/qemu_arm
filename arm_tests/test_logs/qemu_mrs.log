@@ -1,0 +1,44 @@
+----------------
+IN: 
+0x00000000:  e10f1000      mrs	r1, CPSR
+0x00000004:  eafffffe      b	0x4
+
+OP:
+ ---- 0x0
+ movi_i32 tmp9,$cpsr_read
+ call tmp9,$0x0,$1,tmp8
+ mov_i32 r1,tmp8
+
+ ---- 0x4
+ goto_tb $0x0
+ movi_i32 pc,$0x4
+ exit_tb $0x408d7008
+
+OUT: [size=32]
+0x01000000:  ebc66a5d      bl	0x19a97c
+0x01000004:  e5870004      str	r0, [r7, #4]
+0x01000008:  ea000000      b	0x1000010
+0x0100000c:  e3004004      movw	r4, #4	; 0x4
+0x01000010:  e587403c      str	r4, [r7, #60]
+0x01000014:  e59f0000      ldr	r0, [pc, #0]	; 0x100001c
+0x01000018:  eace8eab      b	0x3a3acc
+0x0100001c:  408d7008      addmi	r7, sp, r8
+
+----------------
+IN: 
+0x00000004:  eafffffe      b	0x4
+
+OP:
+ ---- 0x4
+ goto_tb $0x0
+ movi_i32 pc,$0x4
+ exit_tb $0x408d7050
+
+OUT: [size=24]
+0x01000020:  ea000000      b	0x1000028
+0x01000024:  e3004004      movw	r4, #4	; 0x4
+0x01000028:  e587403c      str	r4, [r7, #60]
+0x0100002c:  e59f0000      ldr	r0, [pc, #0]	; 0x1000034
+0x01000030:  eace8ea5      b	0x3a3acc
+0x01000034:  408d7050      addmi	r7, sp, r0, asr r0
+
