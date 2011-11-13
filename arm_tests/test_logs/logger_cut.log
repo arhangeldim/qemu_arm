@@ -1,0 +1,182 @@
+(dima):!(op1 & 2)
+(dima):tmp[28]
+(dima):func [29], nparam[65537], nargs [0] 
+----------------
+IN: 
+0x00000000:  e10f1000      mrs	r1, CPSR
+0x00000004:  eafffffe      b	0x4
+
+OP:
+ ---- 0x0
+ movi_i32 tmp9,$cpsr_read
+ call tmp9,$0x0,$1,tmp8
+ mov_i32 r1,tmp8
+
+ ---- 0x4
+ goto_tb $0x0
+ movi_i32 pc,$0x4
+ exit_tb $0x408bd008
+
+(dima):func addr[1270672] arg = 65537
+func_arg = 29
+
+
+TCGContext dump:
+nb_labels = 0
+nb_globals = 20
+nb_temps = 30
+==temp list==
+temps[i] = (name, base_type, type, val_type, reg, val, mem_reg)
+	temps[0] = (env, 0, 0, 1, 7, 0, 0);
+	temps[1] = (r0, 0, 0, 2, 0, 0, 7);
+	temps[2] = (r1, 0, 0, 2, 0, 0, 7);
+	temps[3] = (r2, 0, 0, 2, 0, 0, 7);
+	temps[4] = (r3, 0, 0, 2, 0, 0, 7);
+	temps[5] = (r4, 0, 0, 2, 0, 0, 7);
+	temps[6] = (r5, 0, 0, 2, 0, 0, 7);
+	temps[7] = (r6, 0, 0, 2, 0, 0, 7);
+	temps[8] = (r7, 0, 0, 2, 0, 0, 7);
+	temps[9] = (r8, 0, 0, 2, 0, 0, 7);
+	temps[10] = (r9, 0, 0, 2, 0, 0, 7);
+	temps[11] = (r10, 0, 0, 2, 0, 0, 7);
+	temps[12] = (r11, 0, 0, 2, 0, 0, 7);
+	temps[13] = (r12, 0, 0, 2, 0, 0, 7);
+	temps[14] = (r13, 0, 0, 2, 0, 0, 7);
+	temps[15] = (r14, 0, 0, 2, 0, 0, 7);
+	temps[16] = (pc, 0, 0, 2, 0, 0, 7);
+	temps[17] = (exclusive_addr, 0, 0, 2, 0, 0, 7);
+	temps[18] = (exclusive_val, 0, 0, 2, 0, 0, 7);
+	temps[19] = (exclusive_high, 0, 0, 2, 0, 0, 7);
+	temps[20] = ((null), 0, 0, 0, 0, 0, 0);
+	temps[21] = ((null), 0, 0, 0, 0, 0, 0);
+	temps[22] = ((null), 1, 0, 0, 0, 0, 0);
+	temps[23] = ((null), 0, 0, 0, 0, 0, 0);
+	temps[24] = ((null), 1, 0, 0, 0, 0, 0);
+	temps[25] = ((null), 0, 0, 0, 0, 0, 0);
+	temps[26] = ((null), 1, 0, 0, 0, 0, 0);
+	temps[27] = ((null), 0, 0, 0, 0, 0, 0);
+	temps[28] = ((null), 0, 0, 0, 0, 0, 0);
+	temps[29] = ((null), 0, 0, 3, 0, 1270672, 0);
+code_buf ptr = 16777216
+current_frame_offset = 27816
+frame_start = 27816
+frame_end = 28328
+frame_reg = 7
+code ptr = 16777216
+==helpers list==
+	helper[1] = 1269392   |   add_setq  |  12586568
+	helper[2] = 1269424   |   add_saturate  |  12586576
+	helper[3] = 1269464   |   sub_saturate  |  12586584
+	helper[4] = 1269504   |   double_saturate  |  12586592
+	helper[5] = 1269548   |   add_usaturate  |  12586600
+	helper[6] = 1269568   |   sub_usaturate  |  12586608
+	helper[7] = 1269596   |   ssat  |  12586616
+	helper[8] = 1269644   |   ssat16  |  12586624
+	helper[9] = 1269760   |   usat  |  12586632
+	helper[10] = 1269808   |   usat16  |  12586640
+	helper[11] = 1269904   |   get_user_reg  |  12586648
+	helper[12] = 1269980   |   set_user_reg  |  12586656
+	helper[13] = 1270052   |   add_cc  |  12586664
+	helper[14] = 1270104   |   adc_cc  |  12586672
+	helper[15] = 1270192   |   sub_cc  |  12586680
+	helper[16] = 1270252   |   sbc_cc  |  12586688
+	helper[17] = 1270344   |   shl  |  12586696
+	helper[18] = 1270364   |   shr  |  12586704
+	helper[19] = 1270384   |   sar  |  12586712
+	helper[20] = 1270404   |   shl_cc  |  12586720
+	helper[21] = 1270476   |   shr_cc  |  12586728
+	helper[22] = 1270548   |   sar_cc  |  12586736
+	helper[23] = 1270604   |   ror_cc  |  12586744
+	helper[24] = 1270656   |   cpsr_write  |  12586752
+	helper[25] = 1270672   |   cpsr_read  |  12586760
+	helper[26] = 1270700   |   exception  |  12586768
+	helper[27] = 1270720   |   wfi  |  12586776
+	helper[28] = 1278552   |   sxtb16  |  12586784
+	helper[29] = 1278572   |   uxtb16  |  12586792
+	helper[30] = 1278584   |   sdiv  |  12586800
+	helper[31] = 1278628   |   udiv  |  12586808
+	helper[32] = 1278652   |   rbit  |  12586816
+	helper[33] = 1278776   |   abs  |  12586824
+	helper[34] = 1279344   |   set_cp  |  12586832
+	helper[35] = 1279432   |   get_cp  |  12586840
+	helper[36] = 1279508   |   qadd16  |  12586848
+	helper[37] = 1279644   |   qadd8  |  12586856
+	helper[38] = 1279908   |   qsub16  |  12586864
+	helper[39] = 1280044   |   qsub8  |  12586872
+	helper[40] = 1280308   |   qsubaddx  |  12586880
+	helper[41] = 1280448   |   qaddsubx  |  12586888
+	helper[42] = 1280584   |   uqadd16  |  12586896
+	helper[43] = 1280648   |   uqadd8  |  12586904
+	helper[44] = 1280764   |   uqsub16  |  12586912
+	helper[45] = 1280820   |   uqsub8  |  12586920
+	helper[46] = 1280948   |   uqsubaddx  |  12586928
+	helper[47] = 1281004   |   uqaddsubx  |  12586936
+	helper[48] = 1281064   |   sadd16  |  12586944
+	helper[49] = 1281120   |   sadd8  |  12586952
+	helper[50] = 1281224   |   ssub16  |  12586960
+	helper[51] = 1281280   |   ssub8  |  12586968
+	helper[52] = 1281388   |   ssubaddx  |  12586976
+	helper[53] = 1281440   |   saddsubx  |  12586984
+	helper[54] = 1281488   |   uadd16  |  12586992
+	helper[55] = 1281544   |   uadd8  |  12587000
+	helper[56] = 1281660   |   usub16  |  12587008
+	helper[57] = 1281716   |   usub8  |  12587016
+	helper[58] = 1281840   |   usubaddx  |  12587024
+	helper[59] = 1281896   |   uaddsubx  |  12587032
+	helper[60] = 1281952   |   shadd16  |  12587040
+	helper[61] = 1281984   |   shadd8  |  12587048
+	helper[62] = 1282060   |   shsub16  |  12587056
+	helper[63] = 1282096   |   shsub8  |  12587064
+	helper[64] = 1282184   |   shsubaddx  |  12587072
+	helper[65] = 1282216   |   shaddsubx  |  12587080
+	helper[66] = 1282248   |   uhadd16  |  12587088
+	helper[67] = 1282280   |   uhadd8  |  12587096
+	helper[68] = 1282360   |   uhsub16  |  12587104
+	helper[69] = 1282396   |   uhsub8  |  12587112
+	helper[70] = 1282484   |   uhsubaddx  |  12587120
+	helper[71] = 1282516   |   uhaddsubx  |  12587128
+	helper[72] = 1282548   |   usad8  |  12587136
+	helper[73] = 1282668   |   sel_flags  |  12587144
+	helper[74] = 1282716   |   logicq_cc  |  12587152
+	helper[80] = 1282928   |   set_teecr  |  12587200
+	helper[83] = 1283196   |   recpe_u32  |  12587224
+	helper[85] = 1283644   |   rsqrte_u32  |  12587240
+	helper[87] = 1283816   |   rsqrte_f32  |  12587256
+	helper[88] = 1284228   |   recpe_f32  |  12587264
+	helper[90] = 1284512   |   recps_f32  |  12587280
+	helper[92] = 1284660   |   rsqrts_f32  |  12587296
+	helper[136] = 1287092   |   v7m_msr  |  12587648
+	helper[137] = 1287532   |   v7m_mrs  |  12587656
+	helper[138] = 1288276   |   get_r13_banked  |  12587664
+	helper[139] = 1288504   |   set_r13_banked  |  12587672
+	helper[140] = 1288732   |   get_cp15  |  12587680
+	helper[141] = 1291660   |   set_cp15  |  12587688
+	helper[142] = 1296684   |   clz  |  12587696
+OUT: [size=32]
+0x01000000:  ebc4d8e2      bl	0x136390
+0x01000004:  e5870004      str	r0, [r7, #4]
+0x01000008:  ea000000      b	0x1000010
+0x0100000c:  e3004004      movw	r4, #4	; 0x4
+0x01000010:  e587403c      str	r4, [r7, #60]
+0x01000014:  e59f0000      ldr	r0, [pc, #0]	; 0x100001c
+0x01000018:  eaca6a33      b	0x29a8ec
+0x0100001c:  408bd008      addmi	sp, fp, r8
+
+----------------
+IN: 
+0x00000004:  eafffffe      b	0x4
+
+OP:
+ ---- 0x4
+ goto_tb $0x0
+ movi_i32 pc,$0x4
+ exit_tb $0x408bd050
+
+OUT: [size=24]
+0x01000020:  ea000000      b	0x1000028
+0x01000024:  e3004004      movw	r4, #4	; 0x4
+0x01000028:  e587403c      str	r4, [r7, #60]
+0x0100002c:  e59f0000      ldr	r0, [pc, #0]	; 0x1000034
+0x01000030:  eaca6a2d      b	0x29a8ec
+0x01000034:  408bd050      addmi	sp, fp, r0, asr r0
+
