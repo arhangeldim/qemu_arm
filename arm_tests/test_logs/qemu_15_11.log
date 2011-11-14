@@ -1,0 +1,983 @@
+(dima):!(op1 & 2)
+(dima):tmp[28]
+(dima):func [29], nparam[65537], nargs [0] 
+----------------
+IN: 
+0x00000000:  e10f1000      mrs	r1, CPSR
+0x00000004:  eafffffe      b	0x4
+
+OP:
+ ---- 0x0
+ movi_i32 tmp9,$cpsr_read
+ call tmp9,$0x0,$1,tmp8
+ mov_i32 r1,tmp8
+
+ ---- 0x4
+ goto_tb $0x0
+ movi_i32 pc,$0x4
+ exit_tb $0x408e6008
+
+(dima):func addr[1270808] arg = 65537
+func_arg = 29
+
+
+TCGContext dump:
+nb_labels = 0
+nb_globals = 20
+nb_temps = 30
+==temp list==
+temps[i] = (name, base_type, type, val_type, reg, val, mem_reg)
+	temps[0] = (env, 0, 0, 1, 7, 0, 0);
+	temps[1] = (r0, 0, 0, 2, 0, 0, 7);
+	temps[2] = (r1, 0, 0, 2, 0, 0, 7);
+	temps[3] = (r2, 0, 0, 2, 0, 0, 7);
+	temps[4] = (r3, 0, 0, 2, 0, 0, 7);
+	temps[5] = (r4, 0, 0, 2, 0, 0, 7);
+	temps[6] = (r5, 0, 0, 2, 0, 0, 7);
+	temps[7] = (r6, 0, 0, 2, 0, 0, 7);
+	temps[8] = (r7, 0, 0, 2, 0, 0, 7);
+	temps[9] = (r8, 0, 0, 2, 0, 0, 7);
+	temps[10] = (r9, 0, 0, 2, 0, 0, 7);
+	temps[11] = (r10, 0, 0, 2, 0, 0, 7);
+	temps[12] = (r11, 0, 0, 2, 0, 0, 7);
+	temps[13] = (r12, 0, 0, 2, 0, 0, 7);
+	temps[14] = (r13, 0, 0, 2, 0, 0, 7);
+	temps[15] = (r14, 0, 0, 2, 0, 0, 7);
+	temps[16] = (pc, 0, 0, 2, 0, 0, 7);
+	temps[17] = (exclusive_addr, 0, 0, 2, 0, 0, 7);
+	temps[18] = (exclusive_val, 0, 0, 2, 0, 0, 7);
+	temps[19] = (exclusive_high, 0, 0, 2, 0, 0, 7);
+	temps[20] = ((null), 0, 0, 0, 0, 0, 0);
+	temps[21] = ((null), 0, 0, 0, 0, 0, 0);
+	temps[22] = ((null), 1, 0, 0, 0, 0, 0);
+	temps[23] = ((null), 0, 0, 0, 0, 0, 0);
+	temps[24] = ((null), 1, 0, 0, 0, 0, 0);
+	temps[25] = ((null), 0, 0, 0, 0, 0, 0);
+	temps[26] = ((null), 1, 0, 0, 0, 0, 0);
+	temps[27] = ((null), 0, 0, 0, 0, 0, 0);
+	temps[28] = ((null), 0, 0, 0, 0, 0, 0);
+	temps[29] = ((null), 0, 0, 3, 0, 1270808, 0);
+code_buf ptr = 16777216
+current_frame_offset = 27816
+frame_start = 27816
+frame_end = 28328
+frame_reg = 7
+code ptr = 16777216
+==helpers list==
+helper[0]:
+helper[1]:
+	name: add_setq, func_addr: 1269528
+		 :: e1a03000
+		 :: e1a03000
+		 :: 558730c8
+
+helper[2]:
+	name: add_saturate, func_addr: 1269560
+		 :: e1a03000
+		 :: 558730c8
+		 :: 40200fc3
+
+helper[3]:
+	name: sub_saturate, func_addr: 1269600
+		 :: e1a03000
+		 :: 458730c8
+		 :: a1a00080
+
+helper[4]:
+	name: double_saturate, func_addr: 1269640
+		 :: e3700107
+		 :: b3a00102
+		 :: e1a03000
+
+helper[5]:
+	name: add_usaturate, func_addr: 1269684
+		 :: e0910000
+		 :: 33a03001
+		 :: e2411001
+
+helper[6]:
+	name: sub_usaturate, func_addr: 1269704
+		 :: e1a03000
+		 :: e1a02150
+		 :: b58730c8
+
+helper[7]:
+	name: ssat, func_addr: 1269732
+		 :: e3a03001
+		 :: e3720001
+		 :: e1a03112
+
+helper[8]:
+	name: ssat16, func_addr: 1269780
+		 :: e52d4004
+		 :: c1a04003
+		 :: e6ff0074
+
+helper[9]:
+	name: usat, func_addr: 1269896
+		 :: e3500000
+		 :: e1500001
+		 :: e2411001
+
+helper[10]:
+	name: usat16, func_addr: 1269944
+		 :: e6bf3070
+		 :: e1510003
+		 :: 4a000004
+
+helper[11]:
+	name: get_user_reg, func_addr: 1270040
+		 :: e350000d
+		 :: 9a000004
+		 :: e280001c
+
+helper[12]:
+	name: set_user_reg, func_addr: 1270116
+		 :: e350000d
+		 :: 9a000006
+		 :: e7831100
+
+helper[13]:
+	name: add_cc, func_addr: 1270188
+		 :: e0813000
+		 :: e58700b8
+		 :: e2802001
+
+helper[14]:
+	name: adc_cc, func_addr: 1270240
+		 :: e59720b8
+		 :: e587c0b8
+		 :: e12fff1e
+
+helper[15]:
+	name: sub_cc, func_addr: 1270328
+		 :: e0612000
+		 :: e587c0bc
+		 :: e3520000
+
+helper[16]:
+	name: sbc_cc, func_addr: 1270388
+		 :: e59720b8
+		 :: e022c000
+		 :: e2402001
+
+helper[17]:
+	name: shl, func_addr: 1270480
+		 :: e6ef1071
+		 :: c3a00000
+		 :: e351001f
+
+helper[18]:
+	name: shr, func_addr: 1270500
+		 :: e6ef1071
+		 :: e1a00150
+		 :: 13a00000
+
+helper[19]:
+	name: sar, func_addr: 1270520
+		 :: e6ef1071
+		 :: e3510020
+		 :: 12fff1e
+
+helper[20]:
+	name: shl_cc, func_addr: 1270540
+		 :: e6ef1071
+		 :: 158700b8
+		 :: e58730b8
+
+helper[21]:
+	name: shr_cc, func_addr: 1270612
+		 :: e6ef1071
+		 :: 158700b8
+		 :: e58730b8
+
+helper[22]:
+	name: sar_cc, func_addr: 1270684
+		 :: e6ef1071
+		 :: e241c001
+		 :: 1a000003
+
+helper[23]:
+	name: ror_cc, func_addr: 1270740
+		 :: e211301f
+		 :: e1a02130
+		 :: ea00192f
+
+helper[24]:
+	name: cpsr_write, func_addr: 1270792
+		 :: e1a02001
+		 :: e34f38ff
+		 :: e3072060
+
+helper[25]:
+	name: cpsr_read, func_addr: 1270808
+		 :: e92d4008
+		 :: e3073060
+		 :: e3a03001
+
+helper[26]:
+	name: exception, func_addr: 1270836
+		 :: e92d4008
+		 :: e3400001
+		 :: e7870003
+
+helper[27]:
+	name: wfi, func_addr: 1270856
+		 :: e3072060
+		 :: ebfeaaa6
+		 :: e3404089
+
+helper[28]:
+	name: sxtb16, func_addr: 1278688
+		 :: e6af1070
+		 :: e92d4008
+		 :: 8bd8008
+
+helper[29]:
+	name: uxtb16, func_addr: 1278708
+		 :: e3c004ff
+		 :: e3520102
+		 :: 1a00003
+
+helper[30]:
+	name: sdiv, func_addr: 1278720
+		 :: e92d4008
+		 :: 8bd8008
+		 :: e8bd8008
+
+helper[31]:
+	name: udiv, func_addr: 1278764
+		 :: e92d4008
+		 :: e2003cff
+		 :: e34f30f0
+
+helper[32]:
+	name: rbit, func_addr: 1278788
+		 :: e20028ff
+		 :: e000c001
+		 :: e183c222
+
+helper[33]:
+	name: abs, func_addr: 1278912
+		 :: e3500000
+		 :: e31c0001
+		 :: e590c1b4
+
+helper[34]:
+	name: set_cp, func_addr: 1279480
+		 :: e92d4030
+		 :: e28120b8
+		 :: e7e3285c
+
+helper[35]:
+	name: get_cp, func_addr: 1279568
+		 :: e1a02001
+		 :: e35c0000
+		 :: e5900004
+
+helper[36]:
+	name: qadd16, func_addr: 1279644
+		 :: e6ff3070
+		 :: e1a03820
+		 :: e1800002
+
+helper[37]:
+	name: qadd8, func_addr: 1279780
+		 :: e6ef3070
+		 :: e1a0500c
+		 :: e1a0c40c
+
+helper[38]:
+	name: qsub16, func_addr: 1280044
+		 :: e6ff3070
+		 :: e1a03820
+		 :: e1800002
+
+helper[39]:
+	name: qsub8, func_addr: 1280180
+		 :: e6ef3070
+		 :: e1a0500c
+		 :: e1a0c40c
+
+helper[40]:
+	name: qsubaddx, func_addr: 1280444
+		 :: e6ff3070
+		 :: e1a04002
+		 :: e1a00802
+
+helper[41]:
+	name: qaddsubx, func_addr: 1280584
+		 :: e6ff3070
+		 :: e1a03820
+		 :: e1800002
+
+helper[42]:
+	name: uqadd16, func_addr: 1280720
+		 :: e1a02820
+		 :: 91a00001
+		 :: e6efc070
+
+helper[43]:
+	name: uqadd8, func_addr: 1280784
+		 :: e6efc070
+		 :: 83a020ff
+		 :: e0801c21
+
+helper[44]:
+	name: uqsub16, func_addr: 1280900
+		 :: e6ff3071
+		 :: e1500001
+		 :: e15c0003
+
+helper[45]:
+	name: uqsub8, func_addr: 1280956
+		 :: e6ef3071
+		 :: 93a04000
+		 :: 81a05405
+
+helper[46]:
+	name: uqsubaddx, func_addr: 1281084
+		 :: e6ff2070
+		 :: e1500001
+		 :: e1a03820
+
+helper[47]:
+	name: uqaddsubx, func_addr: 1281140
+		 :: e6ff2070
+		 :: 86ff2072
+		 :: e6bf0070
+
+helper[48]:
+	name: sadd16, func_addr: 1281200
+		 :: e1a0c840
+		 :: e09c1841
+		 :: e6a3c071
+
+helper[49]:
+	name: sadd8, func_addr: 1281256
+		 :: e6af3070
+		 :: e0954004
+		 :: e1a06806
+
+helper[50]:
+	name: ssub16, func_addr: 1281360
+		 :: e6bfc070
+		 :: e0710840
+		 :: e92d0070
+
+helper[51]:
+	name: ssub8, func_addr: 1281416
+		 :: e6af3071
+		 :: e7a76850
+		 :: 53833004
+
+helper[52]:
+	name: ssubaddx, func_addr: 1281524
+		 :: e6bfc070
+		 :: 5384400c
+		 :: e05c3841
+
+helper[53]:
+	name: saddsubx, func_addr: 1281576
+		 :: e6bfc070
+		 :: a38cc00c
+		 :: e1b01820
+
+helper[54]:
+	name: uadd16, func_addr: 1281624
+		 :: e1a03820
+		 :: 13a01003
+		 :: e6ef4070
+
+helper[55]:
+	name: uadd8, func_addr: 1281680
+		 :: e92d0070
+		 :: e0865005
+		 :: e6ef5075
+
+helper[56]:
+	name: usub16, func_addr: 1281796
+		 :: e6ffc070
+		 :: 3a01003
+		 :: e6ef5070
+
+helper[57]:
+	name: usub8, func_addr: 1281852
+		 :: e92d0070
+		 :: e7e75851
+		 :: e6efc07c
+
+helper[58]:
+	name: usubaddx, func_addr: 1281976
+		 :: e6ffc070
+		 :: 13a03000
+		 :: e6f00071
+
+helper[59]:
+	name: uaddsubx, func_addr: 1282032
+		 :: e6ffc070
+		 :: 3a0c003
+		 :: e0823841
+
+helper[60]:
+	name: shadd16, func_addr: 1282088
+		 :: e1a02840
+		 :: e7a7c850
+		 :: e7e7c0dc
+
+helper[61]:
+	name: shadd8, func_addr: 1282120
+		 :: e7a7c850
+		 :: e7e7c0dc
+		 :: e183100c
+
+helper[62]:
+	name: shsub16, func_addr: 1282196
+		 :: e1a02841
+		 :: e12fff1e
+		 :: e7e720d2
+
+helper[63]:
+	name: shsub8, func_addr: 1282232
+		 :: e7a7c850
+		 :: e1a04c41
+		 :: e182140c
+
+helper[64]:
+	name: shsubaddx, func_addr: 1282320
+		 :: e6bf2071
+		 :: e6bf3070
+		 :: e6ff3070
+
+helper[65]:
+	name: shaddsubx, func_addr: 1282352
+		 :: e6bf3070
+		 :: e6ff3070
+		 :: e7e72851
+
+helper[66]:
+	name: uhadd16, func_addr: 1282384
+		 :: e6ff3070
+		 :: e7e72851
+		 :: e1a030a3
+
+helper[67]:
+	name: uhadd8, func_addr: 1282416
+		 :: e7e72851
+		 :: e1a030a3
+		 :: e18310a1
+
+helper[68]:
+	name: uhsub16, func_addr: 1282496
+		 :: e1a02821
+		 :: e12fff1e
+		 :: e7e720d2
+
+helper[69]:
+	name: uhsub8, func_addr: 1282532
+		 :: e7e7c850
+		 :: e1a04c21
+		 :: e182140c
+
+helper[70]:
+	name: uhsubaddx, func_addr: 1282620
+		 :: e6ff2071
+		 :: e6ff3070
+		 :: e6ef3070
+
+helper[71]:
+	name: uhaddsubx, func_addr: 1282652
+		 :: e6ff3070
+		 :: e6ef3070
+		 :: e7e72851
+
+helper[72]:
+	name: usad8, func_addr: 1282684
+		 :: e6ef3070
+		 :: e7e72851
+		 :: 80623003
+
+helper[73]:
+	name: sel_flags, func_addr: 1282804
+		 :: e210c001
+		 :: e00c1001
+		 :: e52d4004
+
+helper[74]:
+	name: logicq_cc, func_addr: 1282852
+		 :: e1900001
+		 :: e18c2003
+		 :: e3100008
+
+helper[75]:
+helper[76]:
+helper[77]:
+helper[78]:
+helper[79]:
+helper[80]:
+	name: set_teecr, func_addr: 1283064
+		 :: e590222c
+		 :: e92d40d0
+		 :: e1a00004
+
+helper[81]:
+helper[82]:
+helper[83]:
+	name: recpe_u32, func_addr: 1283332
+		 :: e3500000
+		 :: e1a02001
+		 :: ebffffb3
+
+helper[84]:
+helper[85]:
+	name: rsqrte_u32, func_addr: 1283780
+		 :: e3100103
+		 :: e3e08103
+		 :: e1851007
+
+helper[86]:
+helper[87]:
+	name: rsqrte_f32, func_addr: 1283952
+		 :: e3003000
+		 :: e1a05000
+		 :: e35c0000
+
+helper[88]:
+	name: recpe_f32, func_addr: 1284364
+		 :: e92d43f8
+		 :: 8a00000e
+		 :: 1a000030
+
+helper[89]:
+helper[90]:
+	name: recps_f32, func_addr: 1284648
+		 :: e3003000
+		 :: e3c12102
+		 :: e1a01000
+
+helper[91]:
+helper[92]:
+	name: rsqrts_f32, func_addr: 1284796
+		 :: e3003000
+		 :: e3c12102
+		 :: e1a01000
+
+helper[93]:
+helper[94]:
+helper[95]:
+helper[96]:
+helper[97]:
+helper[98]:
+helper[99]:
+helper[100]:
+helper[101]:
+helper[102]:
+helper[103]:
+helper[104]:
+helper[105]:
+helper[106]:
+helper[107]:
+helper[108]:
+helper[109]:
+helper[110]:
+helper[111]:
+helper[112]:
+helper[113]:
+helper[114]:
+helper[115]:
+helper[116]:
+helper[117]:
+helper[118]:
+helper[119]:
+helper[120]:
+helper[121]:
+helper[122]:
+helper[123]:
+helper[124]:
+helper[125]:
+helper[126]:
+helper[127]:
+helper[128]:
+helper[129]:
+helper[130]:
+helper[131]:
+helper[132]:
+helper[133]:
+helper[134]:
+helper[135]:
+helper[136]:
+	name: v7m_msr, func_addr: 1287228
+		 :: e92d4008
+		 :: 13a5b8
+		 :: 13a5b8
+
+helper[137]:
+	name: v7m_mrs, func_addr: 1287668
+		 :: e92d4038
+		 :: 13a664
+		 :: 13a664
+
+helper[138]:
+	name: get_r13_banked, func_addr: 1288412
+		 :: e92d4008
+		 :: 979ff10c
+		 :: 13a954
+
+helper[139]:
+	name: set_r13_banked, func_addr: 1288640
+		 :: e92d4008
+		 :: 979ff103
+		 :: 13aa38
+
+helper[140]:
+	name: get_cp15, func_addr: 1288868
+		 :: e7e32851
+		 :: 979ff105
+		 :: 13ad0c
+
+helper[141]:
+	name: set_cp15, func_addr: 1291796
+		 :: e92d4070
+		 :: 979ff106
+		 :: 13b7b8
+
+helper[142]:
+	name: clz, func_addr: 1296820
+		 :: e3500000
+		 :: e5923000
+		 :: e3500000
+
+helper[143]:
+helper[144]:
+helper[145]:
+helper[146]:
+helper[147]:
+helper[148]:
+helper[149]:
+helper[150]:
+helper[151]:
+helper[152]:
+helper[153]:
+helper[154]:
+helper[155]:
+helper[156]:
+helper[157]:
+helper[158]:
+helper[159]:
+helper[160]:
+helper[161]:
+helper[162]:
+helper[163]:
+helper[164]:
+helper[165]:
+helper[166]:
+helper[167]:
+helper[168]:
+helper[169]:
+helper[170]:
+helper[171]:
+helper[172]:
+helper[173]:
+helper[174]:
+helper[175]:
+helper[176]:
+helper[177]:
+helper[178]:
+helper[179]:
+helper[180]:
+helper[181]:
+helper[182]:
+helper[183]:
+helper[184]:
+helper[185]:
+helper[186]:
+helper[187]:
+helper[188]:
+helper[189]:
+helper[190]:
+helper[191]:
+helper[192]:
+helper[193]:
+helper[194]:
+helper[195]:
+helper[196]:
+helper[197]:
+helper[198]:
+helper[199]:
+helper[200]:
+helper[201]:
+helper[202]:
+helper[203]:
+helper[204]:
+helper[205]:
+helper[206]:
+helper[207]:
+helper[208]:
+helper[209]:
+helper[210]:
+helper[211]:
+helper[212]:
+helper[213]:
+helper[214]:
+helper[215]:
+helper[216]:
+helper[217]:
+helper[218]:
+helper[219]:
+helper[220]:
+helper[221]:
+helper[222]:
+helper[223]:
+helper[224]:
+helper[225]:
+helper[226]:
+helper[227]:
+helper[228]:
+helper[229]:
+helper[230]:
+helper[231]:
+helper[232]:
+helper[233]:
+helper[234]:
+helper[235]:
+helper[236]:
+helper[237]:
+helper[238]:
+helper[239]:
+helper[240]:
+helper[241]:
+helper[242]:
+helper[243]:
+helper[244]:
+helper[245]:
+helper[246]:
+helper[247]:
+helper[248]:
+helper[249]:
+helper[250]:
+helper[251]:
+helper[252]:
+helper[253]:
+helper[254]:
+helper[255]:
+helper[256]:
+helper[257]:
+helper[258]:
+helper[259]:
+helper[260]:
+helper[261]:
+helper[262]:
+helper[263]:
+helper[264]:
+helper[265]:
+helper[266]:
+helper[267]:
+helper[268]:
+helper[269]:
+helper[270]:
+helper[271]:
+helper[272]:
+helper[273]:
+helper[274]:
+helper[275]:
+helper[276]:
+helper[277]:
+helper[278]:
+helper[279]:
+helper[280]:
+helper[281]:
+helper[282]:
+helper[283]:
+helper[284]:
+helper[285]:
+helper[286]:
+helper[287]:
+helper[288]:
+helper[289]:
+helper[290]:
+helper[291]:
+helper[292]:
+helper[293]:
+helper[294]:
+helper[295]:
+helper[296]:
+helper[297]:
+helper[298]:
+helper[299]:
+helper[300]:
+helper[301]:
+helper[302]:
+helper[303]:
+helper[304]:
+helper[305]:
+helper[306]:
+helper[307]:
+helper[308]:
+helper[309]:
+helper[310]:
+helper[311]:
+helper[312]:
+helper[313]:
+helper[314]:
+helper[315]:
+helper[316]:
+helper[317]:
+helper[318]:
+helper[319]:
+helper[320]:
+helper[321]:
+helper[322]:
+helper[323]:
+helper[324]:
+helper[325]:
+helper[326]:
+helper[327]:
+helper[328]:
+helper[329]:
+helper[330]:
+helper[331]:
+helper[332]:
+helper[333]:
+helper[334]:
+helper[335]:
+helper[336]:
+helper[337]:
+helper[338]:
+helper[339]:
+helper[340]:
+helper[341]:
+helper[342]:
+helper[343]:
+helper[344]:
+helper[345]:
+helper[346]:
+helper[347]:
+helper[348]:
+helper[349]:
+helper[350]:
+helper[351]:
+helper[352]:
+helper[353]:
+helper[354]:
+helper[355]:
+helper[356]:
+helper[357]:
+helper[358]:
+helper[359]:
+helper[360]:
+helper[361]:
+helper[362]:
+helper[363]:
+helper[364]:
+helper[365]:
+helper[366]:
+helper[367]:
+helper[368]:
+helper[369]:
+helper[370]:
+helper[371]:
+helper[372]:
+helper[373]:
+helper[374]:
+helper[375]:
+helper[376]:
+helper[377]:
+helper[378]:
+helper[379]:
+helper[380]:
+helper[381]:
+helper[382]:
+helper[383]:
+helper[384]:
+helper[385]:
+helper[386]:
+helper[387]:
+helper[388]:
+helper[389]:
+helper[390]:
+helper[391]:
+helper[392]:
+helper[393]:
+helper[394]:
+helper[395]:
+helper[396]:
+helper[397]:
+helper[398]:
+helper[399]:
+helper[400]:
+helper[401]:
+helper[402]:
+helper[403]:
+helper[404]:
+helper[405]:
+helper[406]:
+helper[407]:
+helper[408]:
+helper[409]:
+helper[410]:
+helper[411]:
+helper[412]:
+helper[413]:
+helper[414]:
+helper[415]:
+helper[416]:
+helper[417]:
+helper[418]:
+helper[419]:
+helper[420]:
+helper[421]:
+helper[422]:
+helper[423]:
+helper[424]:
+helper[425]:
+helper[426]:
+helper[427]:
+helper[428]:
+helper[429]:
+helper[430]:
+helper[431]:
+helper[432]:
+helper[433]:
+helper[434]:
+helper[435]:
+helper[436]:
+helper[437]:
+helper[438]:
+helper[439]:
+helper[440]:
+helper[441]:
+helper[442]:
+helper[443]:
+helper[444]:
+helper[445]:
+helper[446]:
+helper[447]:
+helper[448]:
+OUT: [size=32]
+0x01000000:  ebc4d904      bl	0x136418
+0x01000004:  e5870004      str	r0, [r7, #4]
+0x01000008:  ea000000      b	0x1000010
+0x0100000c:  e3004004      movw	r4, #4	; 0x4
+0x01000010:  e587403c      str	r4, [r7, #60]
+0x01000014:  e59f0000      ldr	r0, [pc, #0]	; 0x100001c
+0x01000018:  eaca6a33      b	0x29a8ec
+0x0100001c:  408e6008      addmi	r6, lr, r8
+
+----------------
+IN: 
+0x00000004:  eafffffe      b	0x4
+
+OP:
+ ---- 0x4
+ goto_tb $0x0
+ movi_i32 pc,$0x4
+ exit_tb $0x408e6050
+
+OUT: [size=24]
+0x01000020:  ea000000      b	0x1000028
+0x01000024:  e3004004      movw	r4, #4	; 0x4
+0x01000028:  e587403c      str	r4, [r7, #60]
+0x0100002c:  e59f0000      ldr	r0, [pc, #0]	; 0x1000034
+0x01000030:  eaca6a2d      b	0x29a8ec
+0x01000034:  408e6050      addmi	r6, lr, r0, asr r0
+

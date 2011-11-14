@@ -1843,8 +1843,10 @@ static void log_dump_TCGHelperInfo(TCGHelperInfo *info) {
 		int i;
 		//TODO(dima): hack!
 		for (i = 0; i < 3; i++) {
-			unsigned int *p = (unsigned int *)(info->func + i);
-			qemu_log("		%d :: %d\n", (int)info->func, *p);
+			unsigned int addr = (unsigned int)info->func;
+			
+			//unsigned int *p = (unsigned int *)(info->func + i);
+			qemu_log("		 :: %x\n", *(unsigned int *)(addr + i * 32)); 
 		}
 		
 
