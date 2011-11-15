@@ -21,12 +21,13 @@ static void struct_dump_tcg_helpers_info(const TCGHelperInfo *helpers, const int
             char *name = (char *)helpers[i].name;
             if (!is_simple_arm_insn(name))
                 continue;
-		    qemu_log("	name: %s, func_addr: %d\n", (char *)helpers[i].name, (int)helpers[i].func);
-			//TODO(dima): hack!
+		    qemu_log("(%d) name: %s, func_addr: %x\n", i, (char *)helpers[i].name, (int)helpers[i].func);
+		    unsigned int addr = (unsigned int)helpers[i].func;
+            
+            //TODO(dima): hack!
 		    for (j = 0; j < 5; j++) {
-			    unsigned int addr = (unsigned int)helpers[i].func;
-                insn = *(unsigned int *)(addr + j * 32);
-			    qemu_log("		 :: %x\n", insn);
+			    insn = *(unsigned int *)(addr + j * 32);
+			    qemu_log("	%x :: %x\n",(addr + j *32), insn);
                 simple_arm_insn_disas(insn);
                  
 		    }
@@ -112,7 +113,67 @@ static int simple_arm_insn_disas(unsigned int insn) {
                 qemu_log("[cpsr immediate: val = %x  shift = %x]\n", val, shift);
             }
         }
+    } else if ((insn & 0x0f9000000) == 0x01000000 && (insn & 0x00000090) != 0x00000090) {
+        op1 = (insn >> 21) & 3;
+        sh = (insn >> 4) & 0xf;
+        rm = insn & 0xf;
+        switch (sh) {
+            case 0x0:
+                if (op1 & 1) {
+                    qemu_log("[MSR: op1 = %x  sh = %x  rm = %x ]\n", op1, sh, rm);
+                } else {
+                    rd = (insn >> 12) & 0xf;
+                    qemu_log("[MRS: op1 = %x,  sh = %x  rm = %x  rd = %x]\n", op1, sh, rm, rd);
+                }
+                break;
+            case 0x1:
+                if (op1 == 1) {
+                    qemu_log("[BX: rm = %x]\n", rm);
+                } else if (op1 == 3) {
+                    rd = (insn >> 12) & 0xf;
+                    qemu_log("[CLZ: rd = %x  rm = %x]\n", rd, rm);
+                }
+                break;
+            case 0x2:
+            case 0x3:
+                qemu_log("branch insn\n");
+                break;
+            case 0x5:
+                qemu_log("saturating\n"); 
+                break;
+            case 0x7:
+            case 0x8:
+            case 0xa:
+            case 0xc:
+            case 0xe:
+                qemu_log("signed multiply\n");
+                break;
+        }
+    } else if (((insn & 0x0e000000) == 0 &&
+                (insn & 0x00000090) != 0x90) ||
+               ((insn & 0x0e000000) == (1 << 25))) {
+        int set_cc, logic_cc, shiftop;
+
+        op1 = (insn >> 21) & 0xf;
+        set_cc = (insn >> 20) & 1;
+
+        /* data processing instruction */
+        if (insn & (1 << 25)) {
+            /* immediate operand */
+            val = insn & 0xff;
+            shift = ((insn >> 8) & 0xf) * 2;
+            if (shift) {
+                val = (val >> shift) | (val << (32 - shift));
+            }
+            qemu_log("[MOV: val = %x  shift = %x set_cc = %x]\n", val, shift, set_cc);
+        } else {
+            /* register */
+            rm = (insn) & 0xf;
+            shiftop = (insn >> 5) & 3;
+            qemu_log("[MOV(register) rm = %x, shiftop = %x]\n", rm, shiftop);
+        }
     }
+                       
 
 
     return 0;

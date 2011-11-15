@@ -1,0 +1,995 @@
+(dima):!(op1 & 2)
+(dima):tmp[28]
+(dima):func [29], nparam[65537], nargs [0] 
+----------------
+IN: 
+0x00000000:  e10f1000      mrs	r1, CPSR
+0x00000004:  eafffffe      b	0x4
+
+OP:
+ ---- 0x0
+ movi_i32 tmp9,$cpsr_read
+ call tmp9,$0x0,$1,tmp8
+ mov_i32 r1,tmp8
+
+ ---- 0x4
+ goto_tb $0x0
+ movi_i32 pc,$0x4
+ exit_tb $0x408d7008
+
+(dima):func addr[1271616] arg = 65537
+func_arg = 29
+
+
+TCGContext dump:
+nb_labels = 0
+nb_globals = 20
+nb_temps = 30
+==temp list==
+temps[i] = (name, base_type, type, val_type, reg, val, mem_reg)
+	temps[0] = (env, 0, 0, 1, 7, 0, 0);
+	temps[1] = (r0, 0, 0, 2, 0, 0, 7);
+	temps[2] = (r1, 0, 0, 2, 0, 0, 7);
+	temps[3] = (r2, 0, 0, 2, 0, 0, 7);
+	temps[4] = (r3, 0, 0, 2, 0, 0, 7);
+	temps[5] = (r4, 0, 0, 2, 0, 0, 7);
+	temps[6] = (r5, 0, 0, 2, 0, 0, 7);
+	temps[7] = (r6, 0, 0, 2, 0, 0, 7);
+	temps[8] = (r7, 0, 0, 2, 0, 0, 7);
+	temps[9] = (r8, 0, 0, 2, 0, 0, 7);
+	temps[10] = (r9, 0, 0, 2, 0, 0, 7);
+	temps[11] = (r10, 0, 0, 2, 0, 0, 7);
+	temps[12] = (r11, 0, 0, 2, 0, 0, 7);
+	temps[13] = (r12, 0, 0, 2, 0, 0, 7);
+	temps[14] = (r13, 0, 0, 2, 0, 0, 7);
+	temps[15] = (r14, 0, 0, 2, 0, 0, 7);
+	temps[16] = (pc, 0, 0, 2, 0, 0, 7);
+	temps[17] = (exclusive_addr, 0, 0, 2, 0, 0, 7);
+	temps[18] = (exclusive_val, 0, 0, 2, 0, 0, 7);
+	temps[19] = (exclusive_high, 0, 0, 2, 0, 0, 7);
+	temps[20] = ((null), 0, 0, 0, 0, 0, 0);
+	temps[21] = ((null), 0, 0, 0, 0, 0, 0);
+	temps[22] = ((null), 1, 0, 0, 0, 0, 0);
+	temps[23] = ((null), 0, 0, 0, 0, 0, 0);
+	temps[24] = ((null), 1, 0, 0, 0, 0, 0);
+	temps[25] = ((null), 0, 0, 0, 0, 0, 0);
+	temps[26] = ((null), 1, 0, 0, 0, 0, 0);
+	temps[27] = ((null), 0, 0, 0, 0, 0, 0);
+	temps[28] = ((null), 0, 0, 0, 0, 0, 0);
+	temps[29] = ((null), 0, 0, 3, 0, 1271616, 0);
+code_buf ptr = 16777216
+current_frame_offset = 27816
+frame_start = 27816
+frame_end = 28328
+frame_reg = 7
+code ptr = 16777216
+==helpers list==
+(1) name: add_setq, func_addr: 136240
+	136240 :: e1a03000
+[MOV(register) rm = 0, shiftop = 0]
+	136260 :: e1a03000
+[MOV(register) rm = 0, shiftop = 0]
+	136280 :: 558730c8
+conditional instr. cond = 5
+	1362a0 :: 40200fc3
+conditional instr. cond = 4
+[MOV(register) rm = 3, shiftop = 2]
+	1362c0 :: c12fff1e
+conditional instr. cond = c
+[MOV(register) rm = e, shiftop = 0]
+(2) name: add_saturate, func_addr: 136260
+	136260 :: e1a03000
+[MOV(register) rm = 0, shiftop = 0]
+	136280 :: 558730c8
+conditional instr. cond = 5
+	1362a0 :: 40200fc3
+conditional instr. cond = 4
+[MOV(register) rm = 3, shiftop = 2]
+	1362c0 :: c12fff1e
+conditional instr. cond = c
+[MOV(register) rm = e, shiftop = 0]
+	1362e0 :: 23a03001
+conditional instr. cond = 2
+[MOV: val = 1  shift = 0 set_cc = 0]
+(3) name: sub_saturate, func_addr: 136288
+	136288 :: e1a03000
+[MOV(register) rm = 0, shiftop = 0]
+	1362a8 :: 458730c8
+conditional instr. cond = 4
+	1362c8 :: a1a00080
+conditional instr. cond = a
+[MOV(register) rm = 0, shiftop = 0]
+	1362e8 :: 258730c8
+conditional instr. cond = 2
+	136308 :: e12fff1e
+[MOV(register) rm = e, shiftop = 0]
+(4) name: double_saturate, func_addr: 1362b0
+	1362b0 :: e3700107
+[MOV: val = c0000001  shift = 2 set_cc = 1]
+	1362d0 :: b3a00102
+conditional instr. cond = b
+[MOV: val = 80000000  shift = 2 set_cc = 0]
+	1362f0 :: e1a03000
+[MOV(register) rm = 0, shiftop = 0]
+	136310 :: e1a02150
+[MOV(register) rm = 0, shiftop = 2]
+	136330 :: b58730c8
+conditional instr. cond = b
+(5) name: add_usaturate, func_addr: 1362dc
+	1362dc :: e0910000
+[MOV(register) rm = 0, shiftop = 0]
+	1362fc :: 33a03001
+conditional instr. cond = 3
+[MOV: val = 1  shift = 0 set_cc = 0]
+	13631c :: e2411001
+[MOV: val = 1  shift = 0 set_cc = 0]
+	13633c :: e52d4004
+	13635c :: c1a04003
+conditional instr. cond = c
+[MOV(register) rm = 3, shiftop = 0]
+(6) name: sub_usaturate, func_addr: 1362f0
+	1362f0 :: e1a03000
+[MOV(register) rm = 0, shiftop = 0]
+	136310 :: e1a02150
+[MOV(register) rm = 0, shiftop = 2]
+	136330 :: b58730c8
+conditional instr. cond = b
+	136350 :: e35c0000
+[MOV: val = 0  shift = 0 set_cc = 1]
+	136370 :: da000005
+conditional instr. cond = d
+(7) name: ssat, func_addr: 13630c
+	13630c :: e3a03001
+[MOV: val = 1  shift = 0 set_cc = 0]
+	13632c :: e3720001
+[MOV: val = 1  shift = 0 set_cc = 1]
+	13634c :: e1a03112
+[MOV(register) rm = 2, shiftop = 0]
+	13636c :: e3510000
+[MOV: val = 0  shift = 0 set_cc = 1]
+	13638c :: e3710001
+[MOV: val = 1  shift = 0 set_cc = 1]
+(8) name: ssat16, func_addr: 13633c
+	13633c :: e52d4004
+	13635c :: c1a04003
+conditional instr. cond = c
+[MOV(register) rm = 3, shiftop = 0]
+	13637c :: e6ff0074
+	13639c :: eafffff4
+	1363bc :: b58730c8
+conditional instr. cond = b
+(9) name: usat, func_addr: 1363b0
+	1363b0 :: e3500000
+[MOV: val = 0  shift = 0 set_cc = 1]
+	1363d0 :: e1500001
+[MOV(register) rm = 1, shiftop = 0]
+	1363f0 :: e2411001
+[MOV: val = 1  shift = 0 set_cc = 0]
+	136410 :: e1b00840
+[MOV(register) rm = 0, shiftop = 2]
+	136430 :: 33a02001
+conditional instr. cond = 3
+[MOV: val = 1  shift = 0 set_cc = 0]
+(10) name: usat16, func_addr: 1363e0
+	1363e0 :: e6bf3070
+	136400 :: e1510003
+[MOV(register) rm = 3, shiftop = 0]
+	136420 :: 4a000004
+conditional instr. cond = 4
+	136440 :: e350000d
+[MOV: val = d  shift = 0 set_cc = 1]
+	136460 :: 9a000004
+conditional instr. cond = 9
+(11) name: get_user_reg, func_addr: 136440
+	136440 :: e350000d
+[MOV: val = d  shift = 0 set_cc = 1]
+	136460 :: 9a000004
+conditional instr. cond = 9
+	136480 :: e280001c
+[MOV: val = 1c  shift = 0 set_cc = 0]
+	1364a0 :: 12fff1e
+conditional instr. cond = 0
+[BX: rm = e]
+	1364c0 :: 280001c
+conditional instr. cond = 0
+[MOV: val = 1c  shift = 0 set_cc = 0]
+(12) name: set_user_reg, func_addr: 13648c
+	13648c :: e350000d
+[MOV: val = d  shift = 0 set_cc = 1]
+	1364ac :: 9a000006
+conditional instr. cond = 9
+	1364cc :: e7831100
+	1364ec :: 33a00001
+conditional instr. cond = 3
+[MOV: val = 1  shift = 0 set_cc = 0]
+	13650c :: e3520000
+[MOV: val = 0  shift = 0 set_cc = 1]
+(13) name: add_cc, func_addr: 1364d4
+	1364d4 :: e0813000
+[MOV(register) rm = 0, shiftop = 0]
+	1364f4 :: e58700b8
+	136514 :: e2802001
+[MOV: val = 1  shift = 0 set_cc = 0]
+	136534 :: e1cc1001
+[MOV(register) rm = 1, shiftop = 0]
+	136554 :: 23a0c001
+conditional instr. cond = 2
+[MOV: val = 1  shift = 0 set_cc = 0]
+(14) name: adc_cc, func_addr: 136508
+	136508 :: e59720b8
+	136528 :: e587c0b8
+	136548 :: e12fff1e
+[MOV(register) rm = e, shiftop = 0]
+	136568 :: e52d4004
+	136588 :: e1a00002
+[MOV(register) rm = 2, shiftop = 0]
+(15) name: sub_cc, func_addr: 136560
+	136560 :: e0612000
+[MOV(register) rm = 0, shiftop = 0]
+	136580 :: e587c0bc
+	1365a0 :: e3520000
+[MOV: val = 0  shift = 0 set_cc = 1]
+	1365c0 :: e0211000
+[MOV(register) rm = 0, shiftop = 0]
+	1365e0 :: e1500001
+[MOV(register) rm = 1, shiftop = 0]
+(16) name: sbc_cc, func_addr: 13659c
+	13659c :: e59720b8
+	1365bc :: e022c000
+[MOV(register) rm = 0, shiftop = 0]
+	1365dc :: e2402001
+[MOV: val = 1  shift = 0 set_cc = 0]
+	1365fc :: e351001f
+[MOV: val = 1f  shift = 0 set_cc = 1]
+	13661c :: e12fff1e
+[MOV(register) rm = e, shiftop = 0]
+(17) name: shl, func_addr: 1365f8
+	1365f8 :: e6ef1071
+	136618 :: c3a00000
+conditional instr. cond = c
+[MOV: val = 0  shift = 0 set_cc = 0]
+	136638 :: e351001f
+[MOV: val = 1f  shift = 0 set_cc = 1]
+	136658 :: e12fff1e
+[MOV(register) rm = e, shiftop = 0]
+	136678 :: e12fff1e
+[MOV(register) rm = e, shiftop = 0]
+(18) name: shr, func_addr: 13660c
+	13660c :: e6ef1071
+	13662c :: e1a00150
+[MOV(register) rm = 0, shiftop = 2]
+	13664c :: 13a00000
+conditional instr. cond = 1
+[MOV: val = 0  shift = 0 set_cc = 0]
+	13666c :: e1a00110
+[MOV(register) rm = 0, shiftop = 0]
+	13668c :: 1a00fa0
+conditional instr. cond = 0
+signed multiply
+(19) name: sar, func_addr: 136620
+	136620 :: e6ef1071
+	136640 :: e3510020
+[MOV: val = 20  shift = 0 set_cc = 1]
+	136660 :: 12fff1e
+conditional instr. cond = 0
+[BX: rm = e]
+	136680 :: e351001f
+[MOV: val = 1f  shift = 0 set_cc = 1]
+	1366a0 :: e12fff1e
+[MOV(register) rm = e, shiftop = 0]
+(20) name: shl_cc, func_addr: 136634
+	136634 :: e6ef1071
+	136654 :: 158700b8
+conditional instr. cond = 1
+	136674 :: e58730b8
+	136694 :: 13a00000
+conditional instr. cond = 1
+[MOV: val = 0  shift = 0 set_cc = 0]
+	1366b4 :: e1a00130
+[MOV(register) rm = 0, shiftop = 1]
+(21) name: shr_cc, func_addr: 13667c
+	13667c :: e6ef1071
+	13669c :: 158700b8
+conditional instr. cond = 1
+	1366bc :: e58730b8
+	1366dc :: e3510000
+[MOV: val = 0  shift = 0 set_cc = 1]
+	1366fc :: e211301f
+[MOV: val = 1f  shift = 0 set_cc = 1]
+(22) name: sar_cc, func_addr: 1366c4
+	1366c4 :: e6ef1071
+	1366e4 :: e241c001
+[MOV: val = 1  shift = 0 set_cc = 0]
+	136704 :: 1a000003
+conditional instr. cond = 1
+	136724 :: e2023001
+[MOV: val = 1  shift = 0 set_cc = 0]
+	136744 :: e1a00007
+[MOV(register) rm = 7, shiftop = 0]
+(23) name: ror_cc, func_addr: 1366fc
+	1366fc :: e211301f
+[MOV: val = 1f  shift = 0 set_cc = 1]
+	13671c :: e1a02130
+[MOV(register) rm = 0, shiftop = 1]
+	13673c :: ea00192f
+	13675c :: e92d4008
+	13677c :: e3400001
+[MOVT: rd = 1  val = e3400001]
+(24) name: cpsr_write, func_addr: 136730
+	136730 :: e1a02001
+[MOV(register) rm = 1, shiftop = 0]
+	136750 :: e34f38ff
+[MOVT: rd = 1  val = e34f38ff]
+	136770 :: e3072060
+[MOVW: rd = 1  val = e3072060]
+	136790 :: ebfea9dc
+	1367b0 :: e3404089
+[MOVT: rd = 1  val = e3404089]
+(25) name: cpsr_read, func_addr: 136740
+	136740 :: e92d4008
+	136760 :: e3073060
+[MOVW: rd = 1  val = e3073060]
+	136780 :: e3a03001
+[MOV: val = 1  shift = 0 set_cc = 0]
+	1367a0 :: e1a00007
+[MOV(register) rm = 7, shiftop = 0]
+	1367c0 :: e594e000
+(26) name: exception, func_addr: 13675c
+	13675c :: e92d4008
+	13677c :: e3400001
+[MOVT: rd = 1  val = e3400001]
+	13679c :: e7870003
+	1367bc :: e1a06001
+[MOV(register) rm = 1, shiftop = 0]
+	1367dc :: e3a0c001
+[MOV: val = 1  shift = 0 set_cc = 0]
+(27) name: wfi, func_addr: 136770
+	136770 :: e3072060
+[MOVW: rd = 1  val = e3072060]
+	136790 :: ebfea9dc
+	1367b0 :: e3404089
+[MOVT: rd = 1  val = e3404089]
+	1367d0 :: e1a02006
+[MOV(register) rm = 6, shiftop = 0]
+	1367f0 :: 1a000002
+conditional instr. cond = 1
+(28) name: sxtb16, func_addr: 138608
+	138608 :: e6af1070
+	138628 :: e92d4008
+	138648 :: 8bd8008
+conditional instr. cond = 0
+	138668 :: e8bd8008
+	138688 :: e3401f0f
+[MOVT: rd = 1  val = e3401f0f]
+(29) name: uxtb16, func_addr: 13861c
+	13861c :: e3c004ff
+[MOV: val = ff000000  shift = 8 set_cc = 0]
+	13863c :: e3520102
+[MOV: val = 80000000  shift = 2 set_cc = 1]
+	13865c :: 1a00003
+conditional instr. cond = 0
+[MSR: op1 = 1  sh = 0  rm = 3 ]
+	13867c :: e180c422
+[MOV(register) rm = 2, shiftop = 1]
+	13869c :: e0002003
+[MOV(register) rm = 3, shiftop = 0]
+(30) name: sdiv, func_addr: 138628
+	138628 :: e92d4008
+	138648 :: 8bd8008
+conditional instr. cond = 0
+	138668 :: e8bd8008
+	138688 :: e3401f0f
+[MOVT: rd = 1  val = e3401f0f]
+	1386a8 :: e3480888
+[MOVT: rd = 1  val = e3480888]
+(31) name: udiv, func_addr: 138654
+	138654 :: e92d4008
+	138674 :: e2003cff
+[MOV: val = ff00  shift = 18 set_cc = 0]
+	138694 :: e34f30f0
+[MOVT: rd = 1  val = e34f30f0]
+	1386b4 :: e00c3000
+[MOV(register) rm = 0, shiftop = 0]
+	1386d4 :: e18010a1
+[MOV(register) rm = 1, shiftop = 1]
+(32) name: rbit, func_addr: 13866c
+	13866c :: e20028ff
+[MOV: val = ff0000  shift = 10 set_cc = 0]
+	13868c :: e000c001
+[MOV(register) rm = 1, shiftop = 0]
+	1386ac :: e183c222
+[MOV(register) rm = 2, shiftop = 1]
+	1386cc :: e3013111
+[MOVW: rd = 1  val = e3013111]
+	1386ec :: b2600000
+conditional instr. cond = b
+[MOV: val = 0  shift = 0 set_cc = 0]
+(33) name: abs, func_addr: 1386e8
+	1386e8 :: e3500000
+[MOV: val = 0  shift = 0 set_cc = 1]
+	138708 :: e31c0001
+[MOV: val = 1  shift = 0 set_cc = 1]
+	138728 :: e590c1b4
+	138748 :: 1a00002d
+conditional instr. cond = 1
+	138768 :: e31c0001
+[MOV: val = 1  shift = 0 set_cc = 1]
+(34) name: set_cp, func_addr: 138920
+	138920 :: e92d4030
+	138940 :: e28120b8
+[MOV: val = b8  shift = 0 set_cc = 0]
+	138960 :: e7e3285c
+	138980 :: e92d4008
+	1389a0 :: 8bd8008
+conditional instr. cond = 0
+(35) name: get_cp, func_addr: 138978
+	138978 :: e1a02001
+[MOV(register) rm = 1, shiftop = 0]
+	138998 :: e35c0000
+[MOV: val = 0  shift = 0 set_cc = 1]
+	1389b8 :: e5900004
+	1389d8 :: e0224003
+[MOV(register) rm = 3, shiftop = 0]
+	1389f8 :: e3140902
+[MOV: val = 8000  shift = 12 set_cc = 1]
+(36) name: qadd16, func_addr: 1389c4
+	1389c4 :: e6ff3070
+	1389e4 :: e1a03820
+[MOV(register) rm = 0, shiftop = 1]
+	138a04 :: e1800002
+[MOV(register) rm = 2, shiftop = 0]
+	138a24 :: e3470fff
+[MOVT: rd = 1  val = e3470fff]
+	138a44 :: 13a02902
+conditional instr. cond = 1
+[MOV: val = 8000  shift = 12 set_cc = 0]
+(37) name: qadd8, func_addr: 138a4c
+	138a4c :: e6ef3070
+	138a6c :: e1a0500c
+[MOV(register) rm = c, shiftop = 0]
+	138a8c :: e1a0c40c
+[MOV(register) rm = c, shiftop = 0]
+	138aac :: e1a02802
+[MOV(register) rm = 2, shiftop = 0]
+	138acc :: e1a00c03
+[MOV(register) rm = 3, shiftop = 0]
+(38) name: qsub16, func_addr: 138b54
+	138b54 :: e6ff3070
+	138b74 :: e1a03820
+[MOV(register) rm = 0, shiftop = 1]
+	138b94 :: e1800002
+[MOV(register) rm = 2, shiftop = 0]
+	138bb4 :: e3470fff
+[MOVT: rd = 1  val = e3470fff]
+	138bd4 :: 13a02902
+conditional instr. cond = 1
+[MOV: val = 8000  shift = 12 set_cc = 0]
+(39) name: qsub8, func_addr: 138bdc
+	138bdc :: e6ef3070
+	138bfc :: e1a0500c
+[MOV(register) rm = c, shiftop = 0]
+	138c1c :: e1a0c40c
+[MOV(register) rm = c, shiftop = 0]
+	138c3c :: e1a02802
+[MOV(register) rm = 2, shiftop = 0]
+	138c5c :: e1a00c03
+[MOV(register) rm = 3, shiftop = 0]
+(40) name: qsubaddx, func_addr: 138ce4
+	138ce4 :: e6ff3070
+	138d04 :: e1a04002
+[MOV(register) rm = 2, shiftop = 0]
+	138d24 :: e1a00802
+[MOV(register) rm = 2, shiftop = 0]
+	138d44 :: e3000000
+[MOVW: rd = 1  val = e3000000]
+	138d64 :: e3074fff
+[MOVW: rd = 1  val = e3074fff]
+(41) name: qaddsubx, func_addr: 138d70
+	138d70 :: e6ff3070
+	138d90 :: e1a03820
+[MOV(register) rm = 0, shiftop = 1]
+	138db0 :: e1800002
+[MOV(register) rm = 2, shiftop = 0]
+	138dd0 :: e3470fff
+[MOVT: rd = 1  val = e3470fff]
+	138df0 :: 13a02902
+conditional instr. cond = 1
+[MOV: val = 8000  shift = 12 set_cc = 0]
+(42) name: uqadd16, func_addr: 138df8
+	138df8 :: e1a02820
+[MOV(register) rm = 0, shiftop = 1]
+	138e18 :: 91a00001
+conditional instr. cond = 9
+[MOV(register) rm = 1, shiftop = 0]
+	138e38 :: e6efc070
+	138e58 :: 83a020ff
+conditional instr. cond = 8
+[MOV: val = ff  shift = 0 set_cc = 0]
+	138e78 :: e0801c21
+[MOV(register) rm = 1, shiftop = 1]
+(43) name: uqadd8, func_addr: 138e38
+	138e38 :: e6efc070
+	138e58 :: 83a020ff
+conditional instr. cond = 8
+[MOV: val = ff  shift = 0 set_cc = 0]
+	138e78 :: e0801c21
+[MOV(register) rm = 1, shiftop = 1]
+	138e98 :: e1800003
+[MOV(register) rm = 3, shiftop = 0]
+	138eb8 :: e1a00820
+[MOV(register) rm = 0, shiftop = 1]
+(44) name: uqsub16, func_addr: 138eac
+	138eac :: e6ff3071
+	138ecc :: e1500001
+[MOV(register) rm = 1, shiftop = 0]
+	138eec :: e15c0003
+[MOV(register) rm = 3, shiftop = 0]
+	138f0c :: 8062500c
+conditional instr. cond = 8
+[MOV(register) rm = c, shiftop = 0]
+	138f2c :: 8063c002
+conditional instr. cond = 8
+[MOV(register) rm = 2, shiftop = 0]
+(45) name: uqsub8, func_addr: 138ee4
+	138ee4 :: e6ef3071
+	138f04 :: 93a04000
+conditional instr. cond = 9
+[MOV: val = 0  shift = 0 set_cc = 0]
+	138f24 :: 81a05405
+conditional instr. cond = 8
+[MOV(register) rm = 5, shiftop = 0]
+	138f44 :: e1530001
+[MOV(register) rm = 1, shiftop = 0]
+	138f64 :: e6ff2070
+(46) name: uqsubaddx, func_addr: 138f64
+	138f64 :: e6ff2070
+	138f84 :: e1500001
+[MOV(register) rm = 1, shiftop = 0]
+	138fa4 :: e1a03820
+[MOV(register) rm = 0, shiftop = 1]
+	138fc4 :: 91a01801
+conditional instr. cond = 9
+[MOV(register) rm = 1, shiftop = 0]
+	138fe4 :: e3530000
+[MOV: val = 0  shift = 0 set_cc = 1]
+(47) name: uqaddsubx, func_addr: 138f9c
+	138f9c :: e6ff2070
+	138fbc :: 86ff2072
+conditional instr. cond = 8
+	138fdc :: e6bf0070
+	138ffc :: 5384400c
+conditional instr. cond = 5
+[MOV: val = c  shift = 0 set_cc = 0]
+	13901c :: e7a75451
+(48) name: sadd16, func_addr: 138fd8
+	138fd8 :: e1a0c840
+[MOV(register) rm = 0, shiftop = 2]
+	138ff8 :: e09c1841
+[MOV(register) rm = 1, shiftop = 2]
+	139018 :: e6a3c071
+	139038 :: 53833002
+conditional instr. cond = 5
+[MOV: val = 2  shift = 0 set_cc = 0]
+	139058 :: e1864404
+[MOV(register) rm = 4, shiftop = 0]
+(49) name: sadd8, func_addr: 139010
+	139010 :: e6af3070
+	139030 :: e0954004
+[MOV(register) rm = 4, shiftop = 0]
+	139050 :: e1a06806
+[MOV(register) rm = 6, shiftop = 0]
+	139070 :: e8bd0070
+	139090 :: 53a04003
+conditional instr. cond = 5
+[MOV: val = 3  shift = 0 set_cc = 0]
+(50) name: ssub16, func_addr: 139078
+	139078 :: e6bfc070
+	139098 :: e0710840
+[MOV(register) rm = 0, shiftop = 2]
+	1390b8 :: e92d0070
+	1390d8 :: e7a75851
+	1390f8 :: e0710c40
+[MOV(register) rm = 0, shiftop = 2]
+(51) name: ssub8, func_addr: 1390b0
+	1390b0 :: e6af3071
+	1390d0 :: e7a76850
+	1390f0 :: 53833004
+conditional instr. cond = 5
+[MOV: val = 4  shift = 0 set_cc = 0]
+	139110 :: e5823000
+	139130 :: 53a04003
+conditional instr. cond = 5
+[MOV: val = 3  shift = 0 set_cc = 0]
+(52) name: ssubaddx, func_addr: 13911c
+	13911c :: e6bfc070
+	13913c :: 5384400c
+conditional instr. cond = 5
+[MOV: val = c  shift = 0 set_cc = 0]
+	13915c :: e05c3841
+[MOV(register) rm = 1, shiftop = 2]
+	13917c :: e12fff1e
+[MOV(register) rm = e, shiftop = 0]
+	13919c :: 3a01000
+conditional instr. cond = 0
+[MSR: op1 = 1  sh = 0  rm = 0 ]
+(53) name: saddsubx, func_addr: 139150
+	139150 :: e6bfc070
+	139170 :: a38cc00c
+conditional instr. cond = a
+[MOV: val = c  shift = 0 set_cc = 0]
+	139190 :: e1b01820
+[MOV(register) rm = 0, shiftop = 1]
+	1391b0 :: e5821000
+	1391d0 :: e7e75850
+(54) name: uadd16, func_addr: 139180
+	139180 :: e1a03820
+[MOV(register) rm = 0, shiftop = 1]
+	1391a0 :: 13a01003
+conditional instr. cond = 1
+[MOV: val = 3  shift = 0 set_cc = 0]
+	1391c0 :: e6ef4070
+	1391e0 :: e1b0442c
+[MOV(register) rm = c, shiftop = 1]
+	139200 :: 13844004
+conditional instr. cond = 1
+[MOV: val = 4  shift = 0 set_cc = 0]
+(55) name: uadd8, func_addr: 1391b8
+	1391b8 :: e92d0070
+	1391d8 :: e0865005
+[MOV(register) rm = 5, shiftop = 0]
+	1391f8 :: e6ef5075
+	139218 :: e185240c
+[MOV(register) rm = c, shiftop = 0]
+	139238 :: e1a01821
+[MOV(register) rm = 1, shiftop = 1]
+(56) name: usub16, func_addr: 13922c
+	13922c :: e6ffc070
+	13924c :: 3a01003
+conditional instr. cond = 0
+[MSR: op1 = 1  sh = 0  rm = 3 ]
+	13926c :: e6ef5070
+	13928c :: 13a04000
+conditional instr. cond = 1
+[MOV: val = 0  shift = 0 set_cc = 0]
+	1392ac :: e0610c20
+[MOV(register) rm = 0, shiftop = 1]
+(57) name: usub8, func_addr: 139264
+	139264 :: e92d0070
+	139284 :: e7e75851
+	1392a4 :: e6efc07c
+	1392c4 :: 3844008
+conditional instr. cond = 0
+[MRS: op1 = 0,  sh = 0  rm = 8  rd = 4]
+	1392e4 :: e6ff3071
+(58) name: usubaddx, func_addr: 1392e0
+	1392e0 :: e6ffc070
+	139300 :: 13a03000
+conditional instr. cond = 1
+[MOV: val = 0  shift = 0 set_cc = 0]
+	139320 :: e6f00071
+	139340 :: 38cc00c
+conditional instr. cond = 0
+[MRS: op1 = 0,  sh = 0  rm = c  rd = c]
+	139360 :: e7ef00d3
+(59) name: uaddsubx, func_addr: 139318
+	139318 :: e6ffc070
+	139338 :: 3a0c003
+conditional instr. cond = 0
+[MSR: op1 = 1  sh = 0  rm = 3 ]
+	139358 :: e0823841
+[MOV(register) rm = 1, shiftop = 2]
+	139378 :: e082300c
+[MOV(register) rm = c, shiftop = 0]
+	139398 :: e0822c41
+[MOV(register) rm = 1, shiftop = 2]
+(60) name: shadd16, func_addr: 139350
+	139350 :: e1a02840
+[MOV(register) rm = 0, shiftop = 2]
+	139370 :: e7a7c850
+	139390 :: e7e7c0dc
+	1393b0 :: e183100c
+[MOV(register) rm = c, shiftop = 0]
+	1393d0 :: e7ef00dc
+(61) name: shadd8, func_addr: 139370
+	139370 :: e7a7c850
+	139390 :: e7e7c0dc
+	1393b0 :: e183100c
+[MOV(register) rm = c, shiftop = 0]
+	1393d0 :: e7ef00dc
+	1393f0 :: e064200c
+[MOV(register) rm = c, shiftop = 0]
+(62) name: shsub16, func_addr: 1393bc
+	1393bc :: e1a02841
+[MOV(register) rm = 1, shiftop = 2]
+	1393dc :: e12fff1e
+[MOV(register) rm = e, shiftop = 0]
+	1393fc :: e7e720d2
+	13941c :: e7e730d3
+	13943c :: e6bf3070
+(63) name: shsub8, func_addr: 1393e0
+	1393e0 :: e7a7c850
+	139400 :: e1a04c41
+[MOV(register) rm = 1, shiftop = 2]
+	139420 :: e182140c
+[MOV(register) rm = c, shiftop = 0]
+	139440 :: e062c840
+[MOV(register) rm = 0, shiftop = 2]
+	139460 :: e6b0c071
+(64) name: shsubaddx, func_addr: 139438
+	139438 :: e6bf2071
+	139458 :: e6bf3070
+	139478 :: e6ff3070
+	139498 :: e7e72851
+	1394b8 :: e1a030a3
+[MOV(register) rm = 3, shiftop = 1]
+(65) name: shaddsubx, func_addr: 139458
+	139458 :: e6bf3070
+	139478 :: e6ff3070
+	139498 :: e7e72851
+	1394b8 :: e1a030a3
+[MOV(register) rm = 3, shiftop = 1]
+	1394d8 :: e18310a1
+[MOV(register) rm = 1, shiftop = 1]
+(66) name: uhadd16, func_addr: 139478
+	139478 :: e6ff3070
+	139498 :: e7e72851
+	1394b8 :: e1a030a3
+[MOV(register) rm = 3, shiftop = 1]
+	1394d8 :: e18310a1
+[MOV(register) rm = 1, shiftop = 1]
+	1394f8 :: e0612003
+[MOV(register) rm = 3, shiftop = 0]
+(67) name: uhadd8, func_addr: 139498
+	139498 :: e7e72851
+	1394b8 :: e1a030a3
+[MOV(register) rm = 3, shiftop = 1]
+	1394d8 :: e18310a1
+[MOV(register) rm = 1, shiftop = 1]
+	1394f8 :: e0612003
+[MOV(register) rm = 3, shiftop = 0]
+	139518 :: e7e74851
+(68) name: uhsub16, func_addr: 1394e8
+	1394e8 :: e1a02821
+[MOV(register) rm = 1, shiftop = 1]
+	139508 :: e12fff1e
+[MOV(register) rm = e, shiftop = 0]
+	139528 :: e7e720d2
+	139548 :: e7e730d3
+	139568 :: e6ff3070
+(69) name: uhsub8, func_addr: 13950c
+	13950c :: e7e7c850
+	13952c :: e1a04c21
+[MOV(register) rm = 1, shiftop = 1]
+	13954c :: e182140c
+[MOV(register) rm = c, shiftop = 0]
+	13956c :: e062c820
+[MOV(register) rm = 0, shiftop = 1]
+	13958c :: e6f0c071
+(70) name: uhsubaddx, func_addr: 139564
+	139564 :: e6ff2071
+	139584 :: e6ff3070
+	1395a4 :: e6ef3070
+	1395c4 :: e7e72851
+	1395e4 :: 80623003
+conditional instr. cond = 8
+[MOV(register) rm = 3, shiftop = 0]
+(71) name: uhaddsubx, func_addr: 139584
+	139584 :: e6ff3070
+	1395a4 :: e6ef3070
+	1395c4 :: e7e72851
+	1395e4 :: 80623003
+conditional instr. cond = 8
+[MOV(register) rm = 3, shiftop = 0]
+	139604 :: 90603003
+conditional instr. cond = 9
+[MOV(register) rm = 3, shiftop = 0]
+(72) name: usad8, func_addr: 1395a4
+	1395a4 :: e6ef3070
+	1395c4 :: e7e72851
+	1395e4 :: 80623003
+conditional instr. cond = 8
+[MOV(register) rm = 3, shiftop = 0]
+	139604 :: 90603003
+conditional instr. cond = 9
+[MOV(register) rm = 3, shiftop = 0]
+	139624 :: e3100002
+[MOV: val = 2  shift = 0 set_cc = 1]
+(73) name: sel_flags, func_addr: 13961c
+	13961c :: e210c001
+[MOV: val = 1  shift = 0 set_cc = 1]
+	13963c :: e00c1001
+[MOV(register) rm = 1, shiftop = 0]
+	13965c :: e52d4004
+	13967c :: e3c42837
+[MOV: val = 370000  shift = 10 set_cc = 0]
+	13969c :: e1a01a01
+[MOV(register) rm = 1, shiftop = 0]
+(74) name: logicq_cc, func_addr: 13964c
+	13964c :: e1900001
+[MOV(register) rm = 1, shiftop = 0]
+	13966c :: e18c2003
+[MOV(register) rm = 3, shiftop = 0]
+	13968c :: e3100008
+[MOV: val = 8  shift = 0 set_cc = 1]
+	1396ac :: e181080c
+[MOV(register) rm = c, shiftop = 0]
+	1396cc :: e12fff1e
+[MOV(register) rm = e, shiftop = 0]
+(80) name: set_teecr, func_addr: 139720
+	139720 :: e590222c
+	139740 :: e92d40d0
+	139760 :: e1a00004
+[MOV(register) rm = 4, shiftop = 0]
+	139780 :: ebffd5d0
+	1397a0 :: e58d4000
+(83) name: recpe_u32, func_addr: 13982c
+	13982c :: e3500000
+[MOV: val = 0  shift = 0 set_cc = 1]
+	13984c :: e1a02001
+[MOV(register) rm = 1, shiftop = 0]
+	13986c :: ebffffb3
+	13988c :: e28d4008
+[MOV: val = 8  shift = 0 set_cc = 0]
+	1398ac :: e1a00006
+[MOV(register) rm = 6, shiftop = 0]
+(85) name: rsqrte_u32, func_addr: 1399ec
+	1399ec :: e3100103
+[MOV: val = c0000000  shift = 2 set_cc = 1]
+	139a0c :: e3e08103
+[MOV: val = c0000000  shift = 2 set_cc = 0]
+	139a2c :: e1851007
+[MOV(register) rm = 7, shiftop = 0]
+	139a4c :: e3e08102
+[MOV: val = 80000000  shift = 2 set_cc = 0]
+	139a6c :: e1851007
+[MOV(register) rm = 7, shiftop = 0]
+(87) name: rsqrte_f32, func_addr: 139a98
+	139a98 :: e3003000
+[MOVW: rd = 1  val = e3003000]
+	139ab8 :: e1a05000
+[MOV(register) rm = 0, shiftop = 0]
+	139ad8 :: e35c0000
+[MOV: val = 0  shift = 0 set_cc = 1]
+	139af8 :: e28dd00c
+[MOV: val = c  shift = 0 set_cc = 0]
+	139b18 :: e1a0a005
+[MOV(register) rm = 5, shiftop = 0]
+(88) name: recpe_f32, func_addr: 139c34
+	139c34 :: e92d43f8
+	139c54 :: 8a00000e
+conditional instr. cond = 8
+	139c74 :: 1a000030
+conditional instr. cond = 1
+	139c94 :: ebff9aea
+	139cb4 :: e8bd83f8
+(90) name: recps_f32, func_addr: 139d50
+	139d50 :: e3003000
+[MOVW: rd = 1  val = e3003000]
+	139d70 :: e3c12102
+[MOV: val = 80000000  shift = 2 set_cc = 0]
+	139d90 :: e1a01000
+[MOV(register) rm = 0, shiftop = 0]
+	139db0 :: e3a00101
+[MOV: val = 40000000  shift = 2 set_cc = 0]
+	139dd0 :: e3a00040
+[MOV: val = 40  shift = 0 set_cc = 0]
+(92) name: rsqrts_f32, func_addr: 139de4
+	139de4 :: e3003000
+[MOVW: rd = 1  val = e3003000]
+	139e04 :: e3c12102
+[MOV: val = 80000000  shift = 2 set_cc = 0]
+	139e24 :: e1a01000
+[MOV(register) rm = 0, shiftop = 0]
+	139e44 :: e1100002
+[MOV(register) rm = 2, shiftop = 0]
+	139e64 :: e3c11102
+[MOV: val = 80000000  shift = 2 set_cc = 0]
+(136) name: v7m_msr, func_addr: 13a764
+	13a764 :: e92d4008
+	13a784 :: 13a8e0
+conditional instr. cond = 0
+[MOV(register) rm = 0, shiftop = 3]
+	13a7a4 :: 13a8e0
+conditional instr. cond = 0
+[MOV(register) rm = 0, shiftop = 3]
+	13a7c4 :: 13a8f0
+conditional instr. cond = 0
+	13a7e4 :: e1a03182
+[MOV(register) rm = 2, shiftop = 0]
+(137) name: v7m_mrs, func_addr: 13a91c
+	13a91c :: e92d4038
+	13a93c :: 13a98c
+conditional instr. cond = 0
+[MOV(register) rm = c, shiftop = 0]
+	13a95c :: 13a98c
+conditional instr. cond = 0
+[MOV(register) rm = c, shiftop = 0]
+	13a97c :: 13a980
+conditional instr. cond = 0
+[MOV(register) rm = 0, shiftop = 0]
+	13a99c :: e59010b8
+(138) name: get_r13_banked, func_addr: 13ac04
+	13ac04 :: e92d4008
+	13ac24 :: 979ff10c
+conditional instr. cond = 9
+	13ac44 :: 13ac7c
+conditional instr. cond = 0
+[MOV(register) rm = c, shiftop = 3]
+	13ac64 :: 13ac7c
+conditional instr. cond = 0
+[MOV(register) rm = c, shiftop = 3]
+	13ac84 :: e1a02001
+[MOV(register) rm = 1, shiftop = 0]
+(139) name: set_r13_banked, func_addr: 13ace8
+	13ace8 :: e92d4008
+	13ad08 :: 979ff103
+conditional instr. cond = 9
+	13ad28 :: 13ad60
+conditional instr. cond = 0
+[MOV(register) rm = 0, shiftop = 3]
+	13ad48 :: 13ad60
+conditional instr. cond = 0
+[MOV(register) rm = 0, shiftop = 3]
+	13ad68 :: e1a02001
+[MOV(register) rm = 1, shiftop = 0]
+(140) name: get_cp15, func_addr: 13adcc
+	13adcc :: e7e32851
+	13adec :: 979ff105
+conditional instr. cond = 9
+	13ae0c :: 13b034
+conditional instr. cond = 0
+[MOV(register) rm = 4, shiftop = 1]
+	13ae2c :: 13af5c
+conditional instr. cond = 0
+[MOV(register) rm = c, shiftop = 2]
+	13ae4c :: e344110f
+[MOVT: rd = 1  val = e344110f]
+(141) name: set_cp15, func_addr: 13b93c
+	13b93c :: e92d4070
+	13b95c :: 979ff106
+conditional instr. cond = 9
+	13b97c :: 13bae0
+conditional instr. cond = 0
+[MOV(register) rm = 0, shiftop = 3]
+	13b99c :: 13ba5c
+conditional instr. cond = 0
+[MOV(register) rm = c, shiftop = 2]
+	13b9bc :: e5941234
+(142) name: clz, func_addr: 13ccdc
+	13ccdc :: e3500000
+[MOV: val = 0  shift = 0 set_cc = 1]
+	13ccfc :: e5923000
+	13cd1c :: e3500000
+[MOV: val = 0  shift = 0 set_cc = 1]
+	13cd3c :: ebfb41ac
+	13cd5c :: e1a00004
+[MOV(register) rm = 4, shiftop = 0]
+
+OUT: [size=32]
+0x01000000:  ebc4d9ce      bl	0x136740
+0x01000004:  e5870004      str	r0, [r7, #4]
+0x01000008:  ea000000      b	0x1000010
+0x0100000c:  e3004004      movw	r4, #4	; 0x4
+0x01000010:  e587403c      str	r4, [r7, #60]
+0x01000014:  e59f0000      ldr	r0, [pc, #0]	; 0x100001c
+0x01000018:  eaca6a33      b	0x29a8ec
+0x0100001c:  408d7008      addmi	r7, sp, r8
+
+----------------
+IN: 
+0x00000004:  eafffffe      b	0x4
+
+OP:
+ ---- 0x4
+ goto_tb $0x0
+ movi_i32 pc,$0x4
+ exit_tb $0x408d7050
+
+OUT: [size=24]
+0x01000020:  ea000000      b	0x1000028
+0x01000024:  e3004004      movw	r4, #4	; 0x4
+0x01000028:  e587403c      str	r4, [r7, #60]
+0x0100002c:  e59f0000      ldr	r0, [pc, #0]	; 0x1000034
+0x01000030:  eaca6a2d      b	0x29a8ec
+0x01000034:  408d7050      addmi	r7, sp, r0, asr r0
+
