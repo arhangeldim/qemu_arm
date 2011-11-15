@@ -58,6 +58,7 @@
 #include "tcg-op.h"
 #include "elf.h"
 
+
 #if defined(CONFIG_USE_GUEST_BASE) && !defined(TCG_TARGET_HAS_GUEST_BASE)
 #error GUEST_BASE not supported on this host.
 #endif
@@ -1821,117 +1822,7 @@ static void tcg_reg_alloc_op(TCGContext *s,
 #else
 #define STACK_DIR(x) (x)
 #endif
-
-static int is_simple_arm_insn(const char *name) {
-	if (name[0] == 'v' && name[1] == 'f' && name[2] == 'p')
-		return 0;
-
-	if (name[0] == 'n' && name[1] == 'e' && name[2] == 'o')
-		return 0;
-	
-	if (name[0] == 'i' && name[1] == 'w' && name[2] == 'm')
-		return 0;
-	return 1;
-}
-
-static void log_dump_TCGHelperInfo(TCGHelperInfo *info) {
-	if (!is_simple_arm_insn(info->name))
-		return;
-	#ifdef DEBUG_DISAS
-	if (unlikely(qemu_loglevel_mask(CPU_LOG_TB_OP))) {
-		qemu_log("	name: %s, func_addr: %d\n", info->name, (int)info->func);
-		int i;
-		//TODO(dima): hack!
-		for (i = 0; i < 3; i++) {
-			unsigned int addr = (unsigned int)info->func;
-			
-			//unsigned int *p = (unsigned int *)(info->func + i);
-			qemu_log("		 :: %x\n", *(unsigned int *)(addr + i * 32)); 
-		}
-		
-
-	}
-	qemu_log("\n");
-	#endif
-
-
-}
-
-static void log_dump_TCGContext(TCGContext *s) {
-	#ifdef DEBUG_DISAS
-	if (unlikely(qemu_loglevel_mask(CPU_LOG_TB_OP))) {
-		int i;
-		qemu_log("\nTCGContext dump:\n");
-		qemu_log("nb_labels = %d\n", s->nb_labels);
-		if (s->nb_labels > 0)
-			qemu_log("==label list==\n");
-		for(i = 0; i < s->nb_labels; i++)
-			qemu_log("	labels[%d] = (%d, %d)\n",
-				i, (s->labels[i]).has_value, (int)(s->labels[i]).u.value);
-		qemu_log("nb_globals = %d\n", s->nb_globals);
-		qemu_log("nb_temps = %d\n", s->nb_temps);
-	
-		qemu_log("==temp list==\n");
-		qemu_log("temps[i] = (name, base_type, type, val_type, reg, val, mem_reg)\n");
-		for (i = 0; i < s->nb_temps; i++) {
-			qemu_log("	temps[%d] = (%s, %d, %d, %d, %d, %d, %d);\n",
-				i, (s->temps[i]).name, (int)(s->temps[i]).base_type,
-				(int)(s->temps[i]).type,
-				(s->temps[i]).val_type,
-				(s->temps[i]).reg,
-				(int)(s->temps[i]). val,
-				(s->temps[i]).mem_reg);
-		}
-		qemu_log("code_buf ptr = %d\n", s->code_buf);	
-		qemu_log("current_frame_offset = %d\n", s->current_frame_offset);
-		qemu_log("frame_start = %d\n", s->frame_start);
-		qemu_log("frame_end = %d\n", s->frame_end);
-		qemu_log("frame_reg = %d\n", s->frame_reg);
-		qemu_log("code ptr = %d\n", s->code_ptr);
-		qemu_log("==helpers list==\n");
-		for (i = 0; i < s->nb_helpers; i++) {
-			qemu_log("helper[%d]:\n", i);
-			log_dump_TCGHelperInfo(&(s->helpers[i]));
-		}
-
-	}
-	#endif
-	return;
-}
-
-
-static int log_technical_info(const TCGContext *s, const TCGOpDef *def, TCGTemp *temp,
-				TCGOpcode opc, const TCGArg *args, unsigned int dead_args) {
-	
-        qemu_log("(dima): technical info\n");
-	qemu_log("[TCGContext]\nnb_labels = %d\n", s->nb_labels);
-	qemu_log("nb_globals = %d\n", s->nb_globals);
-	qemu_log("nb_temps = %d\n", s->nb_temps);
-	qemu_log("current_frame_offset = %d\n", s->current_frame_offset);
-	qemu_log("frame_start = %d\n", s->frame_start);
-
-	qemu_log("[TCGTemp]\n");
-	qemu_log("base_type = %d\ntype = %d\nval_type = %d\nreg = %d\nval = %d\nname = %s\n",
-		(int)temp->base_type, (int)temp->type, temp->val_type, temp->reg,
-		(int)temp->val, temp->name);
-	qemu_log("dead_args = %d\n", dead_args);
-/*
-nb_globals = %d\nnb_temps = %d\n
-		current_frame_offset = %d\nframe_start = %d\n",
-		 s.nb_labels, s->nb_globals, s->nb_temps,
-		(int)s->current_frame_offset, (int)s->frame_start);
-	
-	qemu_log("[TCGTemp]\n");
-	qemu_log("base_type = %d\ntype = %d\nval_type = %d\nreg = %d\nval = %d\nname = %s\n",
-		(int)temp->base_type, (int)temp->type, temp->val_type, temp->reg,
-		(int)temp->val, temp->name);
-	
-
-        qemu_log("\n");
-*/
-	return 0;
-}
-
+#include "struct_info_dump.c"
 
 static int tcg_reg_alloc_call(TCGContext *s, const TCGOpDef *def,
                               TCGOpcode opc, const TCGArg *args,
@@ -2062,7 +1953,8 @@ static int tcg_reg_alloc_call(TCGContext *s, const TCGOpDef *def,
         
    
  //   log_technical_info(s, def, ts, opc, args, dead_args);	
- 	log_dump_TCGContext(s);
+ 	//log_dump_TCGContext(s);
+    struct_dump_tcg_context(s);
     /* mark dead temporaries and free the associated registers */
     for(i = nb_oargs; i < nb_iargs + nb_oargs; i++) {
         arg = args[i];
