@@ -1,0 +1,623 @@
+(dima):!(op1 & 2)
+(dima):tmp[28]
+(dima):func [29], nparam[65537], nargs [0] 
+----------------
+IN: 
+0x00000000:  e10f1000      mrs	r1, CPSR
+0x00000004:  eafffffe      b	0x4
+
+OP:
+ ---- 0x0
+ movi_i32 tmp9,$cpsr_read
+ call tmp9,$0x0,$1,tmp8
+ mov_i32 r1,tmp8
+
+ ---- 0x4
+ goto_tb $0x0
+ movi_i32 pc,$0x4
+ exit_tb $0x408bb008
+
+(dima):func addr[1270776] arg = 65537
+func_arg = 29
+
+
+TCGContext dump:
+nb_labels = 0
+nb_globals = 20
+nb_temps = 30
+==temp list==
+temps[i] = (name, base_type, type, val_type, reg, val, mem_reg)
+	temps[0] = (env, 0, 0, 1, 7, 0, 0);
+	temps[1] = (r0, 0, 0, 2, 0, 0, 7);
+	temps[2] = (r1, 0, 0, 2, 0, 0, 7);
+	temps[3] = (r2, 0, 0, 2, 0, 0, 7);
+	temps[4] = (r3, 0, 0, 2, 0, 0, 7);
+	temps[5] = (r4, 0, 0, 2, 0, 0, 7);
+	temps[6] = (r5, 0, 0, 2, 0, 0, 7);
+	temps[7] = (r6, 0, 0, 2, 0, 0, 7);
+	temps[8] = (r7, 0, 0, 2, 0, 0, 7);
+	temps[9] = (r8, 0, 0, 2, 0, 0, 7);
+	temps[10] = (r9, 0, 0, 2, 0, 0, 7);
+	temps[11] = (r10, 0, 0, 2, 0, 0, 7);
+	temps[12] = (r11, 0, 0, 2, 0, 0, 7);
+	temps[13] = (r12, 0, 0, 2, 0, 0, 7);
+	temps[14] = (r13, 0, 0, 2, 0, 0, 7);
+	temps[15] = (r14, 0, 0, 2, 0, 0, 7);
+	temps[16] = (pc, 0, 0, 2, 0, 0, 7);
+	temps[17] = (exclusive_addr, 0, 0, 2, 0, 0, 7);
+	temps[18] = (exclusive_val, 0, 0, 2, 0, 0, 7);
+	temps[19] = (exclusive_high, 0, 0, 2, 0, 0, 7);
+	temps[20] = ((null), 0, 0, 0, 0, 0, 0);
+	temps[21] = ((null), 0, 0, 0, 0, 0, 0);
+	temps[22] = ((null), 1, 0, 0, 0, 0, 0);
+	temps[23] = ((null), 0, 0, 0, 0, 0, 0);
+	temps[24] = ((null), 1, 0, 0, 0, 0, 0);
+	temps[25] = ((null), 0, 0, 0, 0, 0, 0);
+	temps[26] = ((null), 1, 0, 0, 0, 0, 0);
+	temps[27] = ((null), 0, 0, 0, 0, 0, 0);
+	temps[28] = ((null), 0, 0, 0, 0, 0, 0);
+	temps[29] = ((null), 0, 0, 3, 0, 1270776, 0);
+code_buf ptr = 16777216
+current_frame_offset = 27816
+frame_start = 27816
+frame_end = 28328
+frame_reg = 7
+code ptr = 16777216
+==helpers list==
+	name: add_setq, func_addr: 1269496
+		 :: e1a03000
+		 :: e1a03000
+		 :: 558730c8
+		 :: 40200fc3
+		 :: c12fff1e
+	name: add_saturate, func_addr: 1269528
+		 :: e1a03000
+		 :: 558730c8
+		 :: 40200fc3
+		 :: c12fff1e
+		 :: 23a03001
+	name: sub_saturate, func_addr: 1269568
+		 :: e1a03000
+		 :: 458730c8
+		 :: a1a00080
+		 :: 258730c8
+		 :: e12fff1e
+	name: double_saturate, func_addr: 1269608
+		 :: e3700107
+		 :: b3a00102
+		 :: e1a03000
+		 :: e1a02150
+		 :: b58730c8
+	name: add_usaturate, func_addr: 1269652
+		 :: e0910000
+		 :: 33a03001
+		 :: e2411001
+		 :: e52d4004
+		 :: c1a04003
+	name: sub_usaturate, func_addr: 1269672
+		 :: e1a03000
+		 :: e1a02150
+		 :: b58730c8
+		 :: e35c0000
+		 :: da000005
+	name: ssat, func_addr: 1269700
+		 :: e3a03001
+		 :: e3720001
+		 :: e1a03112
+		 :: e3510000
+		 :: e3710001
+	name: ssat16, func_addr: 1269748
+		 :: e52d4004
+		 :: c1a04003
+		 :: e6ff0074
+		 :: eafffff4
+		 :: b58730c8
+	name: usat, func_addr: 1269864
+		 :: e3500000
+		 :: e1500001
+		 :: e2411001
+		 :: e1b00840
+		 :: 33a02001
+	name: usat16, func_addr: 1269912
+		 :: e6bf3070
+		 :: e1510003
+		 :: 4a000004
+		 :: e350000d
+		 :: 9a000004
+	name: get_user_reg, func_addr: 1270008
+		 :: e350000d
+		 :: 9a000004
+		 :: e280001c
+		 :: 12fff1e
+		 :: 280001c
+	name: set_user_reg, func_addr: 1270084
+		 :: e350000d
+		 :: 9a000006
+		 :: e7831100
+		 :: 33a00001
+		 :: e3520000
+	name: add_cc, func_addr: 1270156
+		 :: e0813000
+		 :: e58700b8
+		 :: e2802001
+		 :: e1cc1001
+		 :: 23a0c001
+	name: adc_cc, func_addr: 1270208
+		 :: e59720b8
+		 :: e587c0b8
+		 :: e12fff1e
+		 :: e52d4004
+		 :: e1a00002
+	name: sub_cc, func_addr: 1270296
+		 :: e0612000
+		 :: e587c0bc
+		 :: e3520000
+		 :: e0211000
+		 :: e1500001
+	name: sbc_cc, func_addr: 1270356
+		 :: e59720b8
+		 :: e022c000
+		 :: e2402001
+		 :: e351001f
+		 :: e12fff1e
+	name: shl, func_addr: 1270448
+		 :: e6ef1071
+		 :: c3a00000
+		 :: e351001f
+		 :: e12fff1e
+		 :: e12fff1e
+	name: shr, func_addr: 1270468
+		 :: e6ef1071
+		 :: e1a00150
+		 :: 13a00000
+		 :: e1a00110
+		 :: 1a00fa0
+	name: sar, func_addr: 1270488
+		 :: e6ef1071
+		 :: e3510020
+		 :: 12fff1e
+		 :: e351001f
+		 :: e12fff1e
+	name: shl_cc, func_addr: 1270508
+		 :: e6ef1071
+		 :: 158700b8
+		 :: e58730b8
+		 :: 13a00000
+		 :: e1a00130
+	name: shr_cc, func_addr: 1270580
+		 :: e6ef1071
+		 :: 158700b8
+		 :: e58730b8
+		 :: e3510000
+		 :: e211301f
+	name: sar_cc, func_addr: 1270652
+		 :: e6ef1071
+		 :: e241c001
+		 :: 1a000003
+		 :: e2023001
+		 :: e1a00007
+	name: ror_cc, func_addr: 1270708
+		 :: e211301f
+		 :: e1a02130
+		 :: ea00192f
+		 :: e92d4008
+		 :: e3400001
+	name: cpsr_write, func_addr: 1270760
+		 :: e1a02001
+		 :: e34f38ff
+		 :: e3072060
+		 :: ebfeaaae
+		 :: e3404089
+	name: cpsr_read, func_addr: 1270776
+		 :: e92d4008
+		 :: e3073060
+		 :: e3a03001
+		 :: e1a00007
+		 :: e594e000
+	name: exception, func_addr: 1270804
+		 :: e92d4008
+		 :: e3400001
+		 :: e7870003
+		 :: e1a06001
+		 :: e3a0c001
+	name: wfi, func_addr: 1270824
+		 :: e3072060
+		 :: ebfeaaae
+		 :: e3404089
+		 :: e1a02006
+		 :: 1a000002
+	name: sxtb16, func_addr: 1278656
+		 :: e6af1070
+		 :: e92d4008
+		 :: 8bd8008
+		 :: e8bd8008
+		 :: e3401f0f
+	name: uxtb16, func_addr: 1278676
+		 :: e3c004ff
+		 :: e3520102
+		 :: 1a00003
+		 :: e180c422
+		 :: e0002003
+	name: sdiv, func_addr: 1278688
+		 :: e92d4008
+		 :: 8bd8008
+		 :: e8bd8008
+		 :: e3401f0f
+		 :: e3480888
+	name: udiv, func_addr: 1278732
+		 :: e92d4008
+		 :: e2003cff
+		 :: e34f30f0
+		 :: e00c3000
+		 :: e18010a1
+	name: rbit, func_addr: 1278756
+		 :: e20028ff
+		 :: e000c001
+		 :: e183c222
+		 :: e3013111
+		 :: b2600000
+	name: abs, func_addr: 1278880
+		 :: e3500000
+		 :: e31c0001
+		 :: e590c1b4
+		 :: 1a00002d
+		 :: e31c0001
+	name: set_cp, func_addr: 1279448
+		 :: e92d4030
+		 :: e28120b8
+		 :: e7e3285c
+		 :: e92d4008
+		 :: 8bd8008
+	name: get_cp, func_addr: 1279536
+		 :: e1a02001
+		 :: e35c0000
+		 :: e5900004
+		 :: e0224003
+		 :: e3140902
+	name: qadd16, func_addr: 1279612
+		 :: e6ff3070
+		 :: e1a03820
+		 :: e1800002
+		 :: e3470fff
+		 :: 13a02902
+	name: qadd8, func_addr: 1279748
+		 :: e6ef3070
+		 :: e1a0500c
+		 :: e1a0c40c
+		 :: e1a02802
+		 :: e1a00c03
+	name: qsub16, func_addr: 1280012
+		 :: e6ff3070
+		 :: e1a03820
+		 :: e1800002
+		 :: e3470fff
+		 :: 13a02902
+	name: qsub8, func_addr: 1280148
+		 :: e6ef3070
+		 :: e1a0500c
+		 :: e1a0c40c
+		 :: e1a02802
+		 :: e1a00c03
+	name: qsubaddx, func_addr: 1280412
+		 :: e6ff3070
+		 :: e1a04002
+		 :: e1a00802
+		 :: e3000000
+		 :: e3074fff
+	name: qaddsubx, func_addr: 1280552
+		 :: e6ff3070
+		 :: e1a03820
+		 :: e1800002
+		 :: e3470fff
+		 :: 13a02902
+	name: uqadd16, func_addr: 1280688
+		 :: e1a02820
+		 :: 91a00001
+		 :: e6efc070
+		 :: 83a020ff
+		 :: e0801c21
+	name: uqadd8, func_addr: 1280752
+		 :: e6efc070
+		 :: 83a020ff
+		 :: e0801c21
+		 :: e1800003
+		 :: e1a00820
+	name: uqsub16, func_addr: 1280868
+		 :: e6ff3071
+		 :: e1500001
+		 :: e15c0003
+		 :: 8062500c
+		 :: 8063c002
+	name: uqsub8, func_addr: 1280924
+		 :: e6ef3071
+		 :: 93a04000
+		 :: 81a05405
+		 :: e1530001
+		 :: e6ff2070
+	name: uqsubaddx, func_addr: 1281052
+		 :: e6ff2070
+		 :: e1500001
+		 :: e1a03820
+		 :: 91a01801
+		 :: e3530000
+	name: uqaddsubx, func_addr: 1281108
+		 :: e6ff2070
+		 :: 86ff2072
+		 :: e6bf0070
+		 :: 5384400c
+		 :: e7a75451
+	name: sadd16, func_addr: 1281168
+		 :: e1a0c840
+		 :: e09c1841
+		 :: e6a3c071
+		 :: 53833002
+		 :: e1864404
+	name: sadd8, func_addr: 1281224
+		 :: e6af3070
+		 :: e0954004
+		 :: e1a06806
+		 :: e8bd0070
+		 :: 53a04003
+	name: ssub16, func_addr: 1281328
+		 :: e6bfc070
+		 :: e0710840
+		 :: e92d0070
+		 :: e7a75851
+		 :: e0710c40
+	name: ssub8, func_addr: 1281384
+		 :: e6af3071
+		 :: e7a76850
+		 :: 53833004
+		 :: e5823000
+		 :: 53a04003
+	name: ssubaddx, func_addr: 1281492
+		 :: e6bfc070
+		 :: 5384400c
+		 :: e05c3841
+		 :: e12fff1e
+		 :: 3a01000
+	name: saddsubx, func_addr: 1281544
+		 :: e6bfc070
+		 :: a38cc00c
+		 :: e1b01820
+		 :: e5821000
+		 :: e7e75850
+	name: uadd16, func_addr: 1281592
+		 :: e1a03820
+		 :: 13a01003
+		 :: e6ef4070
+		 :: e1b0442c
+		 :: 13844004
+	name: uadd8, func_addr: 1281648
+		 :: e92d0070
+		 :: e0865005
+		 :: e6ef5075
+		 :: e185240c
+		 :: e1a01821
+	name: usub16, func_addr: 1281764
+		 :: e6ffc070
+		 :: 3a01003
+		 :: e6ef5070
+		 :: 13a04000
+		 :: e0610c20
+	name: usub8, func_addr: 1281820
+		 :: e92d0070
+		 :: e7e75851
+		 :: e6efc07c
+		 :: 3844008
+		 :: e6ff3071
+	name: usubaddx, func_addr: 1281944
+		 :: e6ffc070
+		 :: 13a03000
+		 :: e6f00071
+		 :: 38cc00c
+		 :: e7ef00d3
+	name: uaddsubx, func_addr: 1282000
+		 :: e6ffc070
+		 :: 3a0c003
+		 :: e0823841
+		 :: e082300c
+		 :: e0822c41
+	name: shadd16, func_addr: 1282056
+		 :: e1a02840
+		 :: e7a7c850
+		 :: e7e7c0dc
+		 :: e183100c
+		 :: e7ef00dc
+	name: shadd8, func_addr: 1282088
+		 :: e7a7c850
+		 :: e7e7c0dc
+		 :: e183100c
+		 :: e7ef00dc
+		 :: e064200c
+	name: shsub16, func_addr: 1282164
+		 :: e1a02841
+		 :: e12fff1e
+		 :: e7e720d2
+		 :: e7e730d3
+		 :: e6bf3070
+	name: shsub8, func_addr: 1282200
+		 :: e7a7c850
+		 :: e1a04c41
+		 :: e182140c
+		 :: e062c840
+		 :: e6b0c071
+	name: shsubaddx, func_addr: 1282288
+		 :: e6bf2071
+		 :: e6bf3070
+		 :: e6ff3070
+		 :: e7e72851
+		 :: e1a030a3
+	name: shaddsubx, func_addr: 1282320
+		 :: e6bf3070
+		 :: e6ff3070
+		 :: e7e72851
+		 :: e1a030a3
+		 :: e18310a1
+	name: uhadd16, func_addr: 1282352
+		 :: e6ff3070
+		 :: e7e72851
+		 :: e1a030a3
+		 :: e18310a1
+		 :: e0612003
+	name: uhadd8, func_addr: 1282384
+		 :: e7e72851
+		 :: e1a030a3
+		 :: e18310a1
+		 :: e0612003
+		 :: e7e74851
+	name: uhsub16, func_addr: 1282464
+		 :: e1a02821
+		 :: e12fff1e
+		 :: e7e720d2
+		 :: e7e730d3
+		 :: e6ff3070
+	name: uhsub8, func_addr: 1282500
+		 :: e7e7c850
+		 :: e1a04c21
+		 :: e182140c
+		 :: e062c820
+		 :: e6f0c071
+	name: uhsubaddx, func_addr: 1282588
+		 :: e6ff2071
+		 :: e6ff3070
+		 :: e6ef3070
+		 :: e7e72851
+		 :: 80623003
+	name: uhaddsubx, func_addr: 1282620
+		 :: e6ff3070
+		 :: e6ef3070
+		 :: e7e72851
+		 :: 80623003
+		 :: 90603003
+	name: usad8, func_addr: 1282652
+		 :: e6ef3070
+		 :: e7e72851
+		 :: 80623003
+		 :: 90603003
+		 :: e3100002
+	name: sel_flags, func_addr: 1282772
+		 :: e210c001
+		 :: e00c1001
+		 :: e52d4004
+		 :: e3c42837
+		 :: e1a01a01
+	name: logicq_cc, func_addr: 1282820
+		 :: e1900001
+		 :: e18c2003
+		 :: e3100008
+		 :: e181080c
+		 :: e12fff1e
+	name: set_teecr, func_addr: 1283032
+		 :: e590222c
+		 :: e92d40d0
+		 :: e1a00004
+		 :: ebffd5d0
+		 :: e58d4000
+	name: recpe_u32, func_addr: 1283300
+		 :: e3500000
+		 :: e1a02001
+		 :: ebffffb3
+		 :: e28d4008
+		 :: e1a00006
+	name: rsqrte_u32, func_addr: 1283748
+		 :: e3100103
+		 :: e3e08103
+		 :: e1851007
+		 :: e3e08102
+		 :: e1851007
+	name: rsqrte_f32, func_addr: 1283920
+		 :: e3003000
+		 :: e1a05000
+		 :: e35c0000
+		 :: e28dd00c
+		 :: e1a0a005
+	name: recpe_f32, func_addr: 1284332
+		 :: e92d43f8
+		 :: 8a00000e
+		 :: 1a000030
+		 :: ebff9aea
+		 :: e8bd83f8
+	name: recps_f32, func_addr: 1284616
+		 :: e3003000
+		 :: e3c12102
+		 :: e1a01000
+		 :: e3a00101
+		 :: e3a00040
+	name: rsqrts_f32, func_addr: 1284764
+		 :: e3003000
+		 :: e3c12102
+		 :: e1a01000
+		 :: e1100002
+		 :: e3c11102
+	name: v7m_msr, func_addr: 1287196
+		 :: e92d4008
+		 :: 13a598
+		 :: 13a598
+		 :: 13a5a8
+		 :: e1a03182
+	name: v7m_mrs, func_addr: 1287636
+		 :: e92d4038
+		 :: 13a644
+		 :: 13a644
+		 :: 13a638
+		 :: e59010b8
+	name: get_r13_banked, func_addr: 1288380
+		 :: e92d4008
+		 :: 979ff10c
+		 :: 13a934
+		 :: 13a934
+		 :: e1a02001
+	name: set_r13_banked, func_addr: 1288608
+		 :: e92d4008
+		 :: 979ff103
+		 :: 13aa18
+		 :: 13aa18
+		 :: e1a02001
+	name: get_cp15, func_addr: 1288836
+		 :: e7e32851
+		 :: 979ff105
+		 :: 13acec
+		 :: 13ac14
+		 :: e344110f
+	name: set_cp15, func_addr: 1291764
+		 :: e92d4070
+		 :: 979ff106
+		 :: 13b798
+		 :: 13b714
+		 :: e5941234
+	name: clz, func_addr: 1296788
+		 :: e3500000
+		 :: e5923000
+		 :: e3500000
+		 :: ebfb427e
+		 :: e1a00004
+
+OUT: [size=32]
+0x01000000:  ebc4d8fc      bl	0x1363f8
+0x01000004:  e5870004      str	r0, [r7, #4]
+0x01000008:  ea000000      b	0x1000010
+0x0100000c:  e3004004      movw	r4, #4	; 0x4
+0x01000010:  e587403c      str	r4, [r7, #60]
+0x01000014:  e59f0000      ldr	r0, [pc, #0]	; 0x100001c
+0x01000018:  eaca6a33      b	0x29a8ec
+0x0100001c:  408bb008      addmi	fp, fp, r8
+
+----------------
+IN: 
+0x00000004:  eafffffe      b	0x4
+
+OP:
+ ---- 0x4
+ goto_tb $0x0
+ movi_i32 pc,$0x4
+ exit_tb $0x408bb050
+
+OUT: [size=24]
+0x01000020:  ea000000      b	0x1000028
+0x01000024:  e3004004      movw	r4, #4	; 0x4
+0x01000028:  e587403c      str	r4, [r7, #60]
+0x0100002c:  e59f0000      ldr	r0, [pc, #0]	; 0x1000034
+0x01000030:  eaca6a2d      b	0x29a8ec
+0x01000034:  408bb050      addmi	fp, fp, r0, asr r0
+
