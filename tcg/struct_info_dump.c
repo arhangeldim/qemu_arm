@@ -1,5 +1,10 @@
 #include "struct_info_dump.h"
 
+static const char *get_description_by_cond(int cond) {
+    return desc[cond];
+}
+
+
 static int is_simple_arm_insn(const char *name) {
 	if (name[0] == 'v' && name[1] == 'f' && name[2] == 'p')
 		return 0;
@@ -21,16 +26,23 @@ static void struct_dump_tcg_helpers_info(const TCGHelperInfo *helpers, const int
             char *name = (char *)helpers[i].name;
             if (!is_simple_arm_insn(name))
                 continue;
-		    qemu_log("(%d) name: %s, func_addr: %x\n", i, (char *)helpers[i].name, (int)helpers[i].func);
+		    qemu_log("\n[%d] HELPER NAME: %s, ADDRESS: %x           [%d]\n", i, (char *)helpers[i].name, (int)helpers[i].func, i);
+            if (i < size - 1) {
+                int delta = (int)helpers[i + 1].func - (int)helpers[i].func;
+                qemu_log("SIZE: %d\n", delta);
+            }
 		    unsigned int addr = (unsigned int)helpers[i].func;
             
             //TODO(dima): hack!
-		    for (j = 0; j < 5; j++) {
+		    for (j = 0; j < 3; j++) {
 			    insn = *(unsigned int *)(addr + j * 32);
 			    qemu_log("	%x :: %x\n",(addr + j *32), insn);
                 simple_arm_insn_disas(insn);
                  
+
 		    }
+
+
         }
 		
 
@@ -87,16 +99,16 @@ static int simple_arm_insn_disas(unsigned int insn) {
         qemu_log("unused instr, cond = never\n");
     }
     if (cond != 0xe) {
-        qemu_log("conditional instr. cond = %x\n", cond);
+        qemu_log("conditional instr. cond = %s\n", get_description_by_cond(cond));
     }
     if ((insn & 0x0f900000) == 0x03000000) {
         if ((insn & (1 << 21)) == 0) {
             rd = (insn >> 12) & 0xf;
             val = ((insn >> 4) & 0xf000) | (insn & 0xfff);
             if ((insn & (1 << 22)) == 0) { 
-                qemu_log("[MOVW: rd = %x  val = %x]\n");
+                qemu_log("[MOVW: rd = %x  val = %x]\n", rd, val);
             } else {
-                qemu_log("[MOVT: rd = %x  val = %x]\n");
+                qemu_log("[MOVT: rd = %x  val = %x]\n", rd, val);
             }
         } else {
             if (((insn >> 12) & 0xf) != 0xf)
@@ -172,7 +184,46 @@ static int simple_arm_insn_disas(unsigned int insn) {
             shiftop = (insn >> 5) & 3;
             qemu_log("[MOV(register) rm = %x, shiftop = %x]\n", rm, shiftop);
         }
-    }
+    } else {
+        op1 = (insn >> 24) & 0xf;
+        switch(op1) {
+            case 0x0:
+            case 0x1:
+                qemu_log("multiples, extra load/stores\n");
+                break;
+            case 0x6:
+            case 0x7:
+                if (insn & (1 << 4)) {
+                    qemu_log("armv6 media instr\n");
+                }
+                sh = (0xf << 20) | (0xf << 4);
+                rn = (insn >> 16) & 0xf;
+                rd = (insn >> 12) & 0xf;
+                if (insn & (1 << 20)) {
+                    qemu_log("[LOAD]: rn = %x, rd = %x\n", rn, rd);
+                } else {
+                    qemu_log("[STORE]: rn = %x, rd = %x\n", rn, rd);
+                }
+                break;
+            case 0x08:
+            case 0x09:
+                qemu_log("[LDM/STM]\n");
+                break;
+            case 0xa:
+            case 0xb:
+                qemu_log("[B/BL]\n");
+                break;
+            case 0xc:
+            case 0xd:
+            case 0xe:
+                qemu_log("coprocessor instr\n");
+                break;
+            case 0xf:
+                qemu_log("[SWI]\n");
+                break;
+        }
+
+    }                
                        
 
 
