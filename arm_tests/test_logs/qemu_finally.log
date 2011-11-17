@@ -1,0 +1,982 @@
+(dima):!(op1 & 2)
+(dima):tmp[28]
+(dima):func [29], nparam[65537], nargs [0] 
+----------------
+IN: 
+0x00000000:  e10f1000      mrs	r1, CPSR
+0x00000004:  eafffffe      b	0x4
+
+OP:
+ ---- 0x0
+ movi_i32 tmp9,$cpsr_read
+ call tmp9,$0x0,$1,tmp8
+ mov_i32 r1,tmp8
+
+ ---- 0x4
+ goto_tb $0x0
+ movi_i32 pc,$0x4
+ exit_tb $0x4089f008
+
+(dima):func addr[1272048] arg = 65537
+func_arg = 29
+
+
+TCGContext dump:
+nb_labels = 0
+nb_globals = 20
+nb_temps = 30
+==temp list==
+temps[i] = (name, base_type, type, val_type, reg, val, mem_reg)
+	temps[0] = (env, 0, 0, 1, 7, 0, 0);
+	temps[1] = (r0, 0, 0, 2, 0, 0, 7);
+	temps[2] = (r1, 0, 0, 2, 0, 0, 7);
+	temps[3] = (r2, 0, 0, 2, 0, 0, 7);
+	temps[4] = (r3, 0, 0, 2, 0, 0, 7);
+	temps[5] = (r4, 0, 0, 2, 0, 0, 7);
+	temps[6] = (r5, 0, 0, 2, 0, 0, 7);
+	temps[7] = (r6, 0, 0, 2, 0, 0, 7);
+	temps[8] = (r7, 0, 0, 2, 0, 0, 7);
+	temps[9] = (r8, 0, 0, 2, 0, 0, 7);
+	temps[10] = (r9, 0, 0, 2, 0, 0, 7);
+	temps[11] = (r10, 0, 0, 2, 0, 0, 7);
+	temps[12] = (r11, 0, 0, 2, 0, 0, 7);
+	temps[13] = (r12, 0, 0, 2, 0, 0, 7);
+	temps[14] = (r13, 0, 0, 2, 0, 0, 7);
+	temps[15] = (r14, 0, 0, 2, 0, 0, 7);
+	temps[16] = (pc, 0, 0, 2, 0, 0, 7);
+	temps[17] = (exclusive_addr, 0, 0, 2, 0, 0, 7);
+	temps[18] = (exclusive_val, 0, 0, 2, 0, 0, 7);
+	temps[19] = (exclusive_high, 0, 0, 2, 0, 0, 7);
+	temps[20] = ((null), 0, 0, 0, 0, 0, 0);
+	temps[21] = ((null), 0, 0, 0, 0, 0, 0);
+	temps[22] = ((null), 1, 0, 0, 0, 0, 0);
+	temps[23] = ((null), 0, 0, 0, 0, 0, 0);
+	temps[24] = ((null), 1, 0, 0, 0, 0, 0);
+	temps[25] = ((null), 0, 0, 0, 0, 0, 0);
+	temps[26] = ((null), 1, 0, 0, 0, 0, 0);
+	temps[27] = ((null), 0, 0, 0, 0, 0, 0);
+	temps[28] = ((null), 0, 0, 0, 0, 0, 0);
+	temps[29] = ((null), 0, 0, 3, 0, 1272048, 0);
+code_buf ptr = 16777216
+current_frame_offset = 27816
+frame_start = 27816
+frame_end = 28328
+frame_reg = 7
+code ptr = 16777216
+==helpers list==
+
+[1] HELPER NAME: add_setq, ADDRESS: 1363f0           [1]
+SIZE: 32
+	1363f0 :: e1a03000
+[MOV(register) rm = 0, shiftop = 0]
+	136410 :: e1a03000
+[MOV(register) rm = 0, shiftop = 0]
+	136430 :: 558730c8
+conditional instr. cond = PL
+
+[2] HELPER NAME: add_saturate, ADDRESS: 136410           [2]
+SIZE: 40
+	136410 :: e1a03000
+[MOV(register) rm = 0, shiftop = 0]
+	136430 :: 558730c8
+conditional instr. cond = PL
+	136450 :: 40200fc3
+conditional instr. cond = MI
+[MOV(register) rm = 3, shiftop = 2]
+
+[3] HELPER NAME: sub_saturate, ADDRESS: 136438           [3]
+SIZE: 40
+	136438 :: e1a03000
+[MOV(register) rm = 0, shiftop = 0]
+	136458 :: 458730c8
+conditional instr. cond = MI
+	136478 :: a1a00080
+conditional instr. cond = GE
+[MOV(register) rm = 0, shiftop = 0]
+
+[4] HELPER NAME: double_saturate, ADDRESS: 136460           [4]
+SIZE: 44
+	136460 :: e3700107
+[MOV: val = c0000001  shift = 2 set_cc = 1]
+	136480 :: b3a00102
+conditional instr. cond = LT
+[MOV: val = 80000000  shift = 2 set_cc = 0]
+	1364a0 :: e1a03000
+[MOV(register) rm = 0, shiftop = 0]
+
+[5] HELPER NAME: add_usaturate, ADDRESS: 13648c           [5]
+SIZE: 20
+	13648c :: e0910000
+[MOV(register) rm = 0, shiftop = 0]
+	1364ac :: 33a03001
+conditional instr. cond = CC
+[MOV: val = 1  shift = 0 set_cc = 0]
+	1364cc :: e2411001
+[MOV: val = 1  shift = 0 set_cc = 0]
+
+[6] HELPER NAME: sub_usaturate, ADDRESS: 1364a0           [6]
+SIZE: 28
+	1364a0 :: e1a03000
+[MOV(register) rm = 0, shiftop = 0]
+	1364c0 :: e1a02150
+[MOV(register) rm = 0, shiftop = 2]
+	1364e0 :: b58730c8
+conditional instr. cond = LT
+
+[7] HELPER NAME: ssat, ADDRESS: 1364bc           [7]
+SIZE: 48
+	1364bc :: e3a03001
+[MOV: val = 1  shift = 0 set_cc = 0]
+	1364dc :: e3720001
+[MOV: val = 1  shift = 0 set_cc = 1]
+	1364fc :: e1a03112
+[MOV(register) rm = 2, shiftop = 0]
+
+[8] HELPER NAME: ssat16, ADDRESS: 1364ec           [8]
+SIZE: 116
+	1364ec :: e52d4004
+	13650c :: c1a04003
+conditional instr. cond = GT
+[MOV(register) rm = 3, shiftop = 0]
+	13652c :: e6ff0074
+armv6 media instr
+[LOAD]: rn = f, rd = 0
+
+[9] HELPER NAME: usat, ADDRESS: 136560           [9]
+SIZE: 48
+	136560 :: e3500000
+[MOV: val = 0  shift = 0 set_cc = 1]
+	136580 :: e1500001
+[MOV(register) rm = 1, shiftop = 0]
+	1365a0 :: e2411001
+[MOV: val = 1  shift = 0 set_cc = 0]
+
+[10] HELPER NAME: usat16, ADDRESS: 136590           [10]
+SIZE: 96
+	136590 :: e6bf3070
+armv6 media instr
+[LOAD]: rn = f, rd = 3
+	1365b0 :: e1510003
+[MOV(register) rm = 3, shiftop = 0]
+	1365d0 :: 4a000004
+conditional instr. cond = MI
+[B/BL]
+
+[11] HELPER NAME: get_user_reg, ADDRESS: 1365f0           [11]
+SIZE: 76
+	1365f0 :: e350000d
+[MOV: val = d  shift = 0 set_cc = 1]
+	136610 :: 9a000004
+conditional instr. cond = LS
+[B/BL]
+	136630 :: e280001c
+[MOV: val = 1c  shift = 0 set_cc = 0]
+
+[12] HELPER NAME: set_user_reg, ADDRESS: 13663c           [12]
+SIZE: 72
+	13663c :: e350000d
+[MOV: val = d  shift = 0 set_cc = 1]
+	13665c :: 9a000006
+conditional instr. cond = LS
+[B/BL]
+	13667c :: e7831100
+[STORE]: rn = 3, rd = 1
+
+[13] HELPER NAME: add_cc, ADDRESS: 136684           [13]
+SIZE: 52
+	136684 :: e0813000
+[MOV(register) rm = 0, shiftop = 0]
+	1366a4 :: e58700b8
+	1366c4 :: e2802001
+[MOV: val = 1  shift = 0 set_cc = 0]
+
+[14] HELPER NAME: adc_cc, ADDRESS: 1366b8           [14]
+SIZE: 88
+	1366b8 :: e59720b8
+	1366d8 :: e587c0b8
+	1366f8 :: e12fff1e
+[MOV(register) rm = e, shiftop = 0]
+
+[15] HELPER NAME: sub_cc, ADDRESS: 136710           [15]
+SIZE: 60
+	136710 :: e0612000
+[MOV(register) rm = 0, shiftop = 0]
+	136730 :: e587c0bc
+	136750 :: e3520000
+[MOV: val = 0  shift = 0 set_cc = 1]
+
+[16] HELPER NAME: sbc_cc, ADDRESS: 13674c           [16]
+SIZE: 92
+	13674c :: e59720b8
+	13676c :: e022c000
+[MOV(register) rm = 0, shiftop = 0]
+	13678c :: e2402001
+[MOV: val = 1  shift = 0 set_cc = 0]
+
+[17] HELPER NAME: shl, ADDRESS: 1367a8           [17]
+SIZE: 20
+	1367a8 :: e6ef1071
+armv6 media instr
+[STORE]: rn = f, rd = 1
+	1367c8 :: c3a00000
+conditional instr. cond = GT
+[MOV: val = 0  shift = 0 set_cc = 0]
+	1367e8 :: e351001f
+[MOV: val = 1f  shift = 0 set_cc = 1]
+
+[18] HELPER NAME: shr, ADDRESS: 1367bc           [18]
+SIZE: 20
+	1367bc :: e6ef1071
+armv6 media instr
+[STORE]: rn = f, rd = 1
+	1367dc :: e1a00150
+[MOV(register) rm = 0, shiftop = 2]
+	1367fc :: 13a00000
+conditional instr. cond = NE
+[MOV: val = 0  shift = 0 set_cc = 0]
+
+[19] HELPER NAME: sar, ADDRESS: 1367d0           [19]
+SIZE: 20
+	1367d0 :: e6ef1071
+armv6 media instr
+[STORE]: rn = f, rd = 1
+	1367f0 :: e3510020
+[MOV: val = 20  shift = 0 set_cc = 1]
+	136810 :: 12fff1e
+conditional instr. cond = EQ
+[BX: rm = e]
+
+[20] HELPER NAME: shl_cc, ADDRESS: 1367e4           [20]
+SIZE: 72
+	1367e4 :: e6ef1071
+armv6 media instr
+[STORE]: rn = f, rd = 1
+	136804 :: 158700b8
+conditional instr. cond = NE
+	136824 :: e58730b8
+
+[21] HELPER NAME: shr_cc, ADDRESS: 13682c           [21]
+SIZE: 72
+	13682c :: e6ef1071
+armv6 media instr
+[STORE]: rn = f, rd = 1
+	13684c :: 158700b8
+conditional instr. cond = NE
+	13686c :: e58730b8
+
+[22] HELPER NAME: sar_cc, ADDRESS: 136874           [22]
+SIZE: 56
+	136874 :: e6ef1071
+armv6 media instr
+[STORE]: rn = f, rd = 1
+	136894 :: e241c001
+[MOV: val = 1  shift = 0 set_cc = 0]
+	1368b4 :: 1a000003
+conditional instr. cond = NE
+[B/BL]
+
+[23] HELPER NAME: ror_cc, ADDRESS: 1368ac           [23]
+SIZE: 52
+	1368ac :: e211301f
+[MOV: val = 1f  shift = 0 set_cc = 1]
+	1368cc :: e1a02130
+[MOV(register) rm = 0, shiftop = 1]
+	1368ec :: ea00192f
+[B/BL]
+
+[24] HELPER NAME: cpsr_write, ADDRESS: 1368e0           [24]
+SIZE: 16
+	1368e0 :: e1a02001
+[MOV(register) rm = 1, shiftop = 0]
+	136900 :: e34f38ff
+[MOVT: rd = 3  val = f8ff]
+	136920 :: e3072060
+[MOVW: rd = 2  val = 7060]
+
+[25] HELPER NAME: cpsr_read, ADDRESS: 1368f0           [25]
+SIZE: 28
+	1368f0 :: e92d4008
+[LDM/STM]
+	136910 :: e3073060
+[MOVW: rd = 3  val = 7060]
+	136930 :: e3a03001
+[MOV: val = 1  shift = 0 set_cc = 0]
+
+[26] HELPER NAME: exception, ADDRESS: 13690c           [26]
+SIZE: 20
+	13690c :: e92d4008
+[LDM/STM]
+	13692c :: e3400001
+[MOVT: rd = 0  val = 1]
+	13694c :: e7870003
+[STORE]: rn = 7, rd = 0
+
+[27] HELPER NAME: wfi, ADDRESS: 136920           [27]
+SIZE: 7832
+	136920 :: e3072060
+[MOVW: rd = 2  val = 7060]
+	136940 :: ebfea970
+[B/BL]
+	136960 :: e3404089
+[MOVT: rd = 4  val = 89]
+
+[28] HELPER NAME: sxtb16, ADDRESS: 1387b8           [28]
+SIZE: 20
+	1387b8 :: e6af1070
+armv6 media instr
+[STORE]: rn = f, rd = 1
+	1387d8 :: e92d4008
+[LDM/STM]
+	1387f8 :: 8bd8008
+conditional instr. cond = EQ
+[LDM/STM]
+
+[29] HELPER NAME: uxtb16, ADDRESS: 1387cc           [29]
+SIZE: 12
+	1387cc :: e3c004ff
+[MOV: val = ff000000  shift = 8 set_cc = 0]
+	1387ec :: e3520102
+[MOV: val = 80000000  shift = 2 set_cc = 1]
+	13880c :: 1a00003
+conditional instr. cond = EQ
+[MSR: op1 = 1  sh = 0  rm = 3 ]
+
+[30] HELPER NAME: sdiv, ADDRESS: 1387d8           [30]
+SIZE: 44
+	1387d8 :: e92d4008
+[LDM/STM]
+	1387f8 :: 8bd8008
+conditional instr. cond = EQ
+[LDM/STM]
+	138818 :: e8bd8008
+[LDM/STM]
+
+[31] HELPER NAME: udiv, ADDRESS: 138804           [31]
+SIZE: 24
+	138804 :: e92d4008
+[LDM/STM]
+	138824 :: e2003cff
+[MOV: val = ff00  shift = 18 set_cc = 0]
+	138844 :: e34f30f0
+[MOVT: rd = 3  val = f0f0]
+
+[32] HELPER NAME: rbit, ADDRESS: 13881c           [32]
+SIZE: 124
+	13881c :: e20028ff
+[MOV: val = ff0000  shift = 10 set_cc = 0]
+	13883c :: e000c001
+[MOV(register) rm = 1, shiftop = 0]
+	13885c :: e183c222
+[MOV(register) rm = 2, shiftop = 1]
+
+[33] HELPER NAME: abs, ADDRESS: 138898           [33]
+SIZE: 568
+	138898 :: e3500000
+[MOV: val = 0  shift = 0 set_cc = 1]
+	1388b8 :: e31c0001
+[MOV: val = 1  shift = 0 set_cc = 1]
+	1388d8 :: e590c1b4
+
+[34] HELPER NAME: set_cp, ADDRESS: 138ad0           [34]
+SIZE: 88
+	138ad0 :: e92d4030
+[LDM/STM]
+	138af0 :: e28120b8
+[MOV: val = b8  shift = 0 set_cc = 0]
+	138b10 :: e7e3285c
+armv6 media instr
+[STORE]: rn = 3, rd = 2
+
+[35] HELPER NAME: get_cp, ADDRESS: 138b28           [35]
+SIZE: 76
+	138b28 :: e1a02001
+[MOV(register) rm = 1, shiftop = 0]
+	138b48 :: e35c0000
+[MOV: val = 0  shift = 0 set_cc = 1]
+	138b68 :: e5900004
+
+[36] HELPER NAME: qadd16, ADDRESS: 138b74           [36]
+SIZE: 136
+	138b74 :: e6ff3070
+armv6 media instr
+[LOAD]: rn = f, rd = 3
+	138b94 :: e1a03820
+[MOV(register) rm = 0, shiftop = 1]
+	138bb4 :: e1800002
+[MOV(register) rm = 2, shiftop = 0]
+
+[37] HELPER NAME: qadd8, ADDRESS: 138bfc           [37]
+SIZE: 264
+	138bfc :: e6ef3070
+armv6 media instr
+[STORE]: rn = f, rd = 3
+	138c1c :: e1a0500c
+[MOV(register) rm = c, shiftop = 0]
+	138c3c :: e1a0c40c
+[MOV(register) rm = c, shiftop = 0]
+
+[38] HELPER NAME: qsub16, ADDRESS: 138d04           [38]
+SIZE: 136
+	138d04 :: e6ff3070
+armv6 media instr
+[LOAD]: rn = f, rd = 3
+	138d24 :: e1a03820
+[MOV(register) rm = 0, shiftop = 1]
+	138d44 :: e1800002
+[MOV(register) rm = 2, shiftop = 0]
+
+[39] HELPER NAME: qsub8, ADDRESS: 138d8c           [39]
+SIZE: 264
+	138d8c :: e6ef3070
+armv6 media instr
+[STORE]: rn = f, rd = 3
+	138dac :: e1a0500c
+[MOV(register) rm = c, shiftop = 0]
+	138dcc :: e1a0c40c
+[MOV(register) rm = c, shiftop = 0]
+
+[40] HELPER NAME: qsubaddx, ADDRESS: 138e94           [40]
+SIZE: 140
+	138e94 :: e6ff3070
+armv6 media instr
+[LOAD]: rn = f, rd = 3
+	138eb4 :: e1a04002
+[MOV(register) rm = 2, shiftop = 0]
+	138ed4 :: e1a00802
+[MOV(register) rm = 2, shiftop = 0]
+
+[41] HELPER NAME: qaddsubx, ADDRESS: 138f20           [41]
+SIZE: 136
+	138f20 :: e6ff3070
+armv6 media instr
+[LOAD]: rn = f, rd = 3
+	138f40 :: e1a03820
+[MOV(register) rm = 0, shiftop = 1]
+	138f60 :: e1800002
+[MOV(register) rm = 2, shiftop = 0]
+
+[42] HELPER NAME: uqadd16, ADDRESS: 138fa8           [42]
+SIZE: 64
+	138fa8 :: e1a02820
+[MOV(register) rm = 0, shiftop = 1]
+	138fc8 :: 91a00001
+conditional instr. cond = LS
+[MOV(register) rm = 1, shiftop = 0]
+	138fe8 :: e6efc070
+armv6 media instr
+[STORE]: rn = f, rd = c
+
+[43] HELPER NAME: uqadd8, ADDRESS: 138fe8           [43]
+SIZE: 116
+	138fe8 :: e6efc070
+armv6 media instr
+[STORE]: rn = f, rd = c
+	139008 :: 83a020ff
+conditional instr. cond = HI
+[MOV: val = ff  shift = 0 set_cc = 0]
+	139028 :: e0801c21
+[MOV(register) rm = 1, shiftop = 1]
+
+[44] HELPER NAME: uqsub16, ADDRESS: 13905c           [44]
+SIZE: 56
+	13905c :: e6ff3071
+armv6 media instr
+[LOAD]: rn = f, rd = 3
+	13907c :: e1500001
+[MOV(register) rm = 1, shiftop = 0]
+	13909c :: e15c0003
+[MOV(register) rm = 3, shiftop = 0]
+
+[45] HELPER NAME: uqsub8, ADDRESS: 139094           [45]
+SIZE: 128
+	139094 :: e6ef3071
+armv6 media instr
+[STORE]: rn = f, rd = 3
+	1390b4 :: 93a04000
+conditional instr. cond = LS
+[MOV: val = 0  shift = 0 set_cc = 0]
+	1390d4 :: 81a05405
+conditional instr. cond = HI
+[MOV(register) rm = 5, shiftop = 0]
+
+[46] HELPER NAME: uqsubaddx, ADDRESS: 139114           [46]
+SIZE: 56
+	139114 :: e6ff2070
+armv6 media instr
+[LOAD]: rn = f, rd = 2
+	139134 :: e1500001
+[MOV(register) rm = 1, shiftop = 0]
+	139154 :: e1a03820
+[MOV(register) rm = 0, shiftop = 1]
+
+[47] HELPER NAME: uqaddsubx, ADDRESS: 13914c           [47]
+SIZE: 60
+	13914c :: e6ff2070
+armv6 media instr
+[LOAD]: rn = f, rd = 2
+	13916c :: 86ff2072
+conditional instr. cond = HI
+armv6 media instr
+[LOAD]: rn = f, rd = 2
+	13918c :: e6bf0070
+armv6 media instr
+[LOAD]: rn = f, rd = 0
+
+[48] HELPER NAME: sadd16, ADDRESS: 139188           [48]
+SIZE: 56
+	139188 :: e1a0c840
+[MOV(register) rm = 0, shiftop = 2]
+	1391a8 :: e09c1841
+[MOV(register) rm = 1, shiftop = 2]
+	1391c8 :: e6a3c071
+armv6 media instr
+[STORE]: rn = 3, rd = c
+
+[49] HELPER NAME: sadd8, ADDRESS: 1391c0           [49]
+SIZE: 104
+	1391c0 :: e6af3070
+armv6 media instr
+[STORE]: rn = f, rd = 3
+	1391e0 :: e0954004
+[MOV(register) rm = 4, shiftop = 0]
+	139200 :: e1a06806
+[MOV(register) rm = 6, shiftop = 0]
+
+[50] HELPER NAME: ssub16, ADDRESS: 139228           [50]
+SIZE: 56
+	139228 :: e6bfc070
+armv6 media instr
+[LOAD]: rn = f, rd = c
+	139248 :: e0710840
+[MOV(register) rm = 0, shiftop = 2]
+	139268 :: e92d0070
+[LDM/STM]
+
+[51] HELPER NAME: ssub8, ADDRESS: 139260           [51]
+SIZE: 108
+	139260 :: e6af3071
+armv6 media instr
+[STORE]: rn = f, rd = 3
+	139280 :: e7a76850
+armv6 media instr
+[STORE]: rn = 7, rd = 6
+	1392a0 :: 53833004
+conditional instr. cond = PL
+[MOV: val = 4  shift = 0 set_cc = 0]
+
+[52] HELPER NAME: ssubaddx, ADDRESS: 1392cc           [52]
+SIZE: 52
+	1392cc :: e6bfc070
+armv6 media instr
+[LOAD]: rn = f, rd = c
+	1392ec :: 5384400c
+conditional instr. cond = PL
+[MOV: val = c  shift = 0 set_cc = 0]
+	13930c :: e05c3841
+[MOV(register) rm = 1, shiftop = 2]
+
+[53] HELPER NAME: saddsubx, ADDRESS: 139300           [53]
+SIZE: 48
+	139300 :: e6bfc070
+armv6 media instr
+[LOAD]: rn = f, rd = c
+	139320 :: a38cc00c
+conditional instr. cond = GE
+[MOV: val = c  shift = 0 set_cc = 0]
+	139340 :: e1b01820
+[MOV(register) rm = 0, shiftop = 1]
+
+[54] HELPER NAME: uadd16, ADDRESS: 139330           [54]
+SIZE: 56
+	139330 :: e1a03820
+[MOV(register) rm = 0, shiftop = 1]
+	139350 :: 13a01003
+conditional instr. cond = NE
+[MOV: val = 3  shift = 0 set_cc = 0]
+	139370 :: e6ef4070
+armv6 media instr
+[STORE]: rn = f, rd = 4
+
+[55] HELPER NAME: uadd8, ADDRESS: 139368           [55]
+SIZE: 116
+	139368 :: e92d0070
+[LDM/STM]
+	139388 :: e0865005
+[MOV(register) rm = 5, shiftop = 0]
+	1393a8 :: e6ef5075
+armv6 media instr
+[STORE]: rn = f, rd = 5
+
+[56] HELPER NAME: usub16, ADDRESS: 1393dc           [56]
+SIZE: 56
+	1393dc :: e6ffc070
+armv6 media instr
+[LOAD]: rn = f, rd = c
+	1393fc :: 3a01003
+conditional instr. cond = EQ
+[MSR: op1 = 1  sh = 0  rm = 3 ]
+	13941c :: e6ef5070
+armv6 media instr
+[STORE]: rn = f, rd = 5
+
+[57] HELPER NAME: usub8, ADDRESS: 139414           [57]
+SIZE: 124
+	139414 :: e92d0070
+[LDM/STM]
+	139434 :: e7e75851
+armv6 media instr
+[STORE]: rn = 7, rd = 5
+	139454 :: e6efc07c
+armv6 media instr
+[STORE]: rn = f, rd = c
+
+[58] HELPER NAME: usubaddx, ADDRESS: 139490           [58]
+SIZE: 56
+	139490 :: e6ffc070
+armv6 media instr
+[LOAD]: rn = f, rd = c
+	1394b0 :: 13a03000
+conditional instr. cond = NE
+[MOV: val = 0  shift = 0 set_cc = 0]
+	1394d0 :: e6f00071
+armv6 media instr
+[LOAD]: rn = 0, rd = 0
+
+[59] HELPER NAME: uaddsubx, ADDRESS: 1394c8           [59]
+SIZE: 56
+	1394c8 :: e6ffc070
+armv6 media instr
+[LOAD]: rn = f, rd = c
+	1394e8 :: 3a0c003
+conditional instr. cond = EQ
+[MSR: op1 = 1  sh = 0  rm = 3 ]
+	139508 :: e0823841
+[MOV(register) rm = 1, shiftop = 2]
+
+[60] HELPER NAME: shadd16, ADDRESS: 139500           [60]
+SIZE: 32
+	139500 :: e1a02840
+[MOV(register) rm = 0, shiftop = 2]
+	139520 :: e7a7c850
+armv6 media instr
+[STORE]: rn = 7, rd = c
+	139540 :: e7e7c0dc
+armv6 media instr
+[STORE]: rn = 7, rd = c
+
+[61] HELPER NAME: shadd8, ADDRESS: 139520           [61]
+SIZE: 76
+	139520 :: e7a7c850
+armv6 media instr
+[STORE]: rn = 7, rd = c
+	139540 :: e7e7c0dc
+armv6 media instr
+[STORE]: rn = 7, rd = c
+	139560 :: e183100c
+[MOV(register) rm = c, shiftop = 0]
+
+[62] HELPER NAME: shsub16, ADDRESS: 13956c           [62]
+SIZE: 36
+	13956c :: e1a02841
+[MOV(register) rm = 1, shiftop = 2]
+	13958c :: e12fff1e
+[MOV(register) rm = e, shiftop = 0]
+	1395ac :: e7e720d2
+armv6 media instr
+[STORE]: rn = 7, rd = 2
+
+[63] HELPER NAME: shsub8, ADDRESS: 139590           [63]
+SIZE: 88
+	139590 :: e7a7c850
+armv6 media instr
+[STORE]: rn = 7, rd = c
+	1395b0 :: e1a04c41
+[MOV(register) rm = 1, shiftop = 2]
+	1395d0 :: e182140c
+[MOV(register) rm = c, shiftop = 0]
+
+[64] HELPER NAME: shsubaddx, ADDRESS: 1395e8           [64]
+SIZE: 32
+	1395e8 :: e6bf2071
+armv6 media instr
+[LOAD]: rn = f, rd = 2
+	139608 :: e6bf3070
+armv6 media instr
+[LOAD]: rn = f, rd = 3
+	139628 :: e6ff3070
+armv6 media instr
+[LOAD]: rn = f, rd = 3
+
+[65] HELPER NAME: shaddsubx, ADDRESS: 139608           [65]
+SIZE: 32
+	139608 :: e6bf3070
+armv6 media instr
+[LOAD]: rn = f, rd = 3
+	139628 :: e6ff3070
+armv6 media instr
+[LOAD]: rn = f, rd = 3
+	139648 :: e7e72851
+armv6 media instr
+[STORE]: rn = 7, rd = 2
+
+[66] HELPER NAME: uhadd16, ADDRESS: 139628           [66]
+SIZE: 32
+	139628 :: e6ff3070
+armv6 media instr
+[LOAD]: rn = f, rd = 3
+	139648 :: e7e72851
+armv6 media instr
+[STORE]: rn = 7, rd = 2
+	139668 :: e1a030a3
+[MOV(register) rm = 3, shiftop = 1]
+
+[67] HELPER NAME: uhadd8, ADDRESS: 139648           [67]
+SIZE: 80
+	139648 :: e7e72851
+armv6 media instr
+[STORE]: rn = 7, rd = 2
+	139668 :: e1a030a3
+[MOV(register) rm = 3, shiftop = 1]
+	139688 :: e18310a1
+[MOV(register) rm = 1, shiftop = 1]
+
+[68] HELPER NAME: uhsub16, ADDRESS: 139698           [68]
+SIZE: 36
+	139698 :: e1a02821
+[MOV(register) rm = 1, shiftop = 1]
+	1396b8 :: e12fff1e
+[MOV(register) rm = e, shiftop = 0]
+	1396d8 :: e7e720d2
+armv6 media instr
+[STORE]: rn = 7, rd = 2
+
+[69] HELPER NAME: uhsub8, ADDRESS: 1396bc           [69]
+SIZE: 88
+	1396bc :: e7e7c850
+armv6 media instr
+[STORE]: rn = 7, rd = c
+	1396dc :: e1a04c21
+[MOV(register) rm = 1, shiftop = 1]
+	1396fc :: e182140c
+[MOV(register) rm = c, shiftop = 0]
+
+[70] HELPER NAME: uhsubaddx, ADDRESS: 139714           [70]
+SIZE: 32
+	139714 :: e6ff2071
+armv6 media instr
+[LOAD]: rn = f, rd = 2
+	139734 :: e6ff3070
+armv6 media instr
+[LOAD]: rn = f, rd = 3
+	139754 :: e6ef3070
+armv6 media instr
+[STORE]: rn = f, rd = 3
+
+[71] HELPER NAME: uhaddsubx, ADDRESS: 139734           [71]
+SIZE: 32
+	139734 :: e6ff3070
+armv6 media instr
+[LOAD]: rn = f, rd = 3
+	139754 :: e6ef3070
+armv6 media instr
+[STORE]: rn = f, rd = 3
+	139774 :: e7e72851
+armv6 media instr
+[STORE]: rn = 7, rd = 2
+
+[72] HELPER NAME: usad8, ADDRESS: 139754           [72]
+SIZE: 120
+	139754 :: e6ef3070
+armv6 media instr
+[STORE]: rn = f, rd = 3
+	139774 :: e7e72851
+armv6 media instr
+[STORE]: rn = 7, rd = 2
+	139794 :: 80623003
+conditional instr. cond = HI
+[MOV(register) rm = 3, shiftop = 0]
+
+[73] HELPER NAME: sel_flags, ADDRESS: 1397cc           [73]
+SIZE: 48
+	1397cc :: e210c001
+[MOV: val = 1  shift = 0 set_cc = 1]
+	1397ec :: e00c1001
+[MOV(register) rm = 1, shiftop = 0]
+	13980c :: e52d4004
+
+[74] HELPER NAME: logicq_cc, ADDRESS: 1397fc           [74]
+SIZE: 16
+	1397fc :: e1900001
+[MOV(register) rm = 1, shiftop = 0]
+	13981c :: e18c2003
+[MOV(register) rm = 3, shiftop = 0]
+	13983c :: e3100008
+[MOV: val = 8  shift = 0 set_cc = 1]
+
+[80] HELPER NAME: set_teecr, ADDRESS: 1398d0           [80]
+SIZE: 24
+	1398d0 :: e590222c
+	1398f0 :: e92d40d0
+[LDM/STM]
+	139910 :: e1a00004
+[MOV(register) rm = 4, shiftop = 0]
+
+[83] HELPER NAME: recpe_u32, ADDRESS: 1399dc           [83]
+SIZE: 84
+	1399dc :: e3500000
+[MOV: val = 0  shift = 0 set_cc = 1]
+	1399fc :: e1a02001
+[MOV(register) rm = 1, shiftop = 0]
+	139a1c :: ebffffb3
+[B/BL]
+
+[85] HELPER NAME: rsqrte_u32, ADDRESS: 139b9c           [85]
+SIZE: 164
+	139b9c :: e3100103
+[MOV: val = c0000000  shift = 2 set_cc = 1]
+	139bbc :: e3e08103
+[MOV: val = c0000000  shift = 2 set_cc = 0]
+	139bdc :: e1851007
+[MOV(register) rm = 7, shiftop = 0]
+
+[87] HELPER NAME: rsqrte_f32, ADDRESS: 139c48           [87]
+SIZE: 412
+	139c48 :: e3003000
+[MOVW: rd = 3  val = 0]
+	139c68 :: e1a05000
+[MOV(register) rm = 0, shiftop = 0]
+	139c88 :: e35c0000
+[MOV: val = 0  shift = 0 set_cc = 1]
+
+[88] HELPER NAME: recpe_f32, ADDRESS: 139de4           [88]
+SIZE: 280
+	139de4 :: e92d43f8
+[LDM/STM]
+	139e04 :: 8a00000e
+conditional instr. cond = HI
+[B/BL]
+	139e24 :: 1a000030
+conditional instr. cond = NE
+[B/BL]
+
+[90] HELPER NAME: recps_f32, ADDRESS: 139f00           [90]
+SIZE: 144
+	139f00 :: e3003000
+[MOVW: rd = 3  val = 0]
+	139f20 :: e3c12102
+[MOV: val = 80000000  shift = 2 set_cc = 0]
+	139f40 :: e1a01000
+[MOV(register) rm = 0, shiftop = 0]
+
+[92] HELPER NAME: rsqrts_f32, ADDRESS: 139f94           [92]
+SIZE: 160
+	139f94 :: e3003000
+[MOVW: rd = 3  val = 0]
+	139fb4 :: e3c12102
+[MOV: val = 80000000  shift = 2 set_cc = 0]
+	139fd4 :: e1a01000
+[MOV(register) rm = 0, shiftop = 0]
+
+[136] HELPER NAME: v7m_msr, ADDRESS: 13a914           [136]
+SIZE: 440
+	13a914 :: e92d4008
+[LDM/STM]
+	13a934 :: 13aa90
+conditional instr. cond = EQ
+multiples, extra load/stores
+	13a954 :: 13aa90
+conditional instr. cond = EQ
+multiples, extra load/stores
+
+[137] HELPER NAME: v7m_mrs, ADDRESS: 13aacc           [137]
+SIZE: 744
+	13aacc :: e92d4038
+[LDM/STM]
+	13aaec :: 13ab3c
+conditional instr. cond = EQ
+[MOV(register) rm = c, shiftop = 1]
+	13ab0c :: 13ab3c
+conditional instr. cond = EQ
+[MOV(register) rm = c, shiftop = 1]
+
+[138] HELPER NAME: get_r13_banked, ADDRESS: 13adb4           [138]
+SIZE: 228
+	13adb4 :: e92d4008
+[LDM/STM]
+	13add4 :: 979ff10c
+conditional instr. cond = LS
+[LOAD]: rn = f, rd = f
+	13adf4 :: 13ae2c
+conditional instr. cond = EQ
+[MOV(register) rm = c, shiftop = 1]
+
+[139] HELPER NAME: set_r13_banked, ADDRESS: 13ae98           [139]
+SIZE: 228
+	13ae98 :: e92d4008
+[LDM/STM]
+	13aeb8 :: 979ff103
+conditional instr. cond = LS
+[LOAD]: rn = f, rd = f
+	13aed8 :: 13af10
+conditional instr. cond = EQ
+[MOV(register) rm = 0, shiftop = 0]
+
+[140] HELPER NAME: get_cp15, ADDRESS: 13af7c           [140]
+SIZE: 2928
+	13af7c :: e7e32851
+armv6 media instr
+[STORE]: rn = 3, rd = 2
+	13af9c :: 979ff105
+conditional instr. cond = LS
+[LOAD]: rn = f, rd = f
+	13afbc :: 13b1e4
+conditional instr. cond = EQ
+[MOV(register) rm = 4, shiftop = 3]
+
+[141] HELPER NAME: set_cp15, ADDRESS: 13baec           [141]
+SIZE: 5024
+	13baec :: e92d4070
+[LDM/STM]
+	13bb0c :: 979ff106
+conditional instr. cond = LS
+[LOAD]: rn = f, rd = f
+	13bb2c :: 13bc90
+conditional instr. cond = EQ
+multiples, extra load/stores
+
+[142] HELPER NAME: clz, ADDRESS: 13ce8c           [142]
+SIZE: 2220
+	13ce8c :: e3500000
+[MOV: val = 0  shift = 0 set_cc = 1]
+	13ceac :: e5923000
+	13cecc :: e3500000
+[MOV: val = 0  shift = 0 set_cc = 1]
+
+OUT: [size=32]
+0x01000000:  ebc4da3a      bl	0x1368f0
+0x01000004:  e5870004      str	r0, [r7, #4]
+0x01000008:  ea000000      b	0x1000010
+0x0100000c:  e3004004      movw	r4, #4	; 0x4
+0x01000010:  e587403c      str	r4, [r7, #60]
+0x01000014:  e59f0000      ldr	r0, [pc, #0]	; 0x100001c
+0x01000018:  eaca6a33      b	0x29a8ec
+0x0100001c:  4089f008      addmi	pc, r9, r8
+
+----------------
+IN: 
+0x00000004:  eafffffe      b	0x4
+
+OP:
+ ---- 0x4
+ goto_tb $0x0
+ movi_i32 pc,$0x4
+ exit_tb $0x4089f050
+
+OUT: [size=24]
+0x01000020:  ea000000      b	0x1000028
+0x01000024:  e3004004      movw	r4, #4	; 0x4
+0x01000028:  e587403c      str	r4, [r7, #60]
+0x0100002c:  e59f0000      ldr	r0, [pc, #0]	; 0x1000034
+0x01000030:  eaca6a2d      b	0x29a8ec
+0x01000034:  4089f050      addmi	pc, r9, r0, asr r0
+
