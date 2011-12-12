@@ -1,0 +1,7 @@
+0x00000000:  e3a0c000      mov	ip, #0	; 0x0
+0x00000004:  ee17ff7e      mrc	15, 0, pc, cr7, cr14, {3}
+0x00000008:  ee07cf15      mcr	15, 0, ip, cr7, cr5, {0}
+0x0000000c:  ee07cf9a      mcr	15, 0, ip, cr7, cr10, {4}
+0x00000010:  ee020f10      mcr	15, 0, r0, cr2, cr0, {0}
+0x00000014:  ee08cf17      mcr	15, 0, ip, cr8, cr7, {0}
+0x00000018:  e1a0f00e      mov	pc, lr
