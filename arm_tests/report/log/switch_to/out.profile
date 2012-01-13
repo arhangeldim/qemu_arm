@@ -1,0 +1,17 @@
+tsteq 24
+ldreq 37
+b 6
+cmp 24
+beq 24
+lsr 24
+movt 1
+add 49
+mvn 3
+movw 7
+and 26
+mov 77
+str 23
+streq 11
+bl 25
+addmi 2
+ldr 46

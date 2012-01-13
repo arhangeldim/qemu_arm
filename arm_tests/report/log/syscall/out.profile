@@ -1,0 +1,15 @@
+tsteq 2
+ldreq 2
+cmp 8
+beq 3
+lsr 2
+add 3
+bne 5
+movw 2
+and 2
+mov 9
+str 5
+streq 2
+bl 3
+bic 1
+ldr 17

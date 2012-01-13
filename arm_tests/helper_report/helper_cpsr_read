@@ -1,0 +1,65 @@
+   0x0019b5b4 <+0>:	push	{r11, lr}
+   0x0019b5b8 <+4>:	add	r11, sp, #4
+   0x0019b5bc <+8>:	mov	r3, r7
+   0x0019b5c0 <+12>:	mov	r0, r3
+   0x0019b5c4 <+16>:	bl	0x19da6c <cpsr_read>
+   0x0019b5c8 <+20>:	mov	r2, r0
+   0x0019b5cc <+24>:	movw	r3, #991	; 0x3df
+   0x0019b5d0 <+28>:	movt	r3, #63743	; 0xf8ff
+   0x0019b5d4 <+32>:	and	r3, r2, r3
+   0x0019b5d8 <+36>:	mov	r0, r3
+   0x0019b5dc <+40>:	pop	{r11, pc}
+   0x0019da6c <+0>:	push	{r11}		; (str r11, [sp, #-4]!)
+   0x0019da70 <+4>:	add	r11, sp, #0
+   0x0019da74 <+8>:	sub	sp, sp, #20
+   0x0019da78 <+12>:	str	r0, [r11, #-16]
+   0x0019da7c <+16>:	ldr	r3, [r11, #-16]
+   0x0019da80 <+20>:	ldr	r3, [r3, #196]	; 0xc4
+   0x0019da84 <+24>:	cmp	r3, #0
+   0x0019da88 <+28>:	movne	r3, #0
+   0x0019da8c <+32>:	moveq	r3, #1
+   0x0019da90 <+36>:	str	r3, [r11, #-8]
+   0x0019da94 <+40>:	ldr	r3, [r11, #-16]
+   0x0019da98 <+44>:	ldr	r2, [r3, #64]	; 0x40
+   0x0019da9c <+48>:	ldr	r3, [r11, #-16]
+   0x0019daa0 <+52>:	ldr	r3, [r3, #192]	; 0xc0
+   0x0019daa4 <+56>:	and	r3, r3, #-2147483648	; 0x80000000
+   0x0019daa8 <+60>:	orr	r2, r2, r3
+   0x0019daac <+64>:	ldr	r3, [r11, #-8]
+   0x0019dab0 <+68>:	lsl	r3, r3, #30
+   0x0019dab4 <+72>:	orr	r2, r2, r3
+   0x0019dab8 <+76>:	ldr	r3, [r11, #-16]
+   0x0019dabc <+80>:	ldr	r3, [r3, #184]	; 0xb8
+   0x0019dac0 <+84>:	lsl	r3, r3, #29
+   0x0019dac4 <+88>:	orr	r2, r2, r3
+   0x0019dac8 <+92>:	ldr	r3, [r11, #-16]
+   0x0019dacc <+96>:	ldr	r3, [r3, #188]	; 0xbc
+   0x0019dad0 <+100>:	and	r3, r3, #-2147483648	; 0x80000000
+   0x0019dad4 <+104>:	lsr	r3, r3, #3
+   0x0019dad8 <+108>:	orr	r2, r2, r3
+   0x0019dadc <+112>:	ldr	r3, [r11, #-16]
+   0x0019dae0 <+116>:	ldr	r3, [r3, #200]	; 0xc8
+   0x0019dae4 <+120>:	lsl	r3, r3, #27
+   0x0019dae8 <+124>:	orr	r2, r2, r3
+   0x0019daec <+128>:	ldr	r3, [r11, #-16]
+   0x0019daf0 <+132>:	ldr	r3, [r3, #208]	; 0xd0
+   0x0019daf4 <+136>:	lsl	r3, r3, #5
+   0x0019daf8 <+140>:	orr	r2, r2, r3
+   0x0019dafc <+144>:	ldr	r3, [r11, #-16]
+   0x0019db00 <+148>:	ldr	r3, [r3, #212]	; 0xd4
+   0x0019db04 <+152>:	and	r3, r3, #3
+   0x0019db08 <+156>:	lsl	r3, r3, #25
+   0x0019db0c <+160>:	orr	r2, r2, r3
+   0x0019db10 <+164>:	ldr	r3, [r11, #-16]
+   0x0019db14 <+168>:	ldr	r3, [r3, #212]	; 0xd4
+   0x0019db18 <+172>:	and	r3, r3, #252	; 0xfc
+   0x0019db1c <+176>:	lsl	r3, r3, #8
+   0x0019db20 <+180>:	orr	r2, r2, r3
+   0x0019db24 <+184>:	ldr	r3, [r11, #-16]
+   0x0019db28 <+188>:	ldr	r3, [r3, #204]	; 0xcc
+   0x0019db2c <+192>:	lsl	r3, r3, #16
+   0x0019db30 <+196>:	orr	r3, r2, r3
+   0x0019db34 <+200>:	mov	r0, r3
+   0x0019db38 <+204>:	add	sp, r11, #0
+   0x0019db3c <+208>:	pop	{r11}
+   0x0019db40 <+212>:	bx	lr

@@ -1,0 +1,33 @@
+Dump of assembler code for function helper_exception:
+   0x0019b568 <+0>:	push	{r11, lr}
+   0x0019b56c <+4>:	add	r11, sp, #4
+   0x0019b570 <+8>:	sub	sp, sp, #8
+   0x0019b574 <+12>:	str	r0, [r11, #-8]
+   0x0019b578 <+16>:	mov	r2, r7
+   0x0019b57c <+20>:	ldr	r1, [r11, #-8]
+   0x0019b580 <+24>:	movw	r3, #28768	; 0x7060
+   0x0019b584 <+28>:	str	r1, [r2, r3]
+   0x0019b588 <+32>:	mov	r3, r7
+   0x0019b58c <+36>:	mov	r0, r3
+   0x0019b590 <+40>:	bl	0x145e14 <cpu_loop_exit>
+End of assembler dump.
+Dump of assembler code for function cpu_loop_exit:
+   0x00145e14 <+0>:	push	{r11, lr}
+   0x00145e18 <+4>:	add	r11, sp, #4
+   0x00145e1c <+8>:	sub	sp, sp, #8
+   0x00145e20 <+12>:	str	r0, [r11, #-8]
+   0x00145e24 <+16>:	ldr	r3, [r11, #-8]
+   0x00145e28 <+20>:	mov	r2, #0
+   0x00145e2c <+24>:	str	r2, [r3, #1160]	; 0x488
+   0x00145e30 <+28>:	ldr	r3, [r11, #-8]
+   0x00145e34 <+32>:	add	r3, r3, #28160	; 0x6e00
+   0x00145e38 <+36>:	add	r3, r3, #216	; 0xd8
+   0x00145e3c <+40>:	mov	r0, r3
+   0x00145e40 <+44>:	mov	r1, #1
+   0x00145e44 <+48>:	bl	0xdd34 <longjmp>
+End of assembler dump.
+Dump of assembler code for function longjmp:
+   0x0000dd34 <+0>:	add	r12, pc, #3145728	; 0x300000
+   0x0000dd38 <+4>:	add	r12, r12, #438272	; 0x6b000
+   0x0000dd3c <+8>:	ldr	pc, [r12, #1896]!	; 0x768
+End of assembler dump.

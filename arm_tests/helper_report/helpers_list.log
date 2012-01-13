@@ -1,0 +1,266 @@
+==helpers list==
+
+(1) helper name : add_setq, address: 19afa0
+Number of instructions: 27
+
+(2) helper name : add_saturate, address: 19b00c
+Number of instructions: 33
+
+(3) helper name : sub_saturate, address: 19b090
+Number of instructions: 33
+
+(4) helper name : double_saturate, address: 19b114
+Number of instructions: 30
+
+(5) helper name : add_usaturate, address: 19b18c
+Number of instructions: 23
+
+(6) helper name : sub_usaturate, address: 19b1e8
+Number of instructions: 91
+
+(7) helper name : ssat, address: 19b354
+Number of instructions: 14
+
+(8) helper name : ssat16, address: 19b38c
+Number of instructions: 30
+
+(9) helper name : usat, address: 19b404
+Number of instructions: 14
+
+(10) helper name : usat16, address: 19b43c
+Number of instructions: 30
+
+(11) helper name : wfi, address: 19b4b4
+Number of instructions: 13
+
+(12) helper name : exception, address: 19b4e8
+Number of instructions: 11
+
+(13) helper name : cpsr_read, address: 19b514
+Number of instructions: 11
+
+(14) helper name : cpsr_write, address: 19b540
+Number of instructions: 12
+
+(15) helper name : get_user_reg, address: 19b570
+Number of instructions: 42
+
+(16) helper name : set_user_reg, address: 19b618
+Number of instructions: 41
+
+(17) helper name : add_cc, address: 19b6bc
+Number of instructions: 37
+
+(18) helper name : adc_cc, address: 19b750
+Number of instructions: 54
+
+(19) helper name : sub_cc, address: 19b828
+Number of instructions: 36
+
+(20) helper name : sbc_cc, address: 19b8b8
+Number of instructions: 53
+
+(21) helper name : shl, address: 19b98c
+Number of instructions: 20
+
+(22) helper name : shr, address: 19b9dc
+Number of instructions: 20
+
+(23) helper name : sar, address: 19ba2c
+Number of instructions: 20
+
+(24) helper name : shl_cc, address: 19ba7c
+Number of instructions: 43
+
+(25) helper name : shr_cc, address: 19bb28
+Number of instructions: 43
+
+(26) helper name : sar_cc, address: 19bbd4
+Number of instructions: 37
+
+(27) helper name : ror_cc, address: 19bc68
+Number of instructions: 2060
+
+(28) helper name : sxtb16, address: 19dc98
+Number of instructions: 23
+
+(29) helper name : uxtb16, address: 19dcf4
+Number of instructions: 19
+
+(30) helper name : clz, address: 19dd40
+Number of instructions: 10
+
+(31) helper name : sdiv, address: 19dd68
+Number of instructions: 25
+
+(32) helper name : udiv, address: 19ddcc
+Number of instructions: 17
+
+(33) helper name : rbit, address: 19de10
+Number of instructions: 59
+
+(34) helper name : abs, address: 19defc
+Number of instructions: 1679
+
+(35) helper name : set_cp, address: 19f938
+Number of instructions: 62
+
+(36) helper name : get_cp, address: 19fa30
+Number of instructions: 129
+
+(37) helper name : set_cp15, address: 19fc34
+Number of instructions: 809
+
+(38) helper name : get_cp15, address: 1a08d8
+Number of instructions: 687
+
+(39) helper name : set_r13_banked, address: 1a1394
+Number of instructions: 26
+
+(40) helper name : get_r13_banked, address: 1a13fc
+Number of instructions: 24
+
+(41) helper name : v7m_mrs, address: 1a145c
+Number of instructions: 123
+
+(42) helper name : v7m_msr, address: 1a1648
+Number of instructions: 382
+
+(43) helper name : qadd16, address: 1a1c40
+Number of instructions: 36
+
+(44) helper name : qadd8, address: 1a1cd0
+Number of instructions: 64
+
+(45) helper name : qsub16, address: 1a1dd0
+Number of instructions: 36
+
+(46) helper name : qsub8, address: 1a1e60
+Number of instructions: 64
+
+(47) helper name : qsubaddx, address: 1a1f60
+Number of instructions: 36
+
+(48) helper name : qaddsubx, address: 1a1ff0
+Number of instructions: 122
+
+(49) helper name : uqadd16, address: 1a21d8
+Number of instructions: 36
+
+(50) helper name : uqadd8, address: 1a2268
+Number of instructions: 64
+
+(51) helper name : uqsub16, address: 1a2368
+Number of instructions: 36
+
+(52) helper name : uqsub8, address: 1a23f8
+Number of instructions: 64
+
+(53) helper name : uqsubaddx, address: 1a24f8
+Number of instructions: 36
+
+(54) helper name : uqaddsubx, address: 1a2588
+Number of instructions: 36
+
+(55) helper name : sadd16, address: 1a2618
+Number of instructions: 59
+
+(56) helper name : sadd8, address: 1a2704
+Number of instructions: 103
+
+(57) helper name : ssub16, address: 1a28a0
+Number of instructions: 59
+
+(58) helper name : ssub8, address: 1a298c
+Number of instructions: 103
+
+(59) helper name : ssubaddx, address: 1a2b28
+Number of instructions: 59
+
+(60) helper name : saddsubx, address: 1a2c14
+Number of instructions: 59
+
+(61) helper name : uadd16, address: 1a2d00
+Number of instructions: 59
+
+(62) helper name : uadd8, address: 1a2dec
+Number of instructions: 103
+
+(63) helper name : usub16, address: 1a2f88
+Number of instructions: 59
+
+(64) helper name : usub8, address: 1a3074
+Number of instructions: 103
+
+(65) helper name : usubaddx, address: 1a3210
+Number of instructions: 59
+
+(66) helper name : uaddsubx, address: 1a32fc
+Number of instructions: 59
+
+(67) helper name : shadd16, address: 1a33e8
+Number of instructions: 39
+
+(68) helper name : shadd8, address: 1a3484
+Number of instructions: 69
+
+(69) helper name : shsub16, address: 1a3598
+Number of instructions: 39
+
+(70) helper name : shsub8, address: 1a3634
+Number of instructions: 69
+
+(71) helper name : shsubaddx, address: 1a3748
+Number of instructions: 39
+
+(72) helper name : shaddsubx, address: 1a37e4
+Number of instructions: 39
+
+(73) helper name : uhadd16, address: 1a3880
+Number of instructions: 37
+
+(74) helper name : uhadd8, address: 1a3914
+Number of instructions: 65
+
+(75) helper name : uhsub16, address: 1a3a18
+Number of instructions: 37
+
+(76) helper name : uhsub8, address: 1a3aac
+Number of instructions: 65
+
+(77) helper name : uhsubaddx, address: 1a3bb0
+Number of instructions: 37
+
+(78) helper name : uhaddsubx, address: 1a3c44
+Number of instructions: 61
+
+(79) helper name : usad8, address: 1a3d38
+Number of instructions: 57
+
+(80) helper name : sel_flags, address: 1a3e1c
+Number of instructions: 49
+
+(81) helper name : logicq_cc, address: 1a3ee0
+Number of instructions: 72
+
+(136) helper name : recps_f32, address: 1a5788
+Number of instructions: 58
+
+(137) helper name : rsqrts_f32, address: 1a5870
+Number of instructions: 178
+
+(138) helper name : recpe_f32, address: 1a5b38
+Number of instructions: 324
+
+(139) helper name : rsqrte_f32, address: 1a6048
+Number of instructions: 178
+
+(140) helper name : recpe_u32, address: 1a6310
+Number of instructions: 48
+
+(141) helper name : rsqrte_u32, address: 1a63d0
+Number of instructions: 70
+
+(142) helper name : set_teecr, address: 1a64e8
+Number of instructions: 30
+

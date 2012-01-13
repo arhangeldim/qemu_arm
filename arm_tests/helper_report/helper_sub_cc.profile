@@ -1,0 +1,14 @@
+sub 1
+movcs 1
+cmp 1
+pop 1
+bx 1
+rsb 1
+add 2
+push 1
+and 1
+mov 5
+eor 2
+str 7
+movcc 1
+ldr 11

@@ -1,0 +1,186 @@
+"set logging" lets you log output to a file.
+Usage: set logging on [FILENAME]
+       set logging off
+       set logging file FILENAME
+       set logging overwrite [on|off]
+       set logging redirect [on|off]
+Dump of assembler code for function sys_syscall:
+   0xc002d8c8 <+0>:	bic	r7, r0, #9437184	; 0x900000
+   0xc002d8cc <+4>:	cmp	r7, #113	; 0x71
+   0xc002d8d0 <+8>:	cmpne	r7, #376	; 0x178
+   0xc002d8d4 <+12>:	stmcc	sp, {r5, r6}
+   0xc002d8d8 <+16>:	movcc	r0, r1
+   0xc002d8dc <+20>:	movcc	r1, r2
+   0xc002d8e0 <+24>:	movcc	r2, r3
+   0xc002d8e4 <+28>:	movcc	r3, r4
+   0xc002d8e8 <+32>:	ldrcc	pc, [r8, r7, lsl #2]
+   0xc002d8ec <+36>:	b	0xc0054d78 <sys_vm86old>
+End of assembler dump.
+Dump of assembler code for function arm_syscall:
+   0xc0030764 <+0>:	push	{r4, r5, r6, r7, lr}
+   0xc0030768 <+4>:	asr	r2, r0, #16
+   0xc003076c <+8>:	sub	sp, sp, #140	; 0x8c
+   0xc0030770 <+12>:	cmp	r2, #15
+   0xc0030774 <+16>:	mov	r6, r0
+   0xc0030778 <+20>:	mov	r4, r1
+   0xc003077c <+24>:	mov	r3, sp
+   0xc0030780 <+28>:	beq	0xc003078c <arm_syscall+40>
+   0xc0030784 <+32>:	bl	0xc003058c <bad_syscall>
+   0xc0030788 <+36>:	b	0xc00309d8 <arm_syscall+628>
+   0xc003078c <+40>:	lsl	r2, r0, #16
+   0xc0030790 <+44>:	lsr	r2, r2, #16
+   0xc0030794 <+48>:	cmp	r2, #5
+   0xc0030798 <+52>:	ldrls	pc, [pc, r2, lsl #2]
+   0xc003079c <+56>:	b	0xc0030910 <arm_syscall+428>
+   0xc00307a0 <+60>:			; <UNDEFINED> instruction: 0xc00307b8
+   0xc00307a4 <+64>:	andgt	r0, r3, r8, ror #15
+   0xc00307a8 <+68>:	andgt	r0, r3, r0, lsr #16
+   0xc00307ac <+72>:			; <UNDEFINED> instruction: 0xc00308b4
+   0xc00307b0 <+76>:	ldrdgt	r0, [r3], -r0	; <UNPREDICTABLE>
+   0xc00307b4 <+80>:	strdgt	r0, [r3], -r4
+   0xc00307b8 <+84>:	mov	r3, #11
+   0xc00307bc <+88>:	str	r3, [sp, #8]
+   0xc00307c0 <+92>:	ldr	r3, [pc, #536]	; 0xc00309e0 <arm_syscall+636>
+   0xc00307c4 <+96>:	mov	r5, #0
+   0xc00307c8 <+100>:	str	r3, [sp, #16]
+   0xc00307cc <+104>:	str	r5, [sp, #12]
+   0xc00307d0 <+108>:	str	r5, [sp, #20]
+   0xc00307d4 <+112>:	str	r5, [sp]
+   0xc00307d8 <+116>:	ldr	r0, [pc, #516]	; 0xc00309e4 <arm_syscall+640>
+   0xc00307dc <+120>:	add	r2, sp, #8
+   0xc00307e0 <+124>:	mov	r3, r5
+   0xc00307e4 <+128>:	b	0xc00309c8 <arm_syscall+612>
+   0xc00307e8 <+132>:	ldr	r3, [r1, #64]	; 0x40
+   0xc00307ec <+136>:	ldr	r2, [r1, #60]	; 0x3c
+   0xc00307f0 <+140>:	tst	r3, #32
+   0xc00307f4 <+144>:	moveq	r3, #4
+   0xc00307f8 <+148>:	movne	r3, #2
+   0xc00307fc <+152>:	rsb	r3, r3, r2
+   0xc0030800 <+156>:	mov	r2, sp
+   0xc0030804 <+160>:	str	r3, [r1, #60]	; 0x3c
+   0xc0030808 <+164>:	bic	r3, r2, #8128	; 0x1fc0
+   0xc003080c <+168>:	bic	r3, r3, #63	; 0x3f
+   0xc0030810 <+172>:	ldr	r0, [r3, #12]
+   0xc0030814 <+176>:	bl	0xc002e7dc <ptrace_break>
+   0xc0030818 <+180>:	ldr	r0, [r4]
+   0xc003081c <+184>:	b	0xc00309d8 <arm_syscall+628>
+   0xc0030820 <+188>:	mov	r2, sp
+   0xc0030824 <+192>:	bic	r3, r2, #8128	; 0x1fc0
+   0xc0030828 <+196>:	bic	r3, r3, #63	; 0x3f
+   0xc003082c <+200>:	ldr	r3, [r3, #12]
+   0xc0030830 <+204>:	ldr	r6, [r1]
+   0xc0030834 <+208>:	ldr	r5, [r1, #4]
+   0xc0030838 <+212>:	ldr	r7, [r3, #168]	; 0xa8
+   0xc003083c <+216>:	ldr	r3, [r1, #8]
+   0xc0030840 <+220>:	cmp	r5, r6
+   0xc0030844 <+224>:	cmpcs	r3, #0
+   0xc0030848 <+228>:	bne	0xc00309d4 <arm_syscall+624>
+   0xc003084c <+232>:	add	r4, r7, #52	; 0x34
+   0xc0030850 <+236>:	mov	r0, r4
+   0xc0030854 <+240>:	bl	0xc024a5d8 <down_read>
+   0xc0030858 <+244>:	mov	r0, r7
+   0xc003085c <+248>:	mov	r1, r6
+   0xc0030860 <+252>:	bl	0xc008277c <find_vma>
+   0xc0030864 <+256>:	subs	r3, r0, #0
+   0xc0030868 <+260>:	beq	0xc00308a8 <arm_syscall+324>
+   0xc003086c <+264>:	ldr	r0, [r3, #4]
+   0xc0030870 <+268>:	cmp	r0, r5
+   0xc0030874 <+272>:	bcs	0xc00308a8 <arm_syscall+324>
+   0xc0030878 <+276>:	ldr	r1, [r3, #8]
+   0xc003087c <+280>:	cmp	r0, r6
+   0xc0030880 <+284>:	movcc	r0, r6
+   0xc0030884 <+288>:	cmp	r5, r1
+   0xc0030888 <+292>:	movcc	r1, r5
+   0xc003088c <+296>:	add	r1, r1, #4080	; 0xff0
+   0xc0030890 <+300>:	add	r1, r1, #15
+   0xc0030894 <+304>:	bic	r0, r0, #4080	; 0xff0
+   0xc0030898 <+308>:	bic	r1, r1, #4080	; 0xff0
+   0xc003089c <+312>:	bic	r0, r0, #15
+   0xc00308a0 <+316>:	bic	r1, r1, #15
+   0xc00308a4 <+320>:	bl	0xc0035c9c <arm926_coherent_user_range>
+   0xc00308a8 <+324>:	mov	r0, r4
+   0xc00308ac <+328>:	bl	0xc00572fc <up_read>
+   0xc00308b0 <+332>:	b	0xc00309d4 <arm_syscall+624>
+   0xc00308b4 <+336>:	ldr	r3, [pc, #300]	; 0xc00309e8 <arm_syscall+644>
+   0xc00308b8 <+340>:	ldr	r3, [r3]
+   0xc00308bc <+344>:	tst	r3, #8
+   0xc00308c0 <+348>:	ldrne	r3, [r1, #64]	; 0x40
+   0xc00308c4 <+352>:	bicne	r3, r3, #16
+   0xc00308c8 <+356>:	beq	0xc003091c <arm_syscall+440>
+   0xc00308cc <+360>:	b	0xc00308e8 <arm_syscall+388>
+   0xc00308d0 <+364>:	ldr	r3, [pc, #272]	; 0xc00309e8 <arm_syscall+644>
+   0xc00308d4 <+368>:	ldr	r3, [r3]
+   0xc00308d8 <+372>:	tst	r3, #8
+   0xc00308dc <+376>:	beq	0xc003091c <arm_syscall+440>
+   0xc00308e0 <+380>:	ldr	r3, [r1, #64]	; 0x40
+   0xc00308e4 <+384>:	orr	r3, r3, #16
+   0xc00308e8 <+388>:	str	r3, [r1, #64]	; 0x40
+   0xc00308ec <+392>:	ldr	r0, [r1]
+   0xc00308f0 <+396>:	b	0xc00309d8 <arm_syscall+628>
+   0xc00308f4 <+400>:	ldr	r2, [r1]
+   0xc00308f8 <+404>:	bic	r3, r3, #8128	; 0x1fc0
+   0xc00308fc <+408>:	bic	r3, r3, #63	; 0x3f
+   0xc0030900 <+412>:	str	r2, [r3, #96]	; 0x60
+   0xc0030904 <+416>:	mvn	r3, #61440	; 0xf000
+   0xc0030908 <+420>:	str	r2, [r3, #-15]
+   0xc003090c <+424>:	b	0xc00309d4 <arm_syscall+624>
+   0xc0030910 <+428>:	cmp	r2, #2048	; 0x800
+   0xc0030914 <+432>:	mvnlt	r0, #37	; 0x25
+   0xc0030918 <+436>:	blt	0xc00309d8 <arm_syscall+628>
+   0xc003091c <+440>:	ldr	r3, [pc, #200]	; 0xc00309ec <arm_syscall+648>
+   0xc0030920 <+444>:	ldr	r3, [r3]
+   0xc0030924 <+448>:	tst	r3, #2
+   0xc0030928 <+452>:	beq	0xc0030980 <arm_syscall+540>
+   0xc003092c <+456>:	mov	r2, sp
+   0xc0030930 <+460>:	bic	r3, r2, #8128	; 0x1fc0
+   0xc0030934 <+464>:	bic	r3, r3, #63	; 0x3f
+   0xc0030938 <+468>:	ldr	r2, [r3, #12]
+   0xc003093c <+472>:	ldr	r0, [pc, #172]	; 0xc00309f0 <arm_syscall+652>
+   0xc0030940 <+476>:	ldr	r1, [r2, #200]	; 0xc8
+   0xc0030944 <+480>:	mov	r3, r6
+   0xc0030948 <+484>:	add	r2, r2, #420	; 0x1a4
+   0xc003094c <+488>:	bl	0xc0249318 <printk>
+   0xc0030950 <+492>:	ldr	r0, [pc, #156]	; 0xc00309f4 <arm_syscall+656>
+   0xc0030954 <+496>:	mov	r1, r4
+   0xc0030958 <+500>:	bl	0xc0030030 <dump_instr>
+   0xc003095c <+504>:	ldr	r3, [r4, #64]	; 0x40
+   0xc0030960 <+508>:	tst	r3, #15
+   0xc0030964 <+512>:	bne	0xc0030980 <arm_syscall+540>
+   0xc0030968 <+516>:	mov	r0, r4
+   0xc003096c <+520>:	bl	0xc002e2c4 <__show_regs>
+   0xc0030970 <+524>:	ldr	r1, [r4, #64]	; 0x40
+   0xc0030974 <+528>:	ldr	r0, [r4, #44]	; 0x2c
+   0xc0030978 <+532>:	and	r1, r1, #31
+   0xc003097c <+536>:	bl	0xc0136b00 <c_backtrace>
+   0xc0030980 <+540>:	mov	r3, #4
+   0xc0030984 <+544>:	str	r3, [sp, #8]
+   0xc0030988 <+548>:	add	r3, r3, #196608	; 0x30000
+   0xc003098c <+552>:	str	r3, [sp, #16]
+   0xc0030990 <+556>:	ldr	r3, [r4, #64]	; 0x40
+   0xc0030994 <+560>:	ldr	r2, [r4, #60]	; 0x3c
+   0xc0030998 <+564>:	tst	r3, #32
+   0xc003099c <+568>:	moveq	r3, #4
+   0xc00309a0 <+572>:	movne	r3, #2
+   0xc00309a4 <+576>:	rsb	r3, r3, r2
+   0xc00309a8 <+580>:	mov	r5, #0
+   0xc00309ac <+584>:	ldr	r0, [pc, #68]	; 0xc00309f8 <arm_syscall+660>
+   0xc00309b0 <+588>:	str	r3, [sp, #20]
+   0xc00309b4 <+592>:	str	r5, [sp, #12]
+   0xc00309b8 <+596>:	str	r5, [sp]
+   0xc00309bc <+600>:	mov	r1, r4
+   0xc00309c0 <+604>:	add	r2, sp, #8
+   0xc00309c4 <+608>:	mov	r3, r6
+   0xc00309c8 <+612>:	bl	0xc003053c <arm_notify_die>
+   0xc00309cc <+616>:	mov	r0, r5
+   0xc00309d0 <+620>:	b	0xc00309d8 <arm_syscall+628>
+   0xc00309d4 <+624>:	mov	r0, #0
+   0xc00309d8 <+628>:	add	sp, sp, #140	; 0x8c
+   0xc00309dc <+632>:	pop	{r4, r5, r6, r7, pc}
+   0xc00309e0 <+636>:	andeq	r0, r3, r1
+   0xc00309e4 <+640>:	eorgt	r2, r11, r2, lsr #7
+   0xc00309e8 <+644>:	eorsgt	r10, r0, r8
+   0xc00309ec <+648>:	eorsgt	r4, r2, r4, asr #14
+   0xc00309f0 <+652>:			; <UNDEFINED> instruction: 0xc02b23b6
+   0xc00309f4 <+656>:	eorgt	r10, r11, sp, lsl #7
+   0xc00309f8 <+660>:	eorgt	r2, r11, pc, asr #7
+End of assembler dump.

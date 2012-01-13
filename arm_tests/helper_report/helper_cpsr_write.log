@@ -1,0 +1,298 @@
+Dump of assembler code for function helper_cpsr_write:
+   0x0019b5e0 <+0>:	push	{r11, lr}
+   0x0019b5e4 <+4>:	add	r11, sp, #4
+   0x0019b5e8 <+8>:	sub	sp, sp, #8
+   0x0019b5ec <+12>:	str	r0, [r11, #-8]
+   0x0019b5f0 <+16>:	str	r1, [r11, #-12]
+   0x0019b5f4 <+20>:	mov	r3, r7
+   0x0019b5f8 <+24>:	mov	r0, r3
+   0x0019b5fc <+28>:	ldr	r1, [r11, #-8]
+   0x0019b600 <+32>:	ldr	r2, [r11, #-12]
+   0x0019b604 <+36>:	bl	0x19db44 <cpsr_write>
+   0x0019b608 <+40>:	sub	sp, r11, #4
+   0x0019b60c <+44>:	pop	{r11, pc}
+End of assembler dump.
+Dump of assembler code for function cpsr_write:
+   0x0019db44 <+0>:	push	{r11, lr}
+   0x0019db48 <+4>:	add	r11, sp, #4
+   0x0019db4c <+8>:	sub	sp, sp, #16
+   0x0019db50 <+12>:	str	r0, [r11, #-8]
+   0x0019db54 <+16>:	str	r1, [r11, #-12]
+   0x0019db58 <+20>:	str	r2, [r11, #-16]
+   0x0019db5c <+24>:	ldr	r3, [r11, #-16]
+   0x0019db60 <+28>:	and	r3, r3, #-268435456	; 0xf0000000
+   0x0019db64 <+32>:	cmp	r3, #0
+   0x0019db68 <+36>:	beq	0x19dbb4 <cpsr_write+112>
+   0x0019db6c <+40>:	ldr	r3, [r11, #-12]
+   0x0019db70 <+44>:	mvn	r3, r3
+   0x0019db74 <+48>:	and	r2, r3, #1073741824	; 0x40000000
+   0x0019db78 <+52>:	ldr	r3, [r11, #-8]
+   0x0019db7c <+56>:	str	r2, [r3, #196]	; 0xc4
+   0x0019db80 <+60>:	ldr	r3, [r11, #-8]
+   0x0019db84 <+64>:	ldr	r2, [r11, #-12]
+   0x0019db88 <+68>:	str	r2, [r3, #192]	; 0xc0
+   0x0019db8c <+72>:	ldr	r3, [r11, #-12]
+   0x0019db90 <+76>:	lsr	r3, r3, #29
+   0x0019db94 <+80>:	and	r2, r3, #1
+   0x0019db98 <+84>:	ldr	r3, [r11, #-8]
+   0x0019db9c <+88>:	str	r2, [r3, #184]	; 0xb8
+   0x0019dba0 <+92>:	ldr	r3, [r11, #-12]
+   0x0019dba4 <+96>:	lsl	r3, r3, #3
+   0x0019dba8 <+100>:	and	r2, r3, #-2147483648	; 0x80000000
+   0x0019dbac <+104>:	ldr	r3, [r11, #-8]
+   0x0019dbb0 <+108>:	str	r2, [r3, #188]	; 0xbc
+   0x0019dbb4 <+112>:	ldr	r3, [r11, #-16]
+   0x0019dbb8 <+116>:	and	r3, r3, #134217728	; 0x8000000
+   0x0019dbbc <+120>:	cmp	r3, #0
+   0x0019dbc0 <+124>:	beq	0x19dbe0 <cpsr_write+156>
+   0x0019dbc4 <+128>:	ldr	r3, [r11, #-12]
+   0x0019dbc8 <+132>:	and	r3, r3, #134217728	; 0x8000000
+   0x0019dbcc <+136>:	cmp	r3, #0
+   0x0019dbd0 <+140>:	moveq	r2, #0
+   0x0019dbd4 <+144>:	movne	r2, #1
+   0x0019dbd8 <+148>:	ldr	r3, [r11, #-8]
+   0x0019dbdc <+152>:	str	r2, [r3, #200]	; 0xc8
+   0x0019dbe0 <+156>:	ldr	r3, [r11, #-16]
+   0x0019dbe4 <+160>:	and	r3, r3, #32
+   0x0019dbe8 <+164>:	cmp	r3, #0
+   0x0019dbec <+168>:	beq	0x19dc0c <cpsr_write+200>
+   0x0019dbf0 <+172>:	ldr	r3, [r11, #-12]
+   0x0019dbf4 <+176>:	and	r3, r3, #32
+   0x0019dbf8 <+180>:	cmp	r3, #0
+   0x0019dbfc <+184>:	moveq	r2, #0
+   0x0019dc00 <+188>:	movne	r2, #1
+   0x0019dc04 <+192>:	ldr	r3, [r11, #-8]
+   0x0019dc08 <+196>:	str	r2, [r3, #208]	; 0xd0
+   0x0019dc0c <+200>:	ldr	r3, [r11, #-16]
+   0x0019dc10 <+204>:	and	r3, r3, #100663296	; 0x6000000
+   0x0019dc14 <+208>:	cmp	r3, #0
+   0x0019dc18 <+212>:	beq	0x19dc50 <cpsr_write+268>
+   0x0019dc1c <+216>:	ldr	r3, [r11, #-8]
+   0x0019dc20 <+220>:	ldr	r3, [r3, #212]	; 0xd4
+   0x0019dc24 <+224>:	bic	r2, r3, #3
+   0x0019dc28 <+228>:	ldr	r3, [r11, #-8]
+   0x0019dc2c <+232>:	str	r2, [r3, #212]	; 0xd4
+   0x0019dc30 <+236>:	ldr	r3, [r11, #-8]
+   0x0019dc34 <+240>:	ldr	r2, [r3, #212]	; 0xd4
+   0x0019dc38 <+244>:	ldr	r3, [r11, #-12]
+   0x0019dc3c <+248>:	lsr	r3, r3, #25
+   0x0019dc40 <+252>:	and	r3, r3, #3
+   0x0019dc44 <+256>:	orr	r2, r2, r3
+   0x0019dc48 <+260>:	ldr	r3, [r11, #-8]
+   0x0019dc4c <+264>:	str	r2, [r3, #212]	; 0xd4
+   0x0019dc50 <+268>:	ldr	r3, [r11, #-16]
+   0x0019dc54 <+272>:	and	r3, r3, #64512	; 0xfc00
+   0x0019dc58 <+276>:	cmp	r3, #0
+   0x0019dc5c <+280>:	beq	0x19dc94 <cpsr_write+336>
+   0x0019dc60 <+284>:	ldr	r3, [r11, #-8]
+   0x0019dc64 <+288>:	ldr	r3, [r3, #212]	; 0xd4
+   0x0019dc68 <+292>:	and	r2, r3, #3
+   0x0019dc6c <+296>:	ldr	r3, [r11, #-8]
+   0x0019dc70 <+300>:	str	r2, [r3, #212]	; 0xd4
+   0x0019dc74 <+304>:	ldr	r3, [r11, #-8]
+   0x0019dc78 <+308>:	ldr	r2, [r3, #212]	; 0xd4
+   0x0019dc7c <+312>:	ldr	r3, [r11, #-12]
+   0x0019dc80 <+316>:	lsr	r3, r3, #8
+   0x0019dc84 <+320>:	and	r3, r3, #252	; 0xfc
+   0x0019dc88 <+324>:	orr	r2, r2, r3
+   0x0019dc8c <+328>:	ldr	r3, [r11, #-8]
+   0x0019dc90 <+332>:	str	r2, [r3, #212]	; 0xd4
+   0x0019dc94 <+336>:	ldr	r3, [r11, #-16]
+   0x0019dc98 <+340>:	and	r3, r3, #983040	; 0xf0000
+   0x0019dc9c <+344>:	cmp	r3, #0
+   0x0019dca0 <+348>:	beq	0x19dcb8 <cpsr_write+372>
+   0x0019dca4 <+352>:	ldr	r3, [r11, #-12]
+   0x0019dca8 <+356>:	lsr	r3, r3, #16
+   0x0019dcac <+360>:	and	r2, r3, #15
+   0x0019dcb0 <+364>:	ldr	r3, [r11, #-8]
+   0x0019dcb4 <+368>:	str	r2, [r3, #204]	; 0xcc
+   0x0019dcb8 <+372>:	ldr	r3, [r11, #-8]
+   0x0019dcbc <+376>:	ldr	r2, [r3, #64]	; 0x40
+   0x0019dcc0 <+380>:	ldr	r3, [r11, #-12]
+   0x0019dcc4 <+384>:	eor	r2, r2, r3
+   0x0019dcc8 <+388>:	ldr	r3, [r11, #-16]
+   0x0019dccc <+392>:	and	r3, r2, r3
+   0x0019dcd0 <+396>:	and	r3, r3, #31
+   0x0019dcd4 <+400>:	cmp	r3, #0
+   0x0019dcd8 <+404>:	beq	0x19dcf0 <cpsr_write+428>
+   0x0019dcdc <+408>:	ldr	r3, [r11, #-12]
+   0x0019dce0 <+412>:	and	r3, r3, #31
+   0x0019dce4 <+416>:	ldr	r0, [r11, #-8]
+   0x0019dce8 <+420>:	mov	r1, r3
+   0x0019dcec <+424>:	bl	0x19e088 <switch_mode>
+   0x0019dcf0 <+428>:	ldr	r2, [r11, #-16]
+   0x0019dcf4 <+432>:	movw	r3, #991	; 0x3df
+   0x0019dcf8 <+436>:	movt	r3, #496	; 0x1f0
+   0x0019dcfc <+440>:	and	r3, r2, r3
+   0x0019dd00 <+444>:	str	r3, [r11, #-16]
+   0x0019dd04 <+448>:	ldr	r3, [r11, #-8]
+   0x0019dd08 <+452>:	ldr	r2, [r3, #64]	; 0x40
+   0x0019dd0c <+456>:	ldr	r3, [r11, #-16]
+   0x0019dd10 <+460>:	mvn	r3, r3
+   0x0019dd14 <+464>:	and	r2, r2, r3
+   0x0019dd18 <+468>:	ldr	r1, [r11, #-12]
+   0x0019dd1c <+472>:	ldr	r3, [r11, #-16]
+   0x0019dd20 <+476>:	and	r3, r1, r3
+   0x0019dd24 <+480>:	orr	r2, r2, r3
+   0x0019dd28 <+484>:	ldr	r3, [r11, #-8]
+   0x0019dd2c <+488>:	str	r2, [r3, #64]	; 0x40
+   0x0019dd30 <+492>:	sub	sp, r11, #4
+   0x0019dd34 <+496>:	pop	{r11, pc}
+End of assembler dump.
+Dump of assembler code for function switch_mode:
+   0x0019e088 <+0>:	push	{r11, lr}
+   0x0019e08c <+4>:	add	r11, sp, #4
+   0x0019e090 <+8>:	sub	sp, sp, #16
+   0x0019e094 <+12>:	str	r0, [r11, #-16]
+   0x0019e098 <+16>:	str	r1, [r11, #-20]
+   0x0019e09c <+20>:	ldr	r3, [r11, #-16]
+   0x0019e0a0 <+24>:	ldr	r3, [r3, #64]	; 0x40
+   0x0019e0a4 <+28>:	and	r3, r3, #31
+   0x0019e0a8 <+32>:	str	r3, [r11, #-8]
+   0x0019e0ac <+36>:	ldr	r2, [r11, #-20]
+   0x0019e0b0 <+40>:	ldr	r3, [r11, #-8]
+   0x0019e0b4 <+44>:	cmp	r2, r3
+   0x0019e0b8 <+48>:	beq	0x19e20c <switch_mode+388>
+   0x0019e0bc <+52>:	ldr	r3, [r11, #-8]
+   0x0019e0c0 <+56>:	cmp	r3, #17
+   0x0019e0c4 <+60>:	bne	0x19e10c <switch_mode+132>
+   0x0019e0c8 <+64>:	ldr	r3, [r11, #-16]
+   0x0019e0cc <+68>:	add	r2, r3, #164	; 0xa4
+   0x0019e0d0 <+72>:	ldr	r3, [r11, #-16]
+   0x0019e0d4 <+76>:	add	r3, r3, #32
+   0x0019e0d8 <+80>:	mov	r0, r2
+   0x0019e0dc <+84>:	mov	r1, r3
+   0x0019e0e0 <+88>:	mov	r2, #20
+   0x0019e0e4 <+92>:	bl	0xdd64 <memcpy>
+   0x0019e0e8 <+96>:	ldr	r3, [r11, #-16]
+   0x0019e0ec <+100>:	add	r2, r3, #32
+   0x0019e0f0 <+104>:	ldr	r3, [r11, #-16]
+   0x0019e0f4 <+108>:	add	r3, r3, #144	; 0x90
+   0x0019e0f8 <+112>:	mov	r0, r2
+   0x0019e0fc <+116>:	mov	r1, r3
+   0x0019e100 <+120>:	mov	r2, #20
+   0x0019e104 <+124>:	bl	0xdd64 <memcpy>
+   0x0019e108 <+128>:	b	0x19e158 <switch_mode+208>
+   0x0019e10c <+132>:	ldr	r3, [r11, #-20]
+   0x0019e110 <+136>:	cmp	r3, #17
+   0x0019e114 <+140>:	bne	0x19e158 <switch_mode+208>
+   0x0019e118 <+144>:	ldr	r3, [r11, #-16]
+   0x0019e11c <+148>:	add	r2, r3, #144	; 0x90
+   0x0019e120 <+152>:	ldr	r3, [r11, #-16]
+   0x0019e124 <+156>:	add	r3, r3, #32
+   0x0019e128 <+160>:	mov	r0, r2
+   0x0019e12c <+164>:	mov	r1, r3
+   0x0019e130 <+168>:	mov	r2, #20
+   0x0019e134 <+172>:	bl	0xdd64 <memcpy>
+   0x0019e138 <+176>:	ldr	r3, [r11, #-16]
+   0x0019e13c <+180>:	add	r2, r3, #32
+   0x0019e140 <+184>:	ldr	r3, [r11, #-16]
+   0x0019e144 <+188>:	add	r3, r3, #164	; 0xa4
+   0x0019e148 <+192>:	mov	r0, r2
+   0x0019e14c <+196>:	mov	r1, r3
+   0x0019e150 <+200>:	mov	r2, #20
+   0x0019e154 <+204>:	bl	0xdd64 <memcpy>
+   0x0019e158 <+208>:	ldr	r0, [r11, #-8]
+   0x0019e15c <+212>:	bl	0x19dfc8 <bank_number>
+   0x0019e160 <+216>:	mov	r3, r0
+   0x0019e164 <+220>:	str	r3, [r11, #-12]
+   0x0019e168 <+224>:	ldr	r2, [r11, #-12]
+   0x0019e16c <+228>:	ldr	r3, [r11, #-16]
+   0x0019e170 <+232>:	ldr	r1, [r3, #52]	; 0x34
+   0x0019e174 <+236>:	ldr	r3, [r11, #-16]
+   0x0019e178 <+240>:	add	r2, r2, #24
+   0x0019e17c <+244>:	str	r1, [r3, r2, lsl #2]
+   0x0019e180 <+248>:	ldr	r2, [r11, #-12]
+   0x0019e184 <+252>:	ldr	r3, [r11, #-16]
+   0x0019e188 <+256>:	ldr	r1, [r3, #56]	; 0x38
+   0x0019e18c <+260>:	ldr	r3, [r11, #-16]
+   0x0019e190 <+264>:	add	r2, r2, #30
+   0x0019e194 <+268>:	str	r1, [r3, r2, lsl #2]
+   0x0019e198 <+272>:	ldr	r2, [r11, #-12]
+   0x0019e19c <+276>:	ldr	r3, [r11, #-16]
+   0x0019e1a0 <+280>:	ldr	r1, [r3, #68]	; 0x44
+   0x0019e1a4 <+284>:	ldr	r3, [r11, #-16]
+   0x0019e1a8 <+288>:	add	r2, r2, #18
+   0x0019e1ac <+292>:	str	r1, [r3, r2, lsl #2]
+   0x0019e1b0 <+296>:	ldr	r0, [r11, #-20]
+   0x0019e1b4 <+300>:	bl	0x19dfc8 <bank_number>
+   0x0019e1b8 <+304>:	mov	r3, r0
+   0x0019e1bc <+308>:	str	r3, [r11, #-12]
+   0x0019e1c0 <+312>:	ldr	r2, [r11, #-12]
+   0x0019e1c4 <+316>:	ldr	r3, [r11, #-16]
+   0x0019e1c8 <+320>:	add	r2, r2, #24
+   0x0019e1cc <+324>:	ldr	r2, [r3, r2, lsl #2]
+   0x0019e1d0 <+328>:	ldr	r3, [r11, #-16]
+   0x0019e1d4 <+332>:	str	r2, [r3, #52]	; 0x34
+   0x0019e1d8 <+336>:	ldr	r2, [r11, #-12]
+   0x0019e1dc <+340>:	ldr	r3, [r11, #-16]
+   0x0019e1e0 <+344>:	add	r2, r2, #30
+   0x0019e1e4 <+348>:	ldr	r2, [r3, r2, lsl #2]
+   0x0019e1e8 <+352>:	ldr	r3, [r11, #-16]
+   0x0019e1ec <+356>:	str	r2, [r3, #56]	; 0x38
+   0x0019e1f0 <+360>:	ldr	r2, [r11, #-12]
+   0x0019e1f4 <+364>:	ldr	r3, [r11, #-16]
+   0x0019e1f8 <+368>:	add	r2, r2, #18
+   0x0019e1fc <+372>:	ldr	r2, [r3, r2, lsl #2]
+   0x0019e200 <+376>:	ldr	r3, [r11, #-16]
+   0x0019e204 <+380>:	str	r2, [r3, #68]	; 0x44
+   0x0019e208 <+384>:	b	0x19e210 <switch_mode+392>
+   0x0019e20c <+388>:	nop			; (mov r0, r0)
+   0x0019e210 <+392>:	sub	sp, r11, #4
+   0x0019e214 <+396>:	pop	{r11, pc}
+End of assembler dump.
+Dump of assembler code for function memcpy:
+   0x0000dd64 <+0>:	add	r12, pc, #3145728	; 0x300000
+   0x0000dd68 <+4>:	add	r12, r12, #438272	; 0x6b000
+   0x0000dd6c <+8>:	ldr	pc, [r12, #1864]!	; 0x748
+End of assembler dump.
+Dump of assembler code for function bank_number:
+   0x0019dfc8 <+0>:	push	{r11, lr}
+   0x0019dfcc <+4>:	add	r11, sp, #4
+   0x0019dfd0 <+8>:	sub	sp, sp, #8
+   0x0019dfd4 <+12>:	str	r0, [r11, #-8]
+   0x0019dfd8 <+16>:	ldr	r3, [r11, #-8]
+   0x0019dfdc <+20>:	sub	r3, r3, #16
+   0x0019dfe0 <+24>:	cmp	r3, #15
+   0x0019dfe4 <+28>:	ldrls	pc, [pc, r3, lsl #2]
+   0x0019dfe8 <+32>:	b	0x19e05c <bank_number+148>
+   0x0019dfec <+36>:	andseq	lr, r9, r12, lsr #32
+   0x0019dff0 <+40>:	andseq	lr, r9, r4, asr r0
+   0x0019dff4 <+44>:	andseq	lr, r9, r12, asr #32
+   0x0019dff8 <+48>:	andseq	lr, r9, r4, lsr r0
+   0x0019dffc <+52>:	andseq	lr, r9, r12, asr r0
+   0x0019e000 <+56>:	andseq	lr, r9, r12, asr r0
+   0x0019e004 <+60>:	andseq	lr, r9, r12, asr r0
+   0x0019e008 <+64>:	andseq	lr, r9, r12, lsr r0
+   0x0019e00c <+68>:	andseq	lr, r9, r12, asr r0
+   0x0019e010 <+72>:	andseq	lr, r9, r12, asr r0
+   0x0019e014 <+76>:	andseq	lr, r9, r12, asr r0
+   0x0019e018 <+80>:	andseq	lr, r9, r4, asr #32
+   0x0019e01c <+84>:	andseq	lr, r9, r12, asr r0
+   0x0019e020 <+88>:	andseq	lr, r9, r12, asr r0
+   0x0019e024 <+92>:	andseq	lr, r9, r12, asr r0
+   0x0019e028 <+96>:	andseq	lr, r9, r12, lsr #32
+   0x0019e02c <+100>:	mov	r3, #0
+   0x0019e030 <+104>:	b	0x19e07c <bank_number+180>
+   0x0019e034 <+108>:	mov	r3, #1
+   0x0019e038 <+112>:	b	0x19e07c <bank_number+180>
+   0x0019e03c <+116>:	mov	r3, #2
+   0x0019e040 <+120>:	b	0x19e07c <bank_number+180>
+   0x0019e044 <+124>:	mov	r3, #3
+   0x0019e048 <+128>:	b	0x19e07c <bank_number+180>
+   0x0019e04c <+132>:	mov	r3, #4
+   0x0019e050 <+136>:	b	0x19e07c <bank_number+180>
+   0x0019e054 <+140>:	mov	r3, #5
+   0x0019e058 <+144>:	b	0x19e07c <bank_number+180>
+   0x0019e05c <+148>:	movw	r3, #7708	; 0x1e1c
+   0x0019e060 <+152>:	movt	r3, #154	; 0x9a
+   0x0019e064 <+156>:	ldr	r3, [r3]
+   0x0019e068 <+160>:	mov	r0, r3
+   0x0019e06c <+164>:	movw	r1, #54284	; 0xd40c
+   0x0019e070 <+168>:	movt	r1, #52	; 0x34
+   0x0019e074 <+172>:	ldr	r2, [r11, #-8]
+   0x0019e078 <+176>:	bl	0x13e46c <cpu_abort>
+   0x0019e07c <+180>:	mov	r0, r3
+   0x0019e080 <+184>:	sub	sp, r11, #4
+   0x0019e084 <+188>:	pop	{r11, pc}
+End of assembler dump.

@@ -1,0 +1,60 @@
+----------------
+IN: 
+0x00000000:  e59d2008      ldr	r2, [sp, #8]
+0x00000004:  eafffffe      b	0x4
+
+OP:
+ ---- 0x0
+ mov_i32 tmp8,r13
+ movi_i32 tmp9,$0x8
+ add_i32 tmp8,tmp8,tmp9
+ qemu_ld32 tmp9,tmp8,$0x0
+ mov_i32 r2,tmp9
+
+ ---- 0x4
+ goto_tb $0x0
+ movi_i32 pc,$0x4
+ exit_tb $0x408b6008
+
+OUT: [size=88]
+0x01000000:  e5974034      ldr	r4, [r7, #52]
+0x01000004:  e2844008      add	r4, r4, #8	; 0x8
+0x01000008:  e1a08524      lsr	r8, r4, #10
+0x0100000c:  e20800ff      and	r0, r8, #255	; 0xff
+0x01000010:  e0870200      add	r0, r7, r0, lsl #4
+0x01000014:  e59014a0      ldr	r1, [r0, #1184]
+0x01000018:  e1510508      cmp	r1, r8, lsl #10
+0x0100001c:  03140003      tsteq	r4, #3	; 0x3
+0x01000020:  059014ac      ldreq	r1, [r0, #1196]
+0x01000024:  07944001      ldreq	r4, [r4, r1]
+0x01000028:  0a000003      beq	0x100003c
+0x0100002c:  e1a00004      mov	r0, r4
+0x01000030:  e3a01000      mov	r1, #0	; 0x0
+0x01000034:  ebc6674b      bl	0x199d68
+0x01000038:  e1a04000      mov	r4, r0
+0x0100003c:  e5874008      str	r4, [r7, #8]
+0x01000040:  ea000000      b	0x1000048
+0x01000044:  e3004004      movw	r4, #4	; 0x4
+0x01000048:  e587403c      str	r4, [r7, #60]
+0x0100004c:  e59f0000      ldr	r0, [pc, #0]	; 0x1000054
+0x01000050:  eace925d      b	0x3a49cc
+0x01000054:  408b6008      addmi	r6, fp, r8
+
+----------------
+IN: 
+0x00000004:  eafffffe      b	0x4
+
+OP:
+ ---- 0x4
+ goto_tb $0x0
+ movi_i32 pc,$0x4
+ exit_tb $0x408b6050
+
+OUT: [size=24]
+0x01000060:  ea000000      b	0x1000068
+0x01000064:  e3004004      movw	r4, #4	; 0x4
+0x01000068:  e587403c      str	r4, [r7, #60]
+0x0100006c:  e59f0000      ldr	r0, [pc, #0]	; 0x1000074
+0x01000070:  eace9255      b	0x3a49cc
+0x01000074:  408b6050      addmi	r6, fp, r0, asr r0
+
